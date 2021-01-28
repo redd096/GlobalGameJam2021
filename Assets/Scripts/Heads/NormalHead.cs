@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [AddComponentMenu("Global Game Jam 2021/Heads/Normal Head")]
 public class NormalHead : HeadPlayer

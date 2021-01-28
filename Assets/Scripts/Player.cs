@@ -63,33 +63,50 @@ public class Player : MonoBehaviour
 
     void Interact()
     {
+        //drop or pick head
         if(currentHead)
         {
-            //detach head
-            currentHead.DetachHead();
-
-            //remove head and parent
-            currentHead.transform.SetParent(null);
-            currentHead = null;
+            DropHead();
         }
         else
         {
-            //Physics2D.OverlapBox(transform.position, areaToPick, )
-
-            //find nearest head, check distance
-            HeadPlayer head = FindObjectsOfType<HeadPlayer>().FindNearest(transform.position);
-            if(Vector2.Distance(transform.position, head.transform.position) <= areaToPick)
-            {
-                //attach head
-                head.AttachHead();
-
-                //set head and parent
-                currentHead = head;
-                currentHead.transform.SetParent(transform);
-                currentHead.transform.position = headAttach.position;
-            }
+            PickHead();
         }
     }
+
+    #region interact
+
+    void PickHead()
+    {
+        //find nearest head, check distance
+        HeadPlayer head = FindObjectsOfType<HeadPlayer>().FindNearest(transform.position);
+        if (Vector2.Distance(transform.position, head.transform.position) <= areaToPick)
+        {
+            //attach head and set layer
+            head.AttachHead();
+            foreach (SpriteRenderer sprite in head.GetComponentsInChildren<SpriteRenderer>())
+                sprite.sortingOrder = 2;
+
+            //set head and parent
+            currentHead = head;
+            currentHead.transform.SetParent(transform);
+            currentHead.transform.position = headAttach.position;
+        }
+    }
+
+    void DropHead()
+    {
+        //detach head and set layer
+        currentHead.DetachHead();
+        foreach (SpriteRenderer sprite in currentHead.GetComponentsInChildren<SpriteRenderer>())
+            sprite.sortingOrder = -1;
+
+        //remove head and parent
+        currentHead.transform.SetParent(null);
+        currentHead = null;
+    }
+
+    #endregion
 
     #endregion
 }
