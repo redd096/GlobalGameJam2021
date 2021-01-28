@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] float areaToPick = 1;
 
     [Header("Throw")]
+    [SerializeField] bool useMouse = false;
     [SerializeField] float forceThrow = 10;
 
     HeadPlayer currentHead;
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
             Interact();
         else if (Input.GetButtonDown("Fire2"))
-            ThrowHead(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            ThrowHead(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized);
     }
 
     void FixedUpdate()
@@ -77,12 +78,15 @@ public class Player : MonoBehaviour
         }
     }
 
-    void ThrowHead(float horizontal, float vertical)
+    void ThrowHead(Vector2 direction)
     {
         if(currentHead)
         {
             //throw head
-            currentHead.ThrowHead(forceThrow, (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized);
+            if(useMouse)
+                currentHead.ThrowHead(forceThrow, (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized);
+            else
+                currentHead.ThrowHead(forceThrow, direction.magnitude > 0.1f ? direction : Vector2.right);
 
             //remove head
             currentHead = null;
