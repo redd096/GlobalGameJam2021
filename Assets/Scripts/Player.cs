@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     [SerializeField] Transform headAttach = default;
     [SerializeField] float areaToPick = 1;
 
+    [Header("Throw")]
+    [SerializeField] float forceThrow = 10;
+
     HeadPlayer currentHead;
     Rigidbody2D rb;
 
@@ -27,11 +30,13 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
             Interact();
+        else if (Input.GetButtonDown("Fire2"))
+            ThrowHead(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
     void FixedUpdate()
     {
-        Movement();
+        Movement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
     void OnDrawGizmosSelected()
@@ -44,10 +49,8 @@ public class Player : MonoBehaviour
 
     #region private API
 
-    void Movement()
+    void Movement(float horizontal, float vertical)
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
         Vector2 direction = new Vector2(horizontal, vertical).normalized;
 
         //move with acceleration or normal speed
@@ -74,6 +77,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    void ThrowHead(float horizontal, float vertical)
+    {
+        if(currentHead)
+        {
+            //throw head
+            currentHead.ThrowHead(forceThrow, new Vector2(horizontal, vertical));
+
+            //remove head
+            currentHead = null;
+        }
+    }
+
     #region interact
 
     void PickHead()
@@ -82,27 +97,21 @@ public class Player : MonoBehaviour
         HeadPlayer head = FindObjectsOfType<HeadPlayer>().FindNearest(transform.position);
         if (Vector2.Distance(transform.position, head.transform.position) <= areaToPick)
         {
-            //attach head and set layer
-            head.AttachHead();
-            foreach (SpriteRenderer sprite in head.GetComponentsInChildren<SpriteRenderer>())
-                sprite.sortingOrder = 2;
-
-            //set head and parent
+            //set head and position
             currentHead = head;
-            currentHead.transform.SetParent(transform);
             currentHead.transform.position = headAttach.position;
+
+            //pick head
+            head.PickHead(transform);
         }
     }
 
     void DropHead()
     {
-        //detach head and set layer
-        currentHead.DetachHead();
-        foreach (SpriteRenderer sprite in currentHead.GetComponentsInChildren<SpriteRenderer>())
-            sprite.sortingOrder = -1;
+        //drop head
+        currentHead.DropHead();
 
-        //remove head and parent
-        currentHead.transform.SetParent(null);
+        //remove head
         currentHead = null;
     }
 
