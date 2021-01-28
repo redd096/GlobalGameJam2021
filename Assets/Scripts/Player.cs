@@ -23,11 +23,15 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire1"))
+            Interact();
+    }
+
     void FixedUpdate()
     {
         Movement();
-        if (Input.GetButtonDown("Fire1"))
-            Interact();
     }
 
     void OnDrawGizmosSelected()
