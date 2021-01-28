@@ -6,11 +6,11 @@ using redd096;
 public abstract class HeadPlayer : MonoBehaviour
 {
     [Header("Layers")]
-    [SerializeField] int layerOnPick = 2;
+    [SerializeField] int layerOnPick = 4;
 
     [Header("Throw")]
     [SerializeField] LayerMask layerToBounce = default;
-    [SerializeField] float decreaseSpeedEverySecond = 0.5f;
+    [SerializeField] float decreaseSpeedEverySecond = 5f;
     [SerializeField] float decreaseSpeedAtBounce = 3;
 
     Dictionary<SpriteRenderer, int> defaultLayers = new Dictionary<SpriteRenderer, int>();
@@ -21,7 +21,7 @@ public abstract class HeadPlayer : MonoBehaviour
     Vector2 direction;
     Coroutine throwCoroutine;
 
-    //no owner and speed at 0
+    //speed at 0
     public bool IsStill => Speed <= 0;
 
     void Awake()
@@ -88,8 +88,9 @@ public abstract class HeadPlayer : MonoBehaviour
         //be sure to have speed at 0
         Speed = 0;
 
-        //set parent
+        //set parent and position
         transform.SetParent(owner);
+        transform.localPosition = Vector3.zero;
     }
 
     public virtual void DropHead()
@@ -119,6 +120,11 @@ public abstract class HeadPlayer : MonoBehaviour
             StopCoroutine(throwCoroutine);
 
         throwCoroutine = StartCoroutine(ThrowCoroutine());
+    }
+
+    public virtual void OnPlayerCollisionEnter2D(Collision2D collision)
+    {
+
     }
 
     #endregion

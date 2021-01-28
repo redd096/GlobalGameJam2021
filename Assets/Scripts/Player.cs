@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using redd096;
 
 [AddComponentMenu("Global Game Jam 2021/Player")]
@@ -38,6 +36,13 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         Movement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //call on trigger enter on head
+        if (currentHead)
+            currentHead.OnPlayerCollisionEnter2D(collision);
     }
 
     void OnDrawGizmosSelected()
@@ -108,10 +113,9 @@ public class Player : MonoBehaviour
         {
             //set head and position
             currentHead = head;
-            currentHead.transform.position = headAttach.position;
 
             //pick head
-            head.PickHead(transform);
+            head.PickHead(headAttach);
         }
     }
 
