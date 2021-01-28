@@ -89,7 +89,9 @@ public class Player : MonoBehaviour
                 currentHead.ThrowHead(forceThrow, mousePosition.SubtractVectors(transform.position).normalized);
             }
             else
+            {
                 currentHead.ThrowHead(forceThrow, direction.magnitude > 0.1f ? direction : Vector2.right);
+            }
 
             //remove head
             currentHead = null;
