@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 
-[AddComponentMenu("Global Game Jam 2021/Characters Graphics")]
+[AddComponentMenu("Global Game Jam 2021/Graphics/Characters Graphics")]
 public class CharacterGraphics : MonoBehaviour
 {
     [Header("Important")]
     [SerializeField] bool startRight = true;
+    [SerializeField] Transform[] objectsToFlip = default;
 
     Character character;
 
@@ -47,16 +48,18 @@ public class CharacterGraphics : MonoBehaviour
         {
             lookingRight = true;
 
-            foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
-                sprite.flipX = startRight ? !lookingRight : lookingRight;
+            foreach (Transform objectToFlip in objectsToFlip)
+                foreach (SpriteRenderer sprite in objectToFlip.GetComponentsInChildren<SpriteRenderer>())
+                    sprite.flipX = startRight ? !lookingRight : lookingRight;
         }
         //look left
         else
         {
             lookingRight = false;
 
-            foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
-                sprite.flipX = startRight ? !lookingRight : lookingRight;
+            foreach (Transform objectToFlip in objectsToFlip)
+                foreach (SpriteRenderer sprite in objectToFlip.GetComponentsInChildren<SpriteRenderer>())
+                    sprite.flipX = startRight ? !lookingRight : lookingRight;
         }
     }
 

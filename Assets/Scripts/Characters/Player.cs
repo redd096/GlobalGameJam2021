@@ -28,7 +28,7 @@ public class Player : Character
 
     private void Update()
     {
-        DirectionPlayer = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        SetDirection();
 
         if (Input.GetButtonDown("Fire1"))
             Interact();
@@ -73,6 +73,19 @@ public class Player : Character
         }
     }
 
+    void SetDirection()
+    {
+        if (useMouse)
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            DirectionPlayer = mousePosition.SubtractVectors(transform.position).normalized;
+        }
+        else
+        {
+            DirectionPlayer = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        }
+    }
+
     void Interact()
     {
         //drop or pick head
@@ -91,15 +104,7 @@ public class Player : Character
         if(currentHead)
         {
             //throw head
-            if (useMouse)
-            {
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                currentHead.ThrowHead(forceThrow, mousePosition.SubtractVectors(transform.position).normalized);
-            }
-            else
-            {
-                currentHead.ThrowHead(forceThrow, DirectionPlayer);
-            }
+            currentHead.ThrowHead(forceThrow, DirectionPlayer);
 
             //remove head
             currentHead = null;

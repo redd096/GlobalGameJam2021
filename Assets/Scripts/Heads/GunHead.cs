@@ -3,6 +3,7 @@ using UnityEngine;
 using redd096;
 
 [AddComponentMenu("Global Game Jam 2021/Heads/Gun Head")]
+[RequireComponent(typeof(GunHeadGraphics))]
 public class GunHead : HeadPlayer
 {
     [Header("Gun Head")]

@@ -23,8 +23,10 @@ public abstract class HeadPlayer : MonoBehaviour
 
     protected Character owner;
 
-    //speed at 0
     public bool IsStill => Speed <= 0;
+    public Character Owner => owner;
+
+    public System.Action onPickHead;
 
     protected virtual void Awake()
     {
@@ -101,6 +103,9 @@ public abstract class HeadPlayer : MonoBehaviour
         //set parent and position
         transform.SetParent(headAttach);
         transform.localPosition = Vector3.zero;
+
+        //event
+        onPickHead?.Invoke();
     }
 
     public virtual void DropHead()
