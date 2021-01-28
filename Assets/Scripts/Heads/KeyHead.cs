@@ -6,8 +6,10 @@ public class KeyHead : HeadPlayer
     [Header("Object to Open")]
     [SerializeField] Activable objectToOpen = default;
 
-    void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
+
         //if hit object to open
         if (collision.GetComponentInParent<Activable>() == objectToOpen)
         {
