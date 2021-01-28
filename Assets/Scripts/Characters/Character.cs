@@ -29,11 +29,6 @@ public class Character : MonoBehaviour
 
     public System.Action onPickHead;
 
-    void Die()
-    {
-        Destroy(gameObject);
-    }
-
     public void GetDamage(float damage)
     {
         health -= damage;
@@ -42,5 +37,10 @@ public class Character : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }
