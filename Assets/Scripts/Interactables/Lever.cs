@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [AddComponentMenu("Global Game Jam 2021/Interactables/Lever")]
 public class Lever : Interactable
@@ -10,6 +8,7 @@ public class Lever : Interactable
         //if hit head
         if (collision.GetComponentInParent<HeadPlayer>())
         {
+            //interact
             Interact();
         }
     }

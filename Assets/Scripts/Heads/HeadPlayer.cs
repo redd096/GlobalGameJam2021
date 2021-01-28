@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using redd096;
 
@@ -6,23 +7,33 @@ public abstract class HeadPlayer : MonoBehaviour
 {
     [Header("Layers")]
     [SerializeField] int layerOnPick = 2;
-    [SerializeField] int layerOnDrop = -1;
 
     [Header("Throw")]
     [SerializeField] LayerMask layerToBounce = default;
     [SerializeField] float decreaseSpeedEverySecond = 0.5f;
     [SerializeField] float decreaseSpeedAtBounce = 3;
 
+    Dictionary<SpriteRenderer, int> defaultLayers = new Dictionary<SpriteRenderer, int>();
     Rigidbody2D rb;
 
-    float privateSpeed;
-    float speed { get { return privateSpeed; } set { privateSpeed = Mathf.Max(0, value); } }  //can't go under 0
+    float speed;
+    float Speed { get { return speed; } set { speed = Mathf.Max(0, value); } }  //can't go under 0
     Vector2 direction;
+    Transform owner;
     Coroutine throwCoroutine;
+
+    //no owner and speed at 0
+    public bool IsStill => Speed <= 0 && owner == null;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        //set default layers
+        foreach(SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
+        {
+            defaultLayers.Add(sprite, sprite.sortingOrder);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -39,13 +50,13 @@ public abstract class HeadPlayer : MonoBehaviour
         {
             //decrease speed every fixed update
             yield return new WaitForFixedUpdate();
-            speed -= decreaseSpeedEverySecond * Time.fixedDeltaTime;
+            Speed -= decreaseSpeedEverySecond * Time.fixedDeltaTime;
 
             //move rigidbody
-            rb.velocity = direction * speed;
+            rb.velocity = direction * Speed;
 
             //if stopped movement, stop coroutine
-            if (speed <= 0)
+            if (Speed <= 0)
                 yield break;
         }
     }
@@ -56,7 +67,7 @@ public abstract class HeadPlayer : MonoBehaviour
         if (layerToBounce.ContainsLayer(collision.gameObject.layer))
         {
             //decrease speed at bounce
-            speed -= decreaseSpeedAtBounce;
+            Speed -= decreaseSpeedAtBounce;
 
             RaycastHit2D raycastHit = Physics2D.Linecast(transform.position, transform.position.SumVectors(direction), layerToBounce);
 
@@ -72,21 +83,23 @@ public abstract class HeadPlayer : MonoBehaviour
     public virtual void PickHead(Transform owner)
     {
         //set layer on pick
-        foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
+        foreach (SpriteRenderer sprite in defaultLayers.Keys)
             sprite.sortingOrder = layerOnPick;
 
-        //set parent
+        //set owner and parent
         transform.SetParent(owner);
+        this.owner = owner;
     }
 
     public virtual void DropHead()
     {
         //set layer on drop
-        foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
-            sprite.sortingOrder = layerOnDrop;
+        foreach (SpriteRenderer sprite in defaultLayers.Keys)
+            sprite.sortingOrder = defaultLayers[sprite];
 
-        //remove parent
+        //remove owner and parent
         transform.SetParent(null);
+        this.owner = null;
     }
 
     public virtual void ThrowHead(float force, Vector2 direction)
@@ -95,7 +108,7 @@ public abstract class HeadPlayer : MonoBehaviour
         DropHead();
 
         //set speed and direction
-        speed = force;
+        Speed = force;
         this.direction = direction;
 
         //start throw coroutine

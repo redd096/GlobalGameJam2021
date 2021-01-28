@@ -7,6 +7,7 @@ public abstract class Interactable : MonoBehaviour
 
     public virtual void Interact()
     {
+        //active object
         if(ObjectToActivate)
             ObjectToActivate.Active();
     }
