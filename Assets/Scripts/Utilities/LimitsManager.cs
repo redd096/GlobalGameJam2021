@@ -15,11 +15,20 @@
 
             GUILayout.Space(10);
 
+            //button regen
             if (GUILayout.Button("Regen Limits"))
             {
                 ((LimitsManager)target).RegenLimits();
 
                 Undo.RegisterFullObjectHierarchyUndo(target, "Regen Limits");
+            }
+
+            //button destroy
+            if (GUILayout.Button("Destroy Limits"))
+            {
+                ((LimitsManager)target).DestroyLimits();
+
+                Undo.RegisterFullObjectHierarchyUndo(target, "Destroy Limits");
             }
         }
     }
@@ -41,6 +50,12 @@
         {
             cam = Camera.main;
 
+            //if there aren't 4 walls, destroy everything
+            if (walls == null || walls.Count < 4)
+            {
+                DestroyLimits();
+            }
+
             //create walls
             CreateLimits();
         }
@@ -60,38 +75,38 @@
         public void RegenLimits()
         {
             cam = Camera.main;
-            walls.Clear();      //force recreate limits
 
+            //recreate from zero
+            DestroyLimits();
             CreateLimits();
             SetLimits();
         }
 
+        public void DestroyLimits()
+        {
+            //remove every child
+            foreach (Transform child in transform)
+            {
+#if UNITY_EDITOR
+                EditorApplication.delayCall += () => DestroyImmediate(child.gameObject);
+#else
+                Destroy(child.gameObject);
+#endif
+            }
+
+            //reset list
+            walls = new List<Transform>();
+        }
+
         void CreateLimits()
         {
-            //if there aren't 4 walls
-            if(walls == null || walls.Count < 4)
+            //then create walls
+            for (int i = 0; i < 4; i++)
             {
-                //remove every child
-                foreach (Transform child in transform)
-                {
-#if UNITY_EDITOR
-                    EditorApplication.delayCall += () => DestroyImmediate(child.gameObject);
-#else
-                    Destroy(child.gameObject);
-#endif
-                }
+                GameObject wall = new GameObject("Wall", typeof(BoxCollider2D), typeof(SpriteRenderer));
+                wall.transform.SetParent(transform);
 
-                //reset list
-                walls = new List<Transform>();
-
-                //then create walls
-                for (int i = 0; i < 4; i++)
-                {
-                    GameObject wall = new GameObject("Wall", typeof(BoxCollider2D), typeof(SpriteRenderer));
-                    wall.transform.SetParent(transform);
-
-                    walls.Add(wall.transform);
-                }
+                walls.Add(wall.transform);
             }
         }
 
@@ -109,6 +124,8 @@
             CreateWall(walls[2], new Vector3(0.5f, 1, depthScreen), size, new Vector3(0, movementY, 0));        //up
             CreateWall(walls[3], new Vector3(0.5f, 0, depthScreen), size, new Vector3(0, -movementY, 0));       //down
         }
+
+        #region set limits
 
         Vector3 GetScale(float depth)
         {
@@ -128,5 +145,7 @@
             wall.localScale = size;
             wall.position += movement;
         }
+
+        #endregion
     }
 }
