@@ -3,7 +3,7 @@
 public abstract class Interactable : MonoBehaviour
 {
     [Header("Important")]
-    [SerializeField] protected Activable objectToActivate = default;
+    [SerializeField] Activable[] objectsToActivate = default;
 
     protected bool isActive;
 
@@ -16,7 +16,7 @@ public abstract class Interactable : MonoBehaviour
         isActive = true;
 
         //active object
-        if(objectToActivate)
+        foreach(Activable objectToActivate in objectsToActivate)
             objectToActivate.Active();
     }
 
@@ -29,7 +29,7 @@ public abstract class Interactable : MonoBehaviour
         isActive = false;
 
         //active object
-        if (objectToActivate)
+        foreach (Activable objectToActivate in objectsToActivate)
             objectToActivate.Deactive();
     }
 
@@ -38,7 +38,7 @@ public abstract class Interactable : MonoBehaviour
         Gizmos.color = Color.green;
 
         //draw line to object to activate
-        if(objectToActivate)
+        foreach (Activable objectToActivate in objectsToActivate)
             Gizmos.DrawLine(transform.position, objectToActivate.transform.position);
     }
 }
