@@ -19,11 +19,10 @@ public abstract class HeadPlayer : MonoBehaviour
     float speed;
     float Speed { get { return speed; } set { speed = Mathf.Max(0, value); } }  //can't go under 0
     Vector2 direction;
-    Transform owner;
     Coroutine throwCoroutine;
 
     //no owner and speed at 0
-    public bool IsStill => Speed <= 0 && owner == null;
+    public bool IsStill => Speed <= 0;
 
     void Awake()
     {
@@ -86,9 +85,11 @@ public abstract class HeadPlayer : MonoBehaviour
         foreach (SpriteRenderer sprite in defaultLayers.Keys)
             sprite.sortingOrder = layerOnPick;
 
-        //set owner and parent
+        //be sure to have speed at 0
+        Speed = 0;
+
+        //set parent
         transform.SetParent(owner);
-        this.owner = owner;
     }
 
     public virtual void DropHead()
@@ -97,9 +98,11 @@ public abstract class HeadPlayer : MonoBehaviour
         foreach (SpriteRenderer sprite in defaultLayers.Keys)
             sprite.sortingOrder = defaultLayers[sprite];
 
-        //remove owner and parent
+        //be sure to have speed at 0
+        Speed = 0;
+
+        //remove parent
         transform.SetParent(null);
-        this.owner = null;
     }
 
     public virtual void ThrowHead(float force, Vector2 direction)

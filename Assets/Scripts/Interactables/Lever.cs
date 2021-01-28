@@ -9,7 +9,10 @@ public class Lever : Interactable
         if (collision.GetComponentInParent<HeadPlayer>())
         {
             //interact
-            Interact();
+            if (isActive)
+                Deactive();
+            else
+                Active();
         }
     }
 }

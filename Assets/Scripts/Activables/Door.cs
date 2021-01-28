@@ -5,6 +5,11 @@ public class Door : Activable
 {
     public override void Active()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+    }
+
+    public override void Deactive()
+    {
+        gameObject.SetActive(true);
     }
 }
