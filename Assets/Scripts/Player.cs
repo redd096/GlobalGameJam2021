@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
         if(currentHead)
         {
             //throw head
-            currentHead.ThrowHead(forceThrow, new Vector2(horizontal, vertical));
+            currentHead.ThrowHead(forceThrow, (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized);
 
             //remove head
             currentHead = null;
