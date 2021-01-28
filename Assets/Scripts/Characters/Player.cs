@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using redd096;
 
-[AddComponentMenu("Global Game Jam 2021/Player")]
-public class Player : MonoBehaviour
+[AddComponentMenu("Global Game Jam 2021/Characters/Player")]
+[RequireComponent(typeof(CharacterGraphics))]
+public class Player : Character
 {
     [Header("Movement")]
     [SerializeField] bool useAcceleration = true;
@@ -27,10 +28,12 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        DirectionPlayer = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+
         if (Input.GetButtonDown("Fire1"))
             Interact();
         else if (Input.GetButtonDown("Fire2"))
-            ThrowHead(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized);
+            ThrowHead();
     }
 
     void FixedUpdate()
@@ -83,7 +86,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void ThrowHead(Vector2 direction)
+    void ThrowHead()
     {
         if(currentHead)
         {
@@ -95,7 +98,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                currentHead.ThrowHead(forceThrow, direction.magnitude > 0.1f ? direction : Vector2.right);
+                currentHead.ThrowHead(forceThrow, DirectionPlayer);
             }
 
             //remove head
@@ -115,7 +118,10 @@ public class Player : MonoBehaviour
             currentHead = head;
 
             //pick head
-            head.PickHead(headAttach);
+            head.PickHead(this, headAttach);
+
+            //call event
+            onPickHead?.Invoke();
         }
     }
 

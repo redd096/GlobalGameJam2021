@@ -21,10 +21,12 @@ public abstract class HeadPlayer : MonoBehaviour
     Vector2 direction;
     Coroutine throwCoroutine;
 
+    protected Character owner;
+
     //speed at 0
     public bool IsStill => Speed <= 0;
 
-    void Awake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
 
@@ -62,7 +64,14 @@ public abstract class HeadPlayer : MonoBehaviour
 
     void Bounce(Collider2D collision)
     {
-        //if hit this layer
+        //if hit lever, stop movement
+        if(collision.GetComponentInParent<Lever>())
+        {
+            Speed = 0;
+            return;
+        }
+
+        //if hit bounce layer
         if (layerToBounce.ContainsLayer(collision.gameObject.layer))
         {
             //decrease speed at bounce
@@ -79,7 +88,7 @@ public abstract class HeadPlayer : MonoBehaviour
 
     #region public API
 
-    public virtual void PickHead(Transform owner)
+    public virtual void PickHead(Character owner, Transform headAttach)
     {
         //set layer on pick
         foreach (SpriteRenderer sprite in defaultLayers.Keys)
@@ -87,9 +96,10 @@ public abstract class HeadPlayer : MonoBehaviour
 
         //be sure to have speed at 0
         Speed = 0;
+        this.owner = owner;
 
         //set parent and position
-        transform.SetParent(owner);
+        transform.SetParent(headAttach);
         transform.localPosition = Vector3.zero;
     }
 
@@ -101,6 +111,7 @@ public abstract class HeadPlayer : MonoBehaviour
 
         //be sure to have speed at 0
         Speed = 0;
+        this.owner = null;
 
         //remove parent
         transform.SetParent(null);

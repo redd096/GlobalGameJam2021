@@ -3,7 +3,7 @@
 [AddComponentMenu("Global Game Jam 2021/Heads/Key Head")]
 public class KeyHead : HeadPlayer
 {
-    [Header("Object to Open")]
+    [Header("Key Head")]
     [SerializeField] Activable objectToOpen = default;
 
     protected override void OnTriggerEnter2D(Collider2D collision)

@@ -4,7 +4,7 @@ using UnityEngine;
 [AddComponentMenu("Global Game Jam 2021/Interactables/Pressure Plate")]
 public class PressurePlate : Interactable
 {
-    public List<HeadPlayer> headsOnPressure = new List<HeadPlayer>();
+    List<HeadPlayer> headsOnPressure = new List<HeadPlayer>();
 
     void OnTriggerStay2D(Collider2D collision)
     {
