@@ -83,8 +83,11 @@ public class Player : MonoBehaviour
         if(currentHead)
         {
             //throw head
-            if(useMouse)
-                currentHead.ThrowHead(forceThrow, (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized);
+            if (useMouse)
+            {
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                currentHead.ThrowHead(forceThrow, mousePosition.SubtractVectors(transform.position).normalized);
+            }
             else
                 currentHead.ThrowHead(forceThrow, direction.magnitude > 0.1f ? direction : Vector2.right);
 
