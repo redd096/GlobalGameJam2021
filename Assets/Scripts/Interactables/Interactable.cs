@@ -7,7 +7,8 @@ public abstract class Interactable : MonoBehaviour
 
     public virtual void Interact()
     {
-        ObjectToActivate?.Active();
+        if(ObjectToActivate)
+            ObjectToActivate.Active();
     }
 
     void OnDrawGizmosSelected()
