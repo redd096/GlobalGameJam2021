@@ -27,6 +27,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650a73e1e9a739743aee2d73448b8f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockWhenActive: 0
   objectsToActivate: []
 --- !u!61 &5725139931604838433
 BoxCollider2D:
@@ -46,7 +47,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -64,12 +65,12 @@ PrefabInstance:
     - target: {fileID: 5815321640851870262, guid: 23d410f2eb73e2e47963ba0624063b6c,
         type: 3}
       propertyPath: m_Size.x
-      value: 1
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 5815321640851870262, guid: 23d410f2eb73e2e47963ba0624063b6c,
         type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 5815321640851870262, guid: 23d410f2eb73e2e47963ba0624063b6c,
         type: 3}
