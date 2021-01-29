@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &2926014424163354558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6375417528572289764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2dd6f85283ea9e4c923f111218f34e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectsToActivate: []
 --- !u!114 &217248091559036903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,6 +15,19 @@ MonoBehaviour:
   spriteToChange: {fileID: 6173996424864536143}
   spriteOn: {fileID: 21300000, guid: fca8a30808dc15a4f9df1a6d48c81ac0, type: 3}
   spriteOff: {fileID: 21300000, guid: 460993a347ad407428562d55050d33bb, type: 3}
+--- !u!114 &2926014424163354558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375417528572289764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2dd6f85283ea9e4c923f111218f34e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToActivate: []
 --- !u!61 &2875529700124174171
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38,7 +38,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
