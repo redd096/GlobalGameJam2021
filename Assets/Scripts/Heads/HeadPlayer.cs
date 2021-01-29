@@ -31,6 +31,8 @@ public abstract class HeadPlayer : MonoBehaviour
     public System.Action onPickHead;
     public System.Action onDestroyHead;
     public System.Action<bool> onCanPick;
+    public System.Action onThrow;
+    public System.Action onStop;
 
     protected virtual void Awake()
     {
@@ -64,7 +66,10 @@ public abstract class HeadPlayer : MonoBehaviour
 
             //if stopped movement, stop coroutine
             if (Speed <= 0)
+            {
+                onStop?.Invoke();
                 yield break;
+            }
         }
     }
 
@@ -151,6 +156,9 @@ public abstract class HeadPlayer : MonoBehaviour
             StopCoroutine(throwCoroutine);
 
         throwCoroutine = StartCoroutine(ThrowCoroutine());
+
+        //event
+        onThrow?.Invoke();
     }
 
     public virtual void OnPlayerCollisionEnter2D(Collision2D collision)

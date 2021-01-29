@@ -15,6 +15,9 @@ public class HeadGraphics : MonoBehaviour
     [Header("Can pick")]
     [SerializeField] GameObject hintCanPick = default;
 
+    [Header("Throw")]
+    [SerializeField] ParticleSystem trailToActive = default;
+
     protected HeadPlayer headPlayer;
 
     bool lookingRight;
@@ -24,13 +27,16 @@ public class HeadGraphics : MonoBehaviour
     {
         headPlayer = GetComponent<HeadPlayer>();
 
-        //hide hint
+        //hide hint and trail by default
         hintCanPick.SetActive(false);
+        trailToActive.gameObject.SetActive(false);
 
         //add event
         headPlayer.onCanPick += OnCanPick;
         headPlayer.onPickHead += OnPickHead;
         headPlayer.onDestroyHead += OnDestroyHead;
+        headPlayer.onThrow += OnThrow;
+        headPlayer.onStop += OnStop;
     }
 
     void OnDestroy()
@@ -41,6 +47,8 @@ public class HeadGraphics : MonoBehaviour
             headPlayer.onCanPick -= OnCanPick;
             headPlayer.onPickHead -= OnPickHead;
             headPlayer.onDestroyHead -= OnDestroyHead;
+            headPlayer.onThrow -= OnThrow;
+            headPlayer.onStop -= OnStop;
         }
     }
 
@@ -53,7 +61,7 @@ public class HeadGraphics : MonoBehaviour
         if ((headPlayer.Owner.DirectionPlayer.x > 0 && lookingRight == false) || (headPlayer.Owner.DirectionPlayer.x <= 0 && lookingRight))
         {
             RotateSprites();
-        }
+        }   
     }
 
     #region private API
@@ -70,12 +78,30 @@ public class HeadGraphics : MonoBehaviour
     protected virtual void OnPickHead()
     {
         RotateSprites();
+
+        //reset and hide trail
+        trailToActive.Clear();
+        trailToActive.gameObject.SetActive(false);
     }
 
     void OnDestroyHead()
     {
         if (destroyHeadCoroutine == null)
             destroyHeadCoroutine = StartCoroutine(DestroyHeadCoroutine());
+    }
+
+    void OnThrow()
+    {
+        //active trail
+        trailToActive.gameObject.SetActive(true);
+        trailToActive.Play();
+    }
+
+    void OnStop()
+    {
+        //reset and hide trail
+        trailToActive.Clear();
+        trailToActive.gameObject.SetActive(false);
     }
 
     void RotateSprites()
