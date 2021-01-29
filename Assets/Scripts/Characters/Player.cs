@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using redd096;
+using UnityEngine.InputSystem;
 
 [AddComponentMenu("Global Game Jam 2021/Characters/Player")]
 [SelectionBase]
@@ -15,31 +16,38 @@ public class Player : Character
     [SerializeField] float areaToPick = 1;
 
     [Header("Throw")]
-    [SerializeField] bool useMouse = false;
+    [SerializeField] bool useAim = false;
     [SerializeField] float forceThrow = 10;
 
     HeadPlayer currentHead;
     Rigidbody2D rb;
 
+    NewControls inputActions;
+    PlayerInput playerInput;
+
     void Start()
     {
         //get reference
         rb = GetComponent<Rigidbody2D>();
+
+        inputActions = new NewControls();
+        playerInput = GetComponent<PlayerInput>();
+        AddCommands();
+    }
+
+    void OnDestroy()
+    {
+        RemoveCommands();
     }
 
     private void Update()
     {
-        SetDirection();
-
-        if (Input.GetButtonDown("Fire1"))
-            Interact();
-        else if (Input.GetButtonDown("Fire2"))
-            ThrowHead();
+        Aim();
     }
 
     void FixedUpdate()
-    {
-        Movement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+    {        
+        Movement(inputActions.Gameplay.Movement.ReadValue<Vector2>());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -57,11 +65,25 @@ public class Player : Character
         Gizmos.DrawWireCube(transform.position, new Vector3(areaToPick, areaToPick, areaToPick));
     }
 
-    #region private API
+    #region commands
 
-    void Movement(float horizontal, float vertical)
+    void AddCommands()
     {
-        Vector2 direction = new Vector2(horizontal, vertical).normalized;
+        inputActions.Enable();
+        inputActions.Gameplay.PickAndDrop.performed += PickAndDrop;
+        inputActions.Gameplay.Throw.performed += Throw;
+    }
+
+    void RemoveCommands()
+    {
+        inputActions.Disable();
+        inputActions.Gameplay.PickAndDrop.performed -= PickAndDrop;
+        inputActions.Gameplay.Throw.performed -= Throw;
+    }
+
+    void Movement(Vector2 direction)
+    {
+        direction.Normalize();
 
         //move with acceleration or normal speed
         if (useAcceleration)
@@ -72,25 +94,18 @@ public class Player : Character
         {
             rb.velocity = direction * speed;
         }
-    }
 
-    void SetDirection()
-    {
-        if (useMouse)
+        //set direction player if not aiming
+        if(useAim == false)
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            DirectionPlayer = mousePosition.SubtractVectors(transform.position).normalized;
-        }
-        else
-        {
-            DirectionPlayer = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+            DirectionPlayer = direction;
         }
     }
 
-    void Interact()
+    void PickAndDrop(InputAction.CallbackContext callbackContext)
     {
         //drop or pick head
-        if(currentHead)
+        if (currentHead)
         {
             DropHead();
         }
@@ -100,9 +115,9 @@ public class Player : Character
         }
     }
 
-    void ThrowHead()
+    void Throw(InputAction.CallbackContext callbackContext)
     {
-        if(currentHead)
+        if (currentHead)
         {
             //throw head
             currentHead.ThrowHead(forceThrow, DirectionPlayer);
@@ -112,7 +127,31 @@ public class Player : Character
         }
     }
 
-    #region interact
+    void Aim()
+    {
+        //if aiming
+        if (useAim)
+        {
+            Debug.Log(playerInput.currentControlScheme);
+            //set direction player using mouse position
+            if (playerInput.currentControlScheme == inputActions.KeyboardMouseScheme.name)
+            {
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(inputActions.Gameplay.AimMouse.ReadValue<Vector2>());
+                DirectionPlayer = mousePosition.SubtractVectors(transform.position).normalized;
+                Debug.Log("mouse: " + DirectionPlayer);
+            }
+            //or using analog
+            else if(playerInput.currentControlScheme == inputActions.GamepadScheme.name)
+            {
+                DirectionPlayer = inputActions.Gameplay.AimGamepad.ReadValue<Vector2>().normalized;
+                Debug.Log("analog: " + DirectionPlayer);
+            }
+        }
+    }
+
+    #endregion
+
+    #region pick and drop
 
     void PickHead()
     {
@@ -139,8 +178,6 @@ public class Player : Character
         //remove head
         currentHead = null;
     }
-
-    #endregion
 
     #endregion
 }

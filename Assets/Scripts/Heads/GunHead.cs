@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using redd096;
+using UnityEngine.InputSystem;
 
 [AddComponentMenu("Global Game Jam 2021/Heads/Gun Head")]
 [SelectionBase]
@@ -17,16 +18,33 @@ public class GunHead : HeadPlayer
 
     Pooling<LineRenderer> lines = new Pooling<LineRenderer>();
 
+    NewControls inputActions;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        inputActions = new NewControls();
+        inputActions.Enable();
+    }
+
+    void OnDestroy()
+    {
+        inputActions.Disable();
+    }
+
     void Update()
     {
         //if picked by player and press input, fire
-        if(owner != null && Input.GetButton("Jump"))
+        if(owner != null && inputActions.Gameplay.Shoot.phase == InputActionPhase.Started)
         {
-            Fire();
+            Shoot();
         }
     }
 
-    void Fire()
+    #region private API
+
+    void Shoot()
     {
         //check rate of fire
         if(Time.time > timerShot)
@@ -96,4 +114,6 @@ public class GunHead : HeadPlayer
         //then destroy
         Pooling.Destroy(l.gameObject);
     }
+
+    #endregion
 }

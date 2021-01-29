@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 4250168583707495678}
   - component: {fileID: 5685615749119397853}
   - component: {fileID: 1917709914379364784}
+  - component: {fileID: 1357304095}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -221,7 +222,7 @@ MonoBehaviour:
   speed: 200
   headAttach: {fileID: 1631436908949573421}
   areaToPick: 1
-  useMouse: 0
+  useAim: 0
   forceThrow: 10
 --- !u!50 &5685615749119397853
 Rigidbody2D:
@@ -259,3 +260,54 @@ MonoBehaviour:
   startRight: 1
   objectsToFlip:
   - {fileID: 5694759321128160784}
+--- !u!114 &1357304095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382497986415312113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: a34c2d7f026575948b78a05d99bdb5de,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: de218e92-5f8b-460e-98c1-f0a3b4634cff
+    m_ActionName: Gameplay/Movement[/DualShock4GamepadHID/leftStick,/DualShock4GamepadHID/dpad,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 93a97934-157f-48ec-a22a-9d7a89d431d4
+    m_ActionName: Gameplay/PickAndDrop[/DualShock4GamepadHID/buttonSouth,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 83be16e1-9da3-4309-ab66-1d78cb9dc8fe
+    m_ActionName: Gameplay/Throw[/DualShock4GamepadHID/buttonWest,/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aff9a70a-caee-49de-96a5-321be5fdb895
+    m_ActionName: Gameplay/Shoot[/DualShock4GamepadHID/buttonEast,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b5f41ba6-9144-432b-957f-87009c6bb753
+    m_ActionName: Gameplay/Aim[/DualShock4GamepadHID/rightStick,/Mouse/position]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
