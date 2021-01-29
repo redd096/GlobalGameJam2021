@@ -11563,6 +11563,11 @@ PrefabInstance:
       propertyPath: blackSprite
       value: 
       objectReference: {fileID: 229110557}
+    - target: {fileID: 754977518245996158, guid: eb8755a21dfcfe04c836c77b803717f3,
+        type: 3}
+      propertyPath: HeadToEndGame
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3692128623982883336, guid: eb8755a21dfcfe04c836c77b803717f3,
         type: 3}
       propertyPath: m_Name
