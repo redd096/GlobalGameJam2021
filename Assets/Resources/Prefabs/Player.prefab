@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1631436908949573421}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: HeadAttach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5694759321128160784}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 1887423952305977229}
   - component: {fileID: 2126870393067579843}
   - component: {fileID: 6409774845921817458}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 5685615749119397853}
   - component: {fileID: 1917709914379364784}
   - component: {fileID: 1357304095}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

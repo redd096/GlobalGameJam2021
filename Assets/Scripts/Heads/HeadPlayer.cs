@@ -23,7 +23,7 @@ public abstract class HeadPlayer : MonoBehaviour
     Vector2 direction;
     Coroutine throwCoroutine;
 
-    protected Character owner;
+    Character owner;
 
     public bool IsStill => Speed <= 0;
     public Character Owner => owner;
