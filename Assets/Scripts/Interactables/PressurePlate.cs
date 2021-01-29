@@ -2,6 +2,7 @@
 using UnityEngine;
 
 [AddComponentMenu("Global Game Jam 2021/Interactables/Pressure Plate")]
+[SelectionBase]
 public class PressurePlate : Interactable
 {
     List<HeadPlayer> headsOnPressure = new List<HeadPlayer>();

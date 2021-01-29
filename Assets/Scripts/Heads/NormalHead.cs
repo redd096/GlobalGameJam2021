@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [AddComponentMenu("Global Game Jam 2021/Heads/Normal Head")]
+[SelectionBase]
 public class NormalHead : HeadPlayer
 {
     [Header("Normal Head")]

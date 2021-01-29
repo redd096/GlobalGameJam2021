@@ -33,7 +33,7 @@ public abstract class Interactable : MonoBehaviour
             objectToActivate.Deactive();
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
 

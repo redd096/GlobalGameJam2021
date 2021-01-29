@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [AddComponentMenu("Global Game Jam 2021/Activables/Door")]
+[SelectionBase]
 public class Door : Activable
 {
     public override void Active()

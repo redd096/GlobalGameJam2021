@@ -3,6 +3,7 @@ using UnityEngine;
 using redd096;
 
 [AddComponentMenu("Global Game Jam 2021/Heads/Gun Head")]
+[SelectionBase]
 [RequireComponent(typeof(GunHeadGraphics))]
 public class GunHead : HeadPlayer
 {
@@ -34,6 +35,7 @@ public class GunHead : HeadPlayer
             Vector2 endPoint = owner.DirectionPlayer * 100;     //default end point for line shot
 
             //if hit something
+            Physics2D.queriesHitTriggers = false;   //ignore trigger
             RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, owner.DirectionPlayer);
             if(hits.Length > 0)
             {

@@ -2814,6 +2814,16 @@ PrefabInstance:
       propertyPath: objectToActivate
       value: 
       objectReference: {fileID: 8627434669113283893}
+    - target: {fileID: 2926014424163354558, guid: 9d926693b16094a409eaa1c06a9a690e,
+        type: 3}
+      propertyPath: objectsToActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926014424163354558, guid: 9d926693b16094a409eaa1c06a9a690e,
+        type: 3}
+      propertyPath: objectsToActivate.Array.data[0]
+      value: 
+      objectReference: {fileID: 8627434669113283893}
     - target: {fileID: 6375417528572289764, guid: 9d926693b16094a409eaa1c06a9a690e,
         type: 3}
       propertyPath: m_Name
@@ -3227,6 +3237,16 @@ PrefabInstance:
     - target: {fileID: 7342747295050354296, guid: 5e74f7b72f0a11f4f9fd07c240ea667d,
         type: 3}
       propertyPath: objectToActivate
+      value: 
+      objectReference: {fileID: 1653826011}
+    - target: {fileID: 7342747295050354296, guid: 5e74f7b72f0a11f4f9fd07c240ea667d,
+        type: 3}
+      propertyPath: objectsToActivate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342747295050354296, guid: 5e74f7b72f0a11f4f9fd07c240ea667d,
+        type: 3}
+      propertyPath: objectsToActivate.Array.data[0]
       value: 
       objectReference: {fileID: 1653826011}
     m_RemovedComponents: []

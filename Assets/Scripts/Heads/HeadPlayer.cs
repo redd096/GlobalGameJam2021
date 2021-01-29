@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using redd096;
 
+[RequireComponent(typeof(HeadGraphics))]
 public abstract class HeadPlayer : MonoBehaviour
 {
     [Header("Layers")]

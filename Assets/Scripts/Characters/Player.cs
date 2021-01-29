@@ -2,6 +2,7 @@
 using redd096;
 
 [AddComponentMenu("Global Game Jam 2021/Characters/Player")]
+[SelectionBase]
 [RequireComponent(typeof(CharacterGraphics))]
 public class Player : Character
 {
@@ -48,7 +49,7 @@ public class Player : Character
             currentHead.OnPlayerCollisionEnter2D(collision);
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [AddComponentMenu("Global Game Jam 2021/Heads/Key Head")]
+[SelectionBase]
 public class KeyHead : HeadPlayer
 {
     [Header("Key Head")]
@@ -28,7 +29,7 @@ public class KeyHead : HeadPlayer
         }
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
 
