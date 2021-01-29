@@ -33,6 +33,7 @@ public abstract class HeadPlayer : MonoBehaviour
     public System.Action<bool> onCanPick;
     public System.Action onThrow;
     public System.Action onStop;
+    public System.Action onDropHead;
 
     protected virtual void Awake()
     {
@@ -128,7 +129,7 @@ public abstract class HeadPlayer : MonoBehaviour
         onPickHead?.Invoke();
     }
 
-    public virtual void DropHead()
+    public virtual void DropHead(bool throwed)
     {
         //set layer on drop
         foreach (SpriteRenderer sprite in defaultLayers.Keys)
@@ -140,12 +141,18 @@ public abstract class HeadPlayer : MonoBehaviour
 
         //remove parent
         transform.SetParent(null);
+
+        //event only if dropped and not throwed
+        if (throwed == false)
+        {
+            onDropHead?.Invoke();
+        }
     }
 
     public virtual void ThrowHead(float force, Vector2 direction)
     {
         //drop head by default
-        DropHead();
+        DropHead(true);
 
         //set speed and direction
         Speed = force;

@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9059edbac82d61f4c92285c1b73a61b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particlesOnHit: {fileID: 4798785832125096030, guid: f74580e4919bdb04b982deb5f61ebbe0,
+  prefabParticlesOnHit: {fileID: 4798785832125096030, guid: f74580e4919bdb04b982deb5f61ebbe0,
     type: 3}
   trail: {fileID: 6645262057055956799}
 --- !u!1 &5428211444806430556

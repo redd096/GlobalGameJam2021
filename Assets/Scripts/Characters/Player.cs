@@ -208,7 +208,7 @@ public class Player : Character
     public override void DropHead()
     {
         //drop head
-        currentHead.DropHead();
+        currentHead.DropHead(false);
 
         //remove head
         currentHead = null;

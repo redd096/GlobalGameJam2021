@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using redd096;
 
 [AddComponentMenu("Global Game Jam 2021/Graphics/Head Graphics")]
 public class HeadGraphics : MonoBehaviour
@@ -16,12 +17,17 @@ public class HeadGraphics : MonoBehaviour
     [SerializeField] GameObject hintCanPick = default;
 
     [Header("Throw")]
-    [SerializeField] ParticleSystem trailToActive = default;
+    [SerializeField] ParticleSystem trailOnThrow = default;
+
+    [Header("Drop")]
+    [SerializeField] ParticleSystem prefabParticlesOnDrop = default;
 
     protected HeadPlayer headPlayer;
 
     bool lookingRight;
     Coroutine destroyHeadCoroutine;
+
+    Pooling<ParticleSystem> poolParticlesOnDrop = new Pooling<ParticleSystem>();
 
     void Awake()
     {
@@ -29,7 +35,7 @@ public class HeadGraphics : MonoBehaviour
 
         //hide hint and trail by default
         hintCanPick.SetActive(false);
-        trailToActive.gameObject.SetActive(false);
+        trailOnThrow.gameObject.SetActive(false);
 
         //add event
         headPlayer.onCanPick += OnCanPick;
@@ -37,6 +43,7 @@ public class HeadGraphics : MonoBehaviour
         headPlayer.onDestroyHead += OnDestroyHead;
         headPlayer.onThrow += OnThrow;
         headPlayer.onStop += OnStop;
+        headPlayer.onDropHead += OnDropHead;
     }
 
     void OnDestroy()
@@ -49,6 +56,7 @@ public class HeadGraphics : MonoBehaviour
             headPlayer.onDestroyHead -= OnDestroyHead;
             headPlayer.onThrow -= OnThrow;
             headPlayer.onStop -= OnStop;
+            headPlayer.onDropHead -= OnDropHead;
         }
     }
 
@@ -80,8 +88,8 @@ public class HeadGraphics : MonoBehaviour
         RotateSprites();
 
         //reset and hide trail
-        trailToActive.Clear();
-        trailToActive.gameObject.SetActive(false);
+        trailOnThrow.Clear();
+        trailOnThrow.gameObject.SetActive(false);
     }
 
     void OnDestroyHead()
@@ -93,15 +101,22 @@ public class HeadGraphics : MonoBehaviour
     void OnThrow()
     {
         //active trail
-        trailToActive.gameObject.SetActive(true);
-        trailToActive.Play();
+        trailOnThrow.gameObject.SetActive(true);
+        trailOnThrow.Play();
     }
 
     void OnStop()
     {
         //reset and hide trail
-        trailToActive.Clear();
-        trailToActive.gameObject.SetActive(false);
+        trailOnThrow.Clear();
+        trailOnThrow.gameObject.SetActive(false);
+    }
+
+    void OnDropHead()
+    {
+        //particles on drop
+        ParticleSystem particle = poolParticlesOnDrop.Instantiate(prefabParticlesOnDrop, transform.position, transform.rotation);
+        particle.Play();
     }
 
     void RotateSprites()

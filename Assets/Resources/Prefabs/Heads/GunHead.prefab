@@ -220,7 +220,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   hintCanPick: {fileID: 1439755179582484305}
-  trailToActive: {fileID: 3288536383017916995}
+  trailOnThrow: {fileID: 3288536383017916995}
+  prefabParticlesOnDrop: {fileID: 8947345715839835578, guid: 2744f65d7db487b4d90e72c5c0cb22a8,
+    type: 3}
   objectToRotate: {fileID: 3581466307504556853}
 --- !u!61 &8249414450835589378
 BoxCollider2D:

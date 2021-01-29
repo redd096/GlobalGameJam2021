@@ -5,7 +5,7 @@ using redd096;
 public class ShotGraphics : MonoBehaviour
 {
     [Header("Graphics")]
-    [SerializeField] ParticleSystem particlesOnHit = default;
+    [SerializeField] ParticleSystem prefabParticlesOnHit = default;
     [SerializeField] TrailRenderer trail = default;
 
     Pooling<ParticleSystem> poolParticlesOnHit = new Pooling<ParticleSystem>();
@@ -31,7 +31,7 @@ public class ShotGraphics : MonoBehaviour
     void OnHit()
     {
         //play particle
-        ParticleSystem particle = poolParticlesOnHit.Instantiate(particlesOnHit, transform.position, transform.rotation);
+        ParticleSystem particle = poolParticlesOnHit.Instantiate(prefabParticlesOnHit, transform.position, transform.rotation);
         particle.Play();
 
         //reset trail

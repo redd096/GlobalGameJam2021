@@ -16,9 +16,9 @@ public class NormalHead : HeadPlayer
             blackSprite.SetActive(false);
     }
 
-    public override void DropHead()
+    public override void DropHead(bool throwed)
     {
-        base.DropHead();
+        base.DropHead(throwed);
 
         //active black sprite in scene
         if (blackSprite)

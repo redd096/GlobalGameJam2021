@@ -95,7 +95,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   hintCanPick: {fileID: 7361922884003185829}
-  trailToActive: {fileID: 6373435715998822839}
+  trailOnThrow: {fileID: 6373435715998822839}
+  prefabParticlesOnDrop: {fileID: 8947345715839835578, guid: 2744f65d7db487b4d90e72c5c0cb22a8,
+    type: 3}
 --- !u!1 &5337150731861064372
 GameObject:
   m_ObjectHideFlags: 0
