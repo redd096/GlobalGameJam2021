@@ -4139,21 +4139,6 @@ PrefabInstance:
       propertyPath: objectsToActivate.Array.data[1]
       value: 
       objectReference: {fileID: 272014940}
-    - target: {fileID: 6173996424864536143, guid: 9d926693b16094a409eaa1c06a9a690e,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6173996424864536143, guid: 9d926693b16094a409eaa1c06a9a690e,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.2746606
-      objectReference: {fileID: 0}
-    - target: {fileID: 6173996424864536143, guid: 9d926693b16094a409eaa1c06a9a690e,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6375417528572289764, guid: 9d926693b16094a409eaa1c06a9a690e,
         type: 3}
       propertyPath: m_Name
