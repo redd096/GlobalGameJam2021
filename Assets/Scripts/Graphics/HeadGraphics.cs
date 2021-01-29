@@ -22,12 +22,16 @@ public class HeadGraphics : MonoBehaviour
     [Header("Drop")]
     [SerializeField] ParticleSystem prefabParticlesOnDrop = default;
 
+    [Header("Pick")]
+    [SerializeField] ParticleSystem prefabParticlesOnPick = default;
+
     protected HeadPlayer headPlayer;
 
     bool lookingRight;
     Coroutine destroyHeadCoroutine;
 
     Pooling<ParticleSystem> poolParticlesOnDrop = new Pooling<ParticleSystem>();
+    Pooling<ParticleSystem> poolParticlesOnPick = new Pooling<ParticleSystem>();
 
     void Awake()
     {
@@ -90,6 +94,10 @@ public class HeadGraphics : MonoBehaviour
         //reset and hide trail
         trailOnThrow.Clear();
         trailOnThrow.gameObject.SetActive(false);
+
+        //particles on pick
+        ParticleSystem particle = poolParticlesOnPick.Instantiate(prefabParticlesOnPick, transform.position, transform.rotation);
+        particle.Play();
     }
 
     void OnDestroyHead()
