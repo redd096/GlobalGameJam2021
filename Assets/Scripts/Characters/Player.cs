@@ -25,6 +25,8 @@ public class Player : Character
     NewControls inputActions;
     PlayerInput playerInput;
 
+    public HeadPlayer CurrentHead => currentHead;
+
     void Start()
     {
         inputActions = new NewControls();

@@ -12,8 +12,9 @@ public class LoadLevelOnCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if hit player
-        if(collision.GetComponentInParent<Player>())
+        //if hit player and has head to end game
+        Player player = collision.GetComponentInParent<Player>();
+        if (player && player.CurrentHead.HeadToEndGame)
         {
             LoadNextLevel();
         }
@@ -21,8 +22,9 @@ public class LoadLevelOnCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if hit player
-        if (collision.gameObject.GetComponentInParent<Player>())
+        //if hit player and has head to end game
+        Player player = collision.gameObject.GetComponentInParent<Player>();
+        if (player && player.CurrentHead.HeadToEndGame)
         {
             LoadNextLevel();
         }

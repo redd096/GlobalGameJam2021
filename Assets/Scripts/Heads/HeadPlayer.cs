@@ -6,6 +6,9 @@ using redd096;
 [RequireComponent(typeof(HeadGraphics))]
 public abstract class HeadPlayer : MonoBehaviour
 {
+    [Header("Important")]
+    public bool HeadToEndGame = false;
+
     [Header("Layers")]
     [SerializeField] int layerOnPick = 4;
 
