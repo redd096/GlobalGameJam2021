@@ -95,12 +95,6 @@ public abstract class HeadPlayer : MonoBehaviour
         }
     }
 
-    void DestroyHead()
-    {
-        onDestroyHead?.Invoke();
-        enabled = false;
-    }
-
     #endregion
 
     #region public API
@@ -156,6 +150,12 @@ public abstract class HeadPlayer : MonoBehaviour
     public virtual void OnPlayerCollisionEnter2D(Collision2D collision)
     {
 
+    }
+
+    public void DestroyHead()
+    {
+        onDestroyHead?.Invoke();
+        enabled = false;
     }
 
     #endregion
