@@ -25,7 +25,12 @@ public class KeyHead : HeadPlayer
         //if hit object to open
         if(collision.gameObject.GetComponentInParent<Activable>() == objectToOpen)
         {
+            //open
             objectToOpen.Active();
+
+            //then release head and destroy
+            Owner.DropHead();
+            Destroy(gameObject);
         }
     }
 

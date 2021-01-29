@@ -14,15 +14,6 @@ public class CharacterGraphics : MonoBehaviour
     void Awake()
     {
         character = GetComponent<Character>();
-
-        //add event
-        character.onPickHead += OnPickHead;
-    }
-
-    void OnDestroy()
-    {
-        //remove event
-        character.onPickHead -= OnPickHead;
     }
 
     void FixedUpdate()
@@ -35,11 +26,6 @@ public class CharacterGraphics : MonoBehaviour
     }
 
     #region private API
-
-    void OnPickHead()
-    {
-        RotateSprites();
-    }
 
     void RotateSprites()
     {

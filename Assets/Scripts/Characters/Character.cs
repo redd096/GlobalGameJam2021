@@ -27,8 +27,6 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    public System.Action onPickHead;
-
     public void GetDamage(float damage)
     {
         health -= damage;
@@ -43,4 +41,7 @@ public abstract class Character : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public abstract void PickHead();
+    public abstract void DropHead();
 }

@@ -153,7 +153,7 @@ public class Player : Character
 
     #region pick and drop
 
-    void PickHead()
+    public override void PickHead()
     {
         //find nearest head, check distance
         HeadPlayer head = FindObjectsOfType<HeadPlayer>().FindNearest(transform.position);
@@ -164,13 +164,10 @@ public class Player : Character
 
             //pick head
             head.PickHead(this, headAttach);
-
-            //call event
-            onPickHead?.Invoke();
         }
     }
 
-    void DropHead()
+    public override void DropHead()
     {
         //drop head
         currentHead.DropHead();
