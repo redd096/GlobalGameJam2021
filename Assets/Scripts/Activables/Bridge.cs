@@ -4,12 +4,6 @@
 [SelectionBase]
 public class Bridge : Activable
 {
-    void Awake()
-    {
-        //deactive by default
-        gameObject.SetActive(false);
-    }
-
     public override void Active()
     {
         gameObject.SetActive(true);
