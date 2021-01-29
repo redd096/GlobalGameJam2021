@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f952e76d376f44245b664c19b81684ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerOnPick: 4
+  HeadToEndGame: 0
+  layerOnPick: 51
   layerToBounce:
     serializedVersion: 2
     m_Bits: 256
