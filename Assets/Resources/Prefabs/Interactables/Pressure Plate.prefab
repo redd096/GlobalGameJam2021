@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1414439674694513714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041895148916993746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d051b5e609c724d9ad6c263d359c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteToChange: {fileID: 261762249845824121}
+  spriteOn: {fileID: 21300000, guid: 885a7cdb2e9fe1b4f802904538b2daa5, type: 3}
+  spriteOff: {fileID: 21300000, guid: 2701dde15dda3f2449f5774acac72adf, type: 3}
 --- !u!114 &7342747295050354296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,8 +27,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650a73e1e9a739743aee2d73448b8f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectToActivate: {fileID: 0}
---- !u!61 &7951226087609711061
+  objectsToActivate: []
+--- !u!61 &5725139931604838433
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,7 +75,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300050, guid: fd419bef7a36af8459a810bc72573105,
+      objectReference: {fileID: 21300000, guid: 2701dde15dda3f2449f5774acac72adf,
         type: 3}
     - target: {fileID: 5815321640851870262, guid: 23d410f2eb73e2e47963ba0624063b6c,
         type: 3}
@@ -138,6 +153,12 @@ GameObject:
 --- !u!1 &6446126469297999784 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 747851006845700071, guid: 23d410f2eb73e2e47963ba0624063b6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5986932457846655055}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &261762249845824121 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5815321640851870262, guid: 23d410f2eb73e2e47963ba0624063b6c,
     type: 3}
   m_PrefabInstance: {fileID: 5986932457846655055}
   m_PrefabAsset: {fileID: 0}

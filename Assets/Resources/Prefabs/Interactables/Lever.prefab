@@ -12,8 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2dd6f85283ea9e4c923f111218f34e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectToActivate: {fileID: 0}
---- !u!61 &5700816861075245352
+  objectsToActivate: []
+--- !u!114 &217248091559036903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375417528572289764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d051b5e609c724d9ad6c263d359c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteToChange: {fileID: 6173996424864536143}
+  spriteOn: {fileID: 21300000, guid: fca8a30808dc15a4f9df1a6d48c81ac0, type: 3}
+  spriteOff: {fileID: 21300000, guid: 460993a347ad407428562d55050d33bb, type: 3}
+--- !u!61 &2875529700124174171
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23,21 +38,21 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1001 &367708785508811897
 PrefabInstance:
@@ -60,7 +75,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 61ac40b257b3a994f841856ad38b2b6b,
+      objectReference: {fileID: 21300000, guid: 460993a347ad407428562d55050d33bb,
         type: 3}
     - target: {fileID: 5815321640851870262, guid: 23d410f2eb73e2e47963ba0624063b6c,
         type: 3}
@@ -138,6 +153,12 @@ GameObject:
 --- !u!1 &1115410250015425438 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 747851006845700071, guid: 23d410f2eb73e2e47963ba0624063b6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 367708785508811897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &6173996424864536143 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5815321640851870262, guid: 23d410f2eb73e2e47963ba0624063b6c,
     type: 3}
   m_PrefabInstance: {fileID: 367708785508811897}
   m_PrefabAsset: {fileID: 0}
