@@ -156,6 +156,7 @@ public abstract class HeadPlayer : MonoBehaviour
     {
         onDestroyHead?.Invoke();
         enabled = false;
+        rb.constraints = RigidbodyConstraints2D.FreezePosition;
     }
 
     #endregion

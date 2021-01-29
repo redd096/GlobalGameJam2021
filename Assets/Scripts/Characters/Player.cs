@@ -20,16 +20,12 @@ public class Player : Character
     [SerializeField] float forceThrow = 10;
 
     HeadPlayer currentHead;
-    Rigidbody2D rb;
 
     NewControls inputActions;
     PlayerInput playerInput;
 
     void Start()
     {
-        //get reference
-        rb = GetComponent<Rigidbody2D>();
-
         inputActions = new NewControls();
         playerInput = GetComponent<PlayerInput>();
         AddCommands();
@@ -72,6 +68,7 @@ public class Player : Character
         inputActions.Enable();
         inputActions.Gameplay.PickAndDrop.performed += PickAndDrop;
         inputActions.Gameplay.Throw.performed += Throw;
+        inputActions.Gameplay.Restart.performed += Restart;
     }
 
     void RemoveCommands()
@@ -79,6 +76,7 @@ public class Player : Character
         inputActions.Disable();
         inputActions.Gameplay.PickAndDrop.performed -= PickAndDrop;
         inputActions.Gameplay.Throw.performed -= Throw;
+        inputActions.Gameplay.Restart.performed -= Restart;
     }
 
     void Movement(Vector2 direction)
@@ -144,6 +142,12 @@ public class Player : Character
                 DirectionPlayer = inputActions.Gameplay.AimGamepad.ReadValue<Vector2>().normalized;
             }
         }
+    }
+
+    void Restart(InputAction.CallbackContext callbackContext)
+    {
+        //restart game
+        SceneLoader.instance.RestartGame();
     }
 
     #endregion

@@ -29,6 +29,14 @@ public abstract class Character : MonoBehaviour
 
     public System.Action onDead;
 
+    protected Rigidbody2D rb;
+
+    protected virtual void Awake()
+    {
+        //get reference
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     public void GetDamage(float damage)
     {
         health -= damage;
@@ -43,6 +51,7 @@ public abstract class Character : MonoBehaviour
     {
         onDead?.Invoke();
         enabled = false;
+        rb.constraints = RigidbodyConstraints2D.FreezePosition;
     }
 
     public abstract void PickHead();
