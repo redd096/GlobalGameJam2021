@@ -132,19 +132,16 @@ public class Player : Character
         //if aiming
         if (useAim)
         {
-            Debug.Log(playerInput.currentControlScheme);
             //set direction player using mouse position
             if (playerInput.currentControlScheme == inputActions.KeyboardMouseScheme.name)
             {
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(inputActions.Gameplay.AimMouse.ReadValue<Vector2>());
                 DirectionPlayer = mousePosition.SubtractVectors(transform.position).normalized;
-                Debug.Log("mouse: " + DirectionPlayer);
             }
             //or using analog
-            else if(playerInput.currentControlScheme == inputActions.GamepadScheme.name)
+            else
             {
                 DirectionPlayer = inputActions.Gameplay.AimGamepad.ReadValue<Vector2>().normalized;
-                Debug.Log("analog: " + DirectionPlayer);
             }
         }
     }
