@@ -13,7 +13,7 @@ public class CharacterGraphics : MonoBehaviour
     [SerializeField] float timeToDie = 2;
     [SerializeField] AnimationCurve curveRotationSpeed = default;
 
-    Coroutine deadCoroutine;
+    Coroutine fallingCoroutine;
 
     Character character;
     bool lookingRight;
@@ -40,10 +40,14 @@ public class CharacterGraphics : MonoBehaviour
         }
     }
 
-    void OnDead()
+    void OnDead(bool falling)
     {
-        if (deadCoroutine == null)
-            deadCoroutine = StartCoroutine(DeadCoroutine());
+        //death coroutine if falling
+        if (falling)
+        {
+            if (fallingCoroutine == null)
+                fallingCoroutine = StartCoroutine(FallingCoroutine());
+        }
     }
 
     #region private API
@@ -70,7 +74,7 @@ public class CharacterGraphics : MonoBehaviour
         }
     }
 
-    IEnumerator DeadCoroutine()
+    IEnumerator FallingCoroutine()
     {
         //start vars
         float delta = 0;

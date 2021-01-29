@@ -27,7 +27,7 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    public System.Action onDead;
+    public System.Action<bool> onDead;
 
     protected Rigidbody2D rb;
 
@@ -43,13 +43,13 @@ public abstract class Character : MonoBehaviour
 
         if(health <= 0)
         {
-            Die();
+            Die(false);
         }
     }
 
-    public void Die()
+    public void Die(bool falling)
     {
-        onDead?.Invoke();
+        onDead?.Invoke(falling);
         enabled = false;
         rb.constraints = RigidbodyConstraints2D.FreezePosition;
     }

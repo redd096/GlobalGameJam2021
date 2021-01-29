@@ -10,7 +10,7 @@ public class KillPlayer : MonoBehaviour
         Player player = collision.GetComponentInParent<Player>();
         if(player)
         {
-            player.Die();
+            player.Die(true);
         }
     }
 

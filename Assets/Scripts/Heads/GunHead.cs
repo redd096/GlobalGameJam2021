@@ -15,7 +15,6 @@ public class GunHead : HeadPlayer
     [SerializeField] Transform shotSpawnPosition = default;
 
     float timerShot;
-
     Pooling<Shot> shots = new Pooling<Shot>();
 
     NewControls inputActions;
