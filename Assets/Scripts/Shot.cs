@@ -3,6 +3,7 @@ using UnityEngine;
 using redd096;
 
 [AddComponentMenu("Global Game Jam 2021/Shot")]
+[RequireComponent(typeof(ShotGraphics))]
 [SelectionBase]
 public class Shot : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Shot : MonoBehaviour
     float damage;
     Character owner;
     Coroutine movementCoroutine;
+
+    public System.Action onHit;
 
     void Awake()
     {
@@ -42,6 +45,7 @@ public class Shot : MonoBehaviour
         Character character = collision.GetComponentInParent<Character>();
         if(character && character != owner)
         {
+            onHit?.Invoke();
             character.GetDamage(damage);
             Pooling.Destroy(gameObject);
         }
@@ -49,6 +53,7 @@ public class Shot : MonoBehaviour
         //if hit destroy layer, destroy shot
         if (layersToDestroyShot.ContainsLayer(collision.gameObject.layer))
         {
+            onHit?.Invoke();
             Pooling.Destroy(gameObject);
         }
     }

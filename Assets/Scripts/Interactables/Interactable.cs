@@ -4,6 +4,7 @@
 public abstract class Interactable : MonoBehaviour
 {
     [Header("Important")]
+    [SerializeField] bool lockWhenActive = false;
     [SerializeField] Activable[] objectsToActivate = default;
 
     protected bool isActive;
@@ -28,7 +29,7 @@ public abstract class Interactable : MonoBehaviour
     public virtual void Deactive()
     {
         //do only if active
-        if (isActive == false)
+        if (isActive == false || lockWhenActive)
             return;
 
         //set not active
