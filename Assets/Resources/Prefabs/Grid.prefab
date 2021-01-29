@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5950618915563259073}
   - component: {fileID: 4898889980231079800}
   - component: {fileID: 4451616832628126425}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SfondoCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
