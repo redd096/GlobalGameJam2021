@@ -1433,6 +1433,11 @@ PrefabInstance:
       propertyPath: objectToOpen
       value: 
       objectReference: {fileID: 8627434669113283893}
+    - target: {fileID: 6983721649034905754, guid: 0a823f9a41bbfe145ad8357a875ff817,
+        type: 3}
+      propertyPath: canOpenWhenThrowed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a823f9a41bbfe145ad8357a875ff817, type: 3}
 --- !u!1001 &384322887
@@ -3233,21 +3238,6 @@ PrefabInstance:
       propertyPath: objectsToActivate.Array.data[0]
       value: 
       objectReference: {fileID: 1881606106}
-    - target: {fileID: 6173996424864536143, guid: 9d926693b16094a409eaa1c06a9a690e,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6173996424864536143, guid: 9d926693b16094a409eaa1c06a9a690e,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6173996424864536143, guid: 9d926693b16094a409eaa1c06a9a690e,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6375417528572289764, guid: 9d926693b16094a409eaa1c06a9a690e,
         type: 3}
       propertyPath: m_Name
@@ -3380,6 +3370,11 @@ PrefabInstance:
     - target: {fileID: 459954199241134041, guid: 25840254be6dafd48ad4efddc7dc6c63,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250168583707495678, guid: 25840254be6dafd48ad4efddc7dc6c63,
+        type: 3}
+      propertyPath: useAim
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7382497986415312113, guid: 25840254be6dafd48ad4efddc7dc6c63,
