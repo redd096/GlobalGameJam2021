@@ -19,6 +19,7 @@ public class Player : Character
     [SerializeField] bool useAim = false;
     [SerializeField] float forceThrow = 10;
 
+    HeadPlayer headToGrab;
     HeadPlayer currentHead;
 
     NewControls inputActions;
@@ -39,6 +40,9 @@ public class Player : Character
     private void Update()
     {
         Aim();
+
+        //check can pick heads
+        CheckCanPick();
     }
 
     void FixedUpdate()
@@ -50,7 +54,9 @@ public class Player : Character
     {
         //call on trigger enter on head
         if (currentHead)
+        {
             currentHead.OnPlayerCollisionEnter2D(collision);
+        }
     }
 
     void OnDrawGizmos()
@@ -154,17 +160,48 @@ public class Player : Character
 
     #region pick and drop
 
+    void CheckCanPick()
+    {
+        //check only if haven't head on
+        if (currentHead == null)
+        {
+            //check distance
+            HeadPlayer head = FindObjectsOfType<HeadPlayer>().FindNearest(transform.position);
+            if (Vector2.Distance(transform.position, head.transform.position) <= areaToPick)
+            {
+                //check is different from current
+                if (headToGrab != head)
+                {
+                    //remove old one
+                    headToGrab?.CanPick(false);
+
+                    //set new one
+                    headToGrab = head;
+                    headToGrab.CanPick(true);
+                }
+
+                return;
+            }
+        }
+
+        //if there is nothing in area to pick, remove old one
+        if (headToGrab != null)
+        {
+            headToGrab.CanPick(false);
+            headToGrab = null;
+        }
+    }
+
     public override void PickHead()
     {
-        //find nearest head, check distance
-        HeadPlayer head = FindObjectsOfType<HeadPlayer>().FindNearest(transform.position);
-        if (Vector2.Distance(transform.position, head.transform.position) <= areaToPick)
+        //if there is an head to grab
+        if (headToGrab)
         {
             //set head and position
-            currentHead = head;
+            currentHead = headToGrab;
 
             //pick head
-            head.PickHead(this, headAttach);
+            headToGrab.PickHead(this, headAttach);
         }
     }
 

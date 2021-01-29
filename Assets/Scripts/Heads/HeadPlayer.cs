@@ -30,6 +30,7 @@ public abstract class HeadPlayer : MonoBehaviour
 
     public System.Action onPickHead;
     public System.Action onDestroyHead;
+    public System.Action<bool> onCanPick;
 
     protected virtual void Awake()
     {
@@ -98,6 +99,11 @@ public abstract class HeadPlayer : MonoBehaviour
     #endregion
 
     #region public API
+
+    public void CanPick(bool canPick)
+    {
+        onCanPick?.Invoke(canPick);
+    }
 
     public virtual void PickHead(Character owner, Transform headAttach)
     {

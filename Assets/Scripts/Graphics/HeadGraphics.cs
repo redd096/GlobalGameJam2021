@@ -12,6 +12,9 @@ public class HeadGraphics : MonoBehaviour
     [SerializeField] float timeToDestroy = 2;
     [SerializeField] AnimationCurve curveRotationSpeed = default;
 
+    [Header("Can pick")]
+    [SerializeField] GameObject hintCanPick = default;
+
     protected HeadPlayer headPlayer;
 
     bool lookingRight;
@@ -21,7 +24,11 @@ public class HeadGraphics : MonoBehaviour
     {
         headPlayer = GetComponent<HeadPlayer>();
 
+        //hide hint
+        hintCanPick.SetActive(false);
+
         //add event
+        headPlayer.onCanPick += OnCanPick;
         headPlayer.onPickHead += OnPickHead;
         headPlayer.onDestroyHead += OnDestroyHead;
     }
@@ -31,6 +38,7 @@ public class HeadGraphics : MonoBehaviour
         //remove event
         if (headPlayer)
         {
+            headPlayer.onCanPick -= OnCanPick;
             headPlayer.onPickHead -= OnPickHead;
             headPlayer.onDestroyHead -= OnDestroyHead;
         }
@@ -49,6 +57,15 @@ public class HeadGraphics : MonoBehaviour
     }
 
     #region private API
+
+    void OnCanPick(bool canPick)
+    {
+        //active or deactive hint
+        if(hintCanPick)
+        {
+            hintCanPick.SetActive(canPick);
+        }
+    }
 
     protected virtual void OnPickHead()
     {

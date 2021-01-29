@@ -219,6 +219,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  hintCanPick: {fileID: 1439755179582484305}
   objectToRotate: {fileID: 3581466307504556853}
 --- !u!61 &8249414450835589378
 BoxCollider2D:
@@ -257,6 +258,11 @@ PrefabInstance:
         type: 3}
       propertyPath: blackSprite
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365178610251121486, guid: 49578570a7518aa4e8a520eed3828fa4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5110696094972746236, guid: 49578570a7518aa4e8a520eed3828fa4,
         type: 3}
@@ -323,6 +329,12 @@ GameObject:
 --- !u!4 &7290251132865077456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1224390486791375652, guid: 49578570a7518aa4e8a520eed3828fa4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8489782752355199988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1439755179582484305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7361922884003185829, guid: 49578570a7518aa4e8a520eed3828fa4,
     type: 3}
   m_PrefabInstance: {fileID: 8489782752355199988}
   m_PrefabAsset: {fileID: 0}
