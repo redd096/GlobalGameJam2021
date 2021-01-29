@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(CharacterGraphics))]
 public abstract class Character : MonoBehaviour
 {
     [Header("Important")]

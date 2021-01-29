@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 [AddComponentMenu("Global Game Jam 2021/Characters/Player")]
 [SelectionBase]
-[RequireComponent(typeof(CharacterGraphics))]
 public class Player : Character
 {
     [Header("Movement")]

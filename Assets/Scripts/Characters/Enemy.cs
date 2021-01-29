@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using redd096;
 
+[AddComponentMenu("Global Game Jam 2021/Characters/Enemy")]
+[SelectionBase]
 public class Enemy : Character
 {
-    [Header("Vision")]
-    [SerializeField] float distance = 5;
-    [SerializeField] Vector2 direction = Vector2.right;
-    [SerializeField] float angle = 3;
+    //[Header("Vision")]
+    //[SerializeField] float distance = 5;
+    //[SerializeField] Vector2 direction = Vector2.right;
+    //[SerializeField] float angle = 3;
 
     [Header("Shoot")]
     [SerializeField] float damage = 10;
