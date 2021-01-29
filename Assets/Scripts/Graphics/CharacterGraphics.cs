@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using redd096;
 
 [AddComponentMenu("Global Game Jam 2021/Graphics/Characters Graphics")]
 public class CharacterGraphics : MonoBehaviour
@@ -87,8 +88,9 @@ public class CharacterGraphics : MonoBehaviour
             yield return null;
         }
 
-        //destroy at the end
+        //destroy at the end and restart game
         Destroy(gameObject);
+        SceneLoader.instance.RestartGame();
     }
 
     #endregion

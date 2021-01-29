@@ -65,6 +65,14 @@ public class @NewControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""b477ffcf-bfb3-40bd-9795-4521a6902cfa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -232,6 +240,28 @@ public class @NewControls : IInputActionCollection, IDisposable
                     ""action"": ""Aim Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e8252840-e205-4aa4-851a-0739a19230cf"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard + Mouse"",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff35c28c-7192-4bc8-bfc5-b530a749b4ad"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -269,6 +299,7 @@ public class @NewControls : IInputActionCollection, IDisposable
         m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
         m_Gameplay_AimGamepad = m_Gameplay.FindAction("Aim Gamepad", throwIfNotFound: true);
         m_Gameplay_AimMouse = m_Gameplay.FindAction("Aim Mouse", throwIfNotFound: true);
+        m_Gameplay_Restart = m_Gameplay.FindAction("Restart", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -324,6 +355,7 @@ public class @NewControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Shoot;
     private readonly InputAction m_Gameplay_AimGamepad;
     private readonly InputAction m_Gameplay_AimMouse;
+    private readonly InputAction m_Gameplay_Restart;
     public struct GameplayActions
     {
         private @NewControls m_Wrapper;
@@ -334,6 +366,7 @@ public class @NewControls : IInputActionCollection, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
         public InputAction @AimGamepad => m_Wrapper.m_Gameplay_AimGamepad;
         public InputAction @AimMouse => m_Wrapper.m_Gameplay_AimMouse;
+        public InputAction @Restart => m_Wrapper.m_Gameplay_Restart;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -361,6 +394,9 @@ public class @NewControls : IInputActionCollection, IDisposable
                 @AimMouse.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAimMouse;
                 @AimMouse.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAimMouse;
                 @AimMouse.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAimMouse;
+                @Restart.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestart;
+                @Restart.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestart;
+                @Restart.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestart;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -383,6 +419,9 @@ public class @NewControls : IInputActionCollection, IDisposable
                 @AimMouse.started += instance.OnAimMouse;
                 @AimMouse.performed += instance.OnAimMouse;
                 @AimMouse.canceled += instance.OnAimMouse;
+                @Restart.started += instance.OnRestart;
+                @Restart.performed += instance.OnRestart;
+                @Restart.canceled += instance.OnRestart;
             }
         }
     }
@@ -413,5 +452,6 @@ public class @NewControls : IInputActionCollection, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnAimGamepad(InputAction.CallbackContext context);
         void OnAimMouse(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
     }
 }
