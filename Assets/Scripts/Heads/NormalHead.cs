@@ -12,7 +12,8 @@ public class NormalHead : HeadPlayer
         base.PickHead(owner, headAttach);
 
         //remove black sprite in scene
-        blackSprite.SetActive(false);
+        if(blackSprite)
+            blackSprite.SetActive(false);
     }
 
     public override void DropHead()
@@ -20,6 +21,7 @@ public class NormalHead : HeadPlayer
         base.DropHead();
 
         //active black sprite in scene
-        blackSprite.SetActive(true);
+        if (blackSprite)
+            blackSprite.SetActive(true);
     }
 }

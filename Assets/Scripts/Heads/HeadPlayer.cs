@@ -11,6 +11,7 @@ public abstract class HeadPlayer : MonoBehaviour
 
     [Header("Throw")]
     [SerializeField] LayerMask layerToBounce = default;
+    [SerializeField] LayerMask layerToDestroy = default;
     [SerializeField] float decreaseSpeedEverySecond = 5f;
     [SerializeField] float decreaseSpeedAtBounce = 3;
 
@@ -28,6 +29,7 @@ public abstract class HeadPlayer : MonoBehaviour
     public Character Owner => owner;
 
     public System.Action onPickHead;
+    public System.Action onDestroyHead;
 
     protected virtual void Awake()
     {
@@ -43,7 +45,7 @@ public abstract class HeadPlayer : MonoBehaviour
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         //bounce on hit
-        Bounce(collision);
+        CheckHit(collision);
     }
 
     #region private API
@@ -65,7 +67,7 @@ public abstract class HeadPlayer : MonoBehaviour
         }
     }
 
-    void Bounce(Collider2D collision)
+    void CheckHit(Collider2D collision)
     {
         //if hit lever, stop movement
         if(collision.GetComponentInParent<Lever>())
@@ -85,6 +87,18 @@ public abstract class HeadPlayer : MonoBehaviour
             //bounce
             direction = Vector2.Reflect(direction, raycastHit.normal);
         }
+
+        //if hit destroy layer
+        if(layerToDestroy.ContainsLayer(collision.gameObject.layer))
+        {
+            DestroyHead();
+        }
+    }
+
+    void DestroyHead()
+    {
+        onDestroyHead?.Invoke();
+        enabled = false;
     }
 
     #endregion

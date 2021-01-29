@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [AddComponentMenu("Global Game Jam 2021/Graphics/Head Graphics")]
 public class HeadGraphics : MonoBehaviour
@@ -7,9 +8,14 @@ public class HeadGraphics : MonoBehaviour
     [SerializeField] bool startRight = true;
     [SerializeField] Transform[] objectsToFlip = default;
 
+    [Header("Destroy")]
+    [SerializeField] float timeToDestroy = 2;
+    [SerializeField] AnimationCurve curveRotationSpeed = default;
+
     protected HeadPlayer headPlayer;
 
     bool lookingRight;
+    Coroutine destroyHeadCoroutine;
 
     void Awake()
     {
@@ -17,12 +23,17 @@ public class HeadGraphics : MonoBehaviour
 
         //add event
         headPlayer.onPickHead += OnPickHead;
+        headPlayer.onDestroyHead += OnDestroyHead;
     }
 
     void OnDestroy()
     {
         //remove event
-        headPlayer.onPickHead -= OnPickHead;
+        if (headPlayer)
+        {
+            headPlayer.onPickHead -= OnPickHead;
+            headPlayer.onDestroyHead -= OnDestroyHead;
+        }
     }
 
     void FixedUpdate()
@@ -42,6 +53,12 @@ public class HeadGraphics : MonoBehaviour
     protected virtual void OnPickHead()
     {
         RotateSprites();
+    }
+
+    void OnDestroyHead()
+    {
+        if (destroyHeadCoroutine == null)
+            destroyHeadCoroutine = StartCoroutine(DestroyHeadCoroutine());
     }
 
     void RotateSprites()
@@ -64,6 +81,28 @@ public class HeadGraphics : MonoBehaviour
                 foreach (SpriteRenderer sprite in objectToFlip.GetComponentsInChildren<SpriteRenderer>())
                     sprite.flipX = startRight ? !lookingRight : lookingRight;
         }
+    }
+
+    IEnumerator DestroyHeadCoroutine()
+    {
+        //start vars
+        float delta = 0;
+        Vector3 startScale = transform.localScale;
+
+        //animation
+        while (delta < 1)
+        {
+            delta += Time.deltaTime / timeToDestroy;
+
+            //rotate and change scale
+            transform.Rotate(Vector3.forward, curveRotationSpeed.Evaluate(delta));
+            transform.localScale = Vector3.Lerp(startScale, Vector3.zero, delta);
+
+            yield return null;
+        }
+
+        //destroy at the end
+        Destroy(gameObject);
     }
 
     #endregion

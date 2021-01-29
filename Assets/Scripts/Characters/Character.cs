@@ -27,6 +27,8 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    public System.Action onDead;
+
     public void GetDamage(float damage)
     {
         health -= damage;
@@ -39,7 +41,8 @@ public abstract class Character : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
+        onDead?.Invoke();
+        enabled = false;
     }
 
     public abstract void PickHead();

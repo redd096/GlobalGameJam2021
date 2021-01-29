@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [AddComponentMenu("Global Game Jam 2021/Graphics/Characters Graphics")]
 public class CharacterGraphics : MonoBehaviour
@@ -7,13 +8,26 @@ public class CharacterGraphics : MonoBehaviour
     [SerializeField] bool startRight = true;
     [SerializeField] Transform[] objectsToFlip = default;
 
-    Character character;
+    [Header("Dead")]
+    [SerializeField] float timeToDie = 2;
+    [SerializeField] AnimationCurve curveRotationSpeed = default;
 
+    Coroutine deadCoroutine;
+
+    Character character;
     bool lookingRight;
 
     void Awake()
     {
         character = GetComponent<Character>();
+
+        character.onDead += OnDead;
+    }
+
+    void OnDestroy()
+    {
+        if(character)
+            character.onDead -= OnDead;
     }
 
     void FixedUpdate()
@@ -23,6 +37,12 @@ public class CharacterGraphics : MonoBehaviour
         {
             RotateSprites();
         }
+    }
+
+    void OnDead()
+    {
+        if (deadCoroutine == null)
+            deadCoroutine = StartCoroutine(DeadCoroutine());
     }
 
     #region private API
@@ -47,6 +67,28 @@ public class CharacterGraphics : MonoBehaviour
                 foreach (SpriteRenderer sprite in objectToFlip.GetComponentsInChildren<SpriteRenderer>())
                     sprite.flipX = startRight ? !lookingRight : lookingRight;
         }
+    }
+
+    IEnumerator DeadCoroutine()
+    {
+        //start vars
+        float delta = 0;
+        Vector3 startScale = transform.localScale;
+
+        //animation
+        while (delta < 1)
+        {
+            delta += Time.deltaTime / timeToDie;
+
+            //rotate and change scale
+            transform.Rotate(Vector3.forward, curveRotationSpeed.Evaluate(delta));
+            transform.localScale = Vector3.Lerp(startScale, Vector3.zero, delta);
+
+            yield return null;
+        }
+
+        //destroy at the end
+        Destroy(gameObject);
     }
 
     #endregion
