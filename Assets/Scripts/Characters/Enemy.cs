@@ -22,6 +22,7 @@ public class Enemy : Character
     Pooling<Shot> shots = new Pooling<Shot>();
 
     FieldOfView2D fov;
+    float lookAround;
 
     protected override void Awake()
     {
@@ -44,6 +45,11 @@ public class Enemy : Character
             {
                 Shoot(player);
             }
+            //else look around
+            else
+            {
+                //TODO
+            }
         }
     }
 
@@ -58,7 +64,6 @@ public class Enemy : Character
             player = target.GetComponentInParent<Player>();
             if(player != null)
             {
-                Debug.Log("ok");
                 return true;
             }
         }
@@ -69,8 +74,7 @@ public class Enemy : Character
     void Shoot(Player player)
     {
         //calculate direction
-        DirectionPlayer =  player.transform.position - shotSpawnPosition.position;
-        DirectionPlayer.Normalize();
+        DirectionPlayer =  (player.transform.position - shotSpawnPosition.position).normalized;
 
         //instantiate shot
         Shot shot = shots.Instantiate(shotPrefab, shotSpawnPosition.position, Quaternion.identity);
