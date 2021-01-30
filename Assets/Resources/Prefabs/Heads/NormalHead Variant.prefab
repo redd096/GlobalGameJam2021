@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f952e76d376f44245b664c19b81684ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HeadToEndGame: 0
+  HeadToEndGame: 1
   health: 100
   layerOnPick: 51
   layerToBounce:
