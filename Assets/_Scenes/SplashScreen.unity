@@ -255,7 +255,7 @@ MonoBehaviour:
   waitBeforeStartFadeIn: 1
   timeToFadeIn: 2
   pressToContinue: 1
-  waitBeforeStartFadeOut: 2
+  waitBeforeStartFadeOut: 0.5
   timeToFadeOut: 2
   nextSceneName: Main Menu
 --- !u!4 &713490284
