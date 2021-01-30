@@ -240,7 +240,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   explosionParticlePrefab: {fileID: 0}
-  hintCanPick: {fileID: 1439755179582484305}
+  hintCanPick: {fileID: 3779598483113444595}
   trailOnThrow: {fileID: 3288536383017916995}
   prefabParticlesOnDrop: {fileID: 8947345715839835578, guid: 2744f65d7db487b4d90e72c5c0cb22a8,
     type: 3}
@@ -289,6 +289,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458091188239693305, guid: 49578570a7518aa4e8a520eed3828fa4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666628153019211018, guid: 49578570a7518aa4e8a520eed3828fa4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5110696094972746236, guid: 49578570a7518aa4e8a520eed3828fa4,
         type: 3}
@@ -358,15 +368,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8489782752355199988}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &3288536383017916995 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6373435715998822839, guid: 49578570a7518aa4e8a520eed3828fa4,
+--- !u!1 &3779598483113444595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4729360860182195975, guid: 49578570a7518aa4e8a520eed3828fa4,
     type: 3}
   m_PrefabInstance: {fileID: 8489782752355199988}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1439755179582484305 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7361922884003185829, guid: 49578570a7518aa4e8a520eed3828fa4,
+--- !u!198 &3288536383017916995 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6373435715998822839, guid: 49578570a7518aa4e8a520eed3828fa4,
     type: 3}
   m_PrefabInstance: {fileID: 8489782752355199988}
   m_PrefabAsset: {fileID: 0}
