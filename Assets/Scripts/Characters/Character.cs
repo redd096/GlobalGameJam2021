@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(CharacterGraphics))]
+[RequireComponent(typeof(CharacterSounds))]
 public abstract class Character : MonoBehaviour
 {
     [Header("Important")]
@@ -50,7 +51,6 @@ public abstract class Character : MonoBehaviour
 
     public void Die(bool falling)
     {
-        AudioManager.PlaySound(gameObject);
         onDead?.Invoke(falling);
         enabled = false;
         rb.constraints = RigidbodyConstraints2D.FreezePosition;

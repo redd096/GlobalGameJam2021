@@ -19,6 +19,8 @@ public class GunHead : HeadPlayer
 
     NewControls inputActions;
 
+    public System.Action onShoot;
+
     protected override void Awake()
     {
         base.Awake();
@@ -51,6 +53,9 @@ public class GunHead : HeadPlayer
             //instantiate shot
             Shot shot = shots.Instantiate(shotPrefab, shotSpawnPosition.position, Quaternion.identity);
             shot.Init(Owner.DirectionPlayer, speedShot, damage, Owner);
+
+            //event
+            onShoot?.Invoke();
         }
     }
 }

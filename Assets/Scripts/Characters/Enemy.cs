@@ -29,6 +29,8 @@ public class Enemy : Character
     Coroutine idleLookAroundCoroutine;
     Transform idlePoint;
 
+    public System.Action onShoot;
+
     protected override void Awake()
     {
         base.Awake();
@@ -124,6 +126,9 @@ public class Enemy : Character
         //instantiate shot
         Shot shot = shots.Instantiate(shotPrefab, shotSpawnPosition.position, Quaternion.identity);
         shot.Init(DirectionPlayer, speedShot, damage, this);
+
+        //event
+        onShoot?.Invoke();
     }
 
     #endregion

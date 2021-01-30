@@ -4,6 +4,7 @@ using UnityEngine;
 using redd096;
 
 [RequireComponent(typeof(HeadGraphics))]
+[RequireComponent(typeof(HeadSounds))]
 public abstract class HeadPlayer : MonoBehaviour
 {
     [Header("Important")]
