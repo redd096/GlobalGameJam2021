@@ -18,7 +18,7 @@ public class EnemyGraphics : CharacterGraphics
     void Update()
     {
         //rotate to aim position
-        float angle = Vector2.SignedAngle(Vector2.right, enemy.DirectionPlayer);
-        objectToRotate.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        float signedAngle = Vector2.SignedAngle(Vector2.right, enemy.DirectionPlayer);
+        objectToRotate.rotation = Quaternion.AngleAxis(signedAngle, Vector3.forward);
     }
 }

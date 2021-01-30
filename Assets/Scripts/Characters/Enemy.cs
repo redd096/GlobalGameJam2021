@@ -20,6 +20,7 @@ public class Enemy : Character
     [Header("Idle")]
     [SerializeField] float timeIdle = 1;
 
+    Transform targetToKill;
     float timerShot;
     Pooling<Shot> shots = new Pooling<Shot>();
 
@@ -42,10 +43,10 @@ public class Enemy : Character
 
     void Update()
     {
-        Transform target = CheckVision();
+        targetToKill = CheckVision();
 
         //if player in vision
-        if (target)
+        if (targetToKill)
         {
             //be sure to stop idle coroutine
             if (idleLookAroundCoroutine != null)
@@ -55,7 +56,7 @@ public class Enemy : Character
             }
 
             //calculate direction
-            DirectionPlayer = (target.position - shotSpawnPosition.position).normalized;
+            DirectionPlayer = (targetToKill.position - shotSpawnPosition.position).normalized;
         }
         //else look around
         else
@@ -70,7 +71,7 @@ public class Enemy : Character
             timerShot = Time.time + rateOfFire;
 
             //if player in vision, shoot him
-            if (target != null)
+            if (targetToKill != null)
             {
                 Shoot();
             }
@@ -145,7 +146,7 @@ public class Enemy : Character
                 idlePoint.position = Vector2.Lerp(ViewAngleA, ViewAngleB, delta);
 
                 //look at point
-                DirectionPlayer = (idlePoint.position - shotSpawnPosition.position).normalized;
+                DirectionPlayer = (idlePoint.position - transform.position).normalized;
 
                 yield return null;
             }
@@ -156,7 +157,7 @@ public class Enemy : Character
                 idlePoint.position = Vector2.Lerp(ViewAngleA, ViewAngleB, delta);
 
                 //look at point
-                DirectionPlayer = (idlePoint.position - shotSpawnPosition.position).normalized;
+                DirectionPlayer = (idlePoint.position - transform.position).normalized;
 
                 yield return null;
             }
