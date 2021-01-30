@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteToChange: {fileID: 261762249845824121}
-  spriteOn: {fileID: 21300000, guid: 885a7cdb2e9fe1b4f802904538b2daa5, type: 3}
-  spriteOff: {fileID: 21300000, guid: 2701dde15dda3f2449f5774acac72adf, type: 3}
+  spriteOn: {fileID: 21300000, guid: 8f72633050f0edc4ca33330df8f38bda, type: 3}
+  spriteOff: {fileID: 21300000, guid: 49d49a93e678054458c98c34801f34c9, type: 3}
 --- !u!114 &7342747295050354296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,7 +47,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -65,18 +65,18 @@ PrefabInstance:
     - target: {fileID: 5815321640851870262, guid: 23d410f2eb73e2e47963ba0624063b6c,
         type: 3}
       propertyPath: m_Size.x
-      value: 1.28
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5815321640851870262, guid: 23d410f2eb73e2e47963ba0624063b6c,
         type: 3}
       propertyPath: m_Size.y
-      value: 1.28
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5815321640851870262, guid: 23d410f2eb73e2e47963ba0624063b6c,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2701dde15dda3f2449f5774acac72adf,
+      objectReference: {fileID: 21300000, guid: 49d49a93e678054458c98c34801f34c9,
         type: 3}
     - target: {fileID: 5815321640851870262, guid: 23d410f2eb73e2e47963ba0624063b6c,
         type: 3}

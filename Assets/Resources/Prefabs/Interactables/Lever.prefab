@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &217248091559036903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375417528572289764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d051b5e609c724d9ad6c263d359c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteToChange: {fileID: 6173996424864536143}
+  spriteOn: {fileID: 21300000, guid: 6029d0448bdac064e904308e77b12481, type: 3}
+  spriteOff: {fileID: 21300000, guid: 26b98156dae0a7340ad14d0caf533eea, type: 3}
+--- !u!114 &2926014424163354558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375417528572289764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2dd6f85283ea9e4c923f111218f34e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockWhenActive: 1
+  objectsToActivate: []
 --- !u!61 &2875529700124174171
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17,7 +46,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -26,35 +55,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &217248091559036903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6375417528572289764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27d051b5e609c724d9ad6c263d359c59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteToChange: {fileID: 6173996424864536143}
-  spriteOn: {fileID: 21300000, guid: fca8a30808dc15a4f9df1a6d48c81ac0, type: 3}
-  spriteOff: {fileID: 21300000, guid: 460993a347ad407428562d55050d33bb, type: 3}
---- !u!114 &2926014424163354558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6375417528572289764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2dd6f85283ea9e4c923f111218f34e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockWhenActive: 1
-  objectsToActivate: []
 --- !u!1001 &367708785508811897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 460993a347ad407428562d55050d33bb,
+      objectReference: {fileID: 21300000, guid: 26b98156dae0a7340ad14d0caf533eea,
         type: 3}
     - target: {fileID: 5815321640851870262, guid: 23d410f2eb73e2e47963ba0624063b6c,
         type: 3}
