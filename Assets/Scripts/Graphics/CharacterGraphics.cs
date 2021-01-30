@@ -48,6 +48,11 @@ public class CharacterGraphics : MonoBehaviour
             if (fallingCoroutine == null)
                 fallingCoroutine = StartCoroutine(FallingCoroutine());
         }
+        //death by shot
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     #region private API
