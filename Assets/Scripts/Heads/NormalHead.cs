@@ -13,7 +13,9 @@ public class NormalHead : HeadPlayer
 
         //remove black sprite in scene
         if (blackSprite)
-            blackSprite.SetActive(false);
+        {
+            blackSprite.GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
     public override void DropHead(bool throwed)
@@ -22,6 +24,8 @@ public class NormalHead : HeadPlayer
 
         //active black sprite in scene
         if (blackSprite)
-            blackSprite.SetActive(true);
+        {
+            blackSprite.GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
 }

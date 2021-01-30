@@ -342,6 +342,17 @@
                 },
                 {
                     "name": "",
+                    "id": "95e97ede-3753-4886-a4ae-a458cc6aa313",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard + Mouse",
+                    "action": "Resume",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7b88fb08-1c7f-4e20-b476-d09e02cd88fb",
                     "path": "<Keyboard>/anyKey",
                     "interactions": "",
