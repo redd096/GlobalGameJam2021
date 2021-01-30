@@ -222,7 +222,8 @@ MonoBehaviour:
   soundOnDropHead:
   - {fileID: 8300000, guid: f9fbec0b82bd93649bbde8d598f84b4e, type: 3}
   - {fileID: 8300000, guid: ba733ade978500f47af2b98752521442, type: 3}
-  soundOnShoot: []
+  soundOnShoot:
+  - {fileID: 8300000, guid: a4061e12ff144ff47a9bcc49ea3d2c07, type: 3}
 --- !u!1 &5337150731861064372
 GameObject:
   m_ObjectHideFlags: 0
