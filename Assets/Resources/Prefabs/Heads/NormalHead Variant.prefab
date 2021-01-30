@@ -119,7 +119,29 @@ MonoBehaviour:
   heads:
   - {fileID: 21300000, guid: c4a52a97f904d5045b3aa2d6476aadc8, type: 3}
   - {fileID: 21300000, guid: c8b956608405e214d923b37d7b577659, type: 3}
-  goldenHead: {fileID: 0}
+  - {fileID: 21300000, guid: acfdabd6c25b1254ba9cc62112e82fcb, type: 3}
+  - {fileID: 21300000, guid: 5b17a3c3e41f0b74b8c7afa684c2ec34, type: 3}
+  - {fileID: 21300000, guid: 8c8198f05b902ee448f4184d7970c1c1, type: 3}
+  - {fileID: 21300000, guid: 8d7eb8f2966ea644d9540eebd2320078, type: 3}
+  - {fileID: 21300000, guid: c178cc2d31358f74fb59a26f3a8e6158, type: 3}
+  - {fileID: 21300000, guid: e84a7988b230ec540bdebe2854742661, type: 3}
+  - {fileID: 21300000, guid: 589b601feb18772489540af060cf5a89, type: 3}
+  - {fileID: 21300000, guid: 036f95517957a3c43a783713b28d2329, type: 3}
+  - {fileID: 21300000, guid: 64650809e72655841b64bae026f3192f, type: 3}
+  - {fileID: 21300000, guid: 68e06e785ce02ec4fbee47ed57871df8, type: 3}
+  - {fileID: 21300000, guid: ec7f4d03ef9ddeb4185a8fa81d90f2e4, type: 3}
+  - {fileID: 21300000, guid: 6a70fbca2c39f4f4b9ea309e91ca3cac, type: 3}
+  - {fileID: 21300000, guid: 427e907354c6b014f99fe95aa1375fc1, type: 3}
+  - {fileID: 21300000, guid: 7959d98e657717f429324e0ccfc86aea, type: 3}
+  - {fileID: 21300000, guid: 365e9c7a4c3c6d74f8e91d361ff50f27, type: 3}
+  - {fileID: 21300000, guid: bc4ad7713c1824f438aec91b70d35391, type: 3}
+  - {fileID: 21300000, guid: 555c5529c1a5b7f47bb010511e2fec22, type: 3}
+  - {fileID: 21300000, guid: c75f555b8dc82a64f9142a4848d3a672, type: 3}
+  - {fileID: 21300000, guid: f89a7b4fcf76fb74d818c39dcacace1d, type: 3}
+  - {fileID: 21300000, guid: e88f0050dde413744938c237f761b3e5, type: 3}
+  - {fileID: 21300000, guid: e258c2d7b18aa1944b485c6cd6ca6af9, type: 3}
+  - {fileID: 21300000, guid: a1c75048c376940429295fbfd9991785, type: 3}
+  goldenHead: {fileID: 21300000, guid: 1f64cb1b1d29d524ab8754e2518e1ca1, type: 3}
   percentageGolden: 0.05
 --- !u!61 &8249414450835589378
 BoxCollider2D:
