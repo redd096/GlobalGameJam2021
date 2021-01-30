@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5710749270886062055}
   - component: {fileID: 5710749270886062052}
   - component: {fileID: 5710749270886062053}
+  - component: {fileID: 5904969530553992661}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -44,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2079bc7c4b21e344ab0933ef11615c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  limitTombStones: 5
   tombStonePrefab: {fileID: 7194552930701016315, guid: 7591912682921f54cb8f689325c41ba8,
     type: 3}
 --- !u!114 &5710749270886062053
@@ -56,5 +58,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8a8f88b93e48ba4fb0d045573b433c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5904969530553992661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5710749270886062042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee776d25531a1741bf54562a98c334e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

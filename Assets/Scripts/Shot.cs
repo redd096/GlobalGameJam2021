@@ -10,9 +10,6 @@ public class Shot : MonoBehaviour
     [Header("Shot")]
     [SerializeField] LayerMask layersToDestroyShot = default;
 
-    [Header("Audio")]
-    [SerializeField] AudioSource audioSource;
-
     Rigidbody2D rb;
 
     Vector2 direction;
@@ -25,11 +22,7 @@ public class Shot : MonoBehaviour
 
     void OnEnable()
     {
-        //play audio
-        if (audioSource)
-        {
-            audioSource.Play();
-        }
+        AudioManager.PlaySound(gameObject);
     }
 
     void Awake()
