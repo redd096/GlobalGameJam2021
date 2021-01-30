@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using redd096;
 
 [AddComponentMenu("Global Game Jam 2021/Characters/Enemy")]
@@ -6,11 +7,6 @@ using redd096;
 [RequireComponent(typeof(EnemyGraphics))]
 public class Enemy : Character
 {
-    //[Header("Vision")]
-    //[SerializeField] float distance = 5;
-    //[SerializeField] Vector2 direction = Vector2.right;
-    //[SerializeField] float angle = 3;
-
     [Header("Shoot")]
     [SerializeField] float damage = 10;
     [SerializeField] float rateOfFire = 0.1f;
@@ -18,11 +14,16 @@ public class Enemy : Character
     [SerializeField] float speedShot = 3;
     [SerializeField] Transform shotSpawnPosition = default;
 
+    [Header("Idle")]
+    [SerializeField] float timeIdle = 1;
+
     float timerShot;
     Pooling<Shot> shots = new Pooling<Shot>();
 
     FieldOfView2D fov;
-    float lookAround;
+
+    Coroutine idleLookAroundCoroutine;
+    Transform idlePoint;
 
     protected override void Awake()
     {
@@ -30,28 +31,49 @@ public class Enemy : Character
 
         //get fov
         fov = GetComponent<FieldOfView2D>();
+
+        //create idle point
+        idlePoint = new GameObject("Idle Point").transform;
+        idlePoint.SetParent(transform);
     }
 
     void Update()
     {
+        //if player in vision
+        Player player;
+        if (CheckVision(out player))
+        {
+            //be sure to stop idle coroutine
+            if (idleLookAroundCoroutine != null)
+            {
+                StopCoroutine(idleLookAroundCoroutine);
+                idleLookAroundCoroutine = null;
+            }
+
+            //calculate direction
+            DirectionPlayer = (player.transform.position - shotSpawnPosition.position).normalized;
+        }
+        //else look around
+        else
+        {
+            if (idleLookAroundCoroutine == null)
+                idleLookAroundCoroutine = StartCoroutine(IdleLookAroundCoroutine());
+        }
+
         //check rate of fire
         if (Time.time > timerShot)
         {
             timerShot = Time.time + rateOfFire;
 
             //if player in vision, shoot him
-            Player player;
             if (CheckVision(out player))
             {
                 Shoot(player);
             }
-            //else look around
-            else
-            {
-                //TODO
-            }
         }
     }
+
+    #region shoot
 
     bool CheckVision(out Player player)
     {
@@ -73,13 +95,50 @@ public class Enemy : Character
 
     void Shoot(Player player)
     {
-        //calculate direction
-        DirectionPlayer =  (player.transform.position - shotSpawnPosition.position).normalized;
-
         //instantiate shot
         Shot shot = shots.Instantiate(shotPrefab, shotSpawnPosition.position, Quaternion.identity);
         shot.Init(DirectionPlayer, speedShot, damage, this);
     }
+
+    #endregion
+
+    #region idle
+
+    IEnumerator IdleLookAroundCoroutine()
+    {
+        while (true)
+        {
+            //calculate points field of view
+            Vector3 ViewAngleA = transform.position + fov.DirFromAngle(-fov.viewAngle / 2, false);
+            Vector3 ViewAngleB = transform.position + fov.DirFromAngle(fov.viewAngle / 2, false);
+
+            //animation to one point
+            float delta = 0;
+            while (delta < 1)
+            {
+                delta += Time.deltaTime / timeIdle;
+                idlePoint.position = Vector2.Lerp(ViewAngleA, ViewAngleB, delta);
+
+                //look at point
+                DirectionPlayer = (idlePoint.position - shotSpawnPosition.position).normalized;
+
+                yield return null;
+            }
+            //back to other
+            while(delta > 0)
+            {
+                delta -= Time.deltaTime / timeIdle;
+                idlePoint.position = Vector2.Lerp(ViewAngleA, ViewAngleB, delta);
+
+                //look at point
+                DirectionPlayer = (idlePoint.position - shotSpawnPosition.position).normalized;
+
+                yield return null;
+            }
+        }
+    }
+
+    #endregion
 
     public override void PickHead()
     {
