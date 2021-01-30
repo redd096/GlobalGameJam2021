@@ -22,7 +22,10 @@
 
         private void OnDestroy()
         {
-            inputActions.Gameplay.Resume.performed -= Resume;
+            if (inputActions)
+            {
+                inputActions.Gameplay.Resume.performed -= Resume;
+            }
         }
 
         void Resume(InputAction.CallbackContext callbackContext)
