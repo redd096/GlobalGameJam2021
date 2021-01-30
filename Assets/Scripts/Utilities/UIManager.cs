@@ -22,7 +22,7 @@
 
         private void OnDestroy()
         {
-            if (inputActions)
+            if (inputActions != null)
             {
                 inputActions.Gameplay.Resume.performed -= Resume;
             }
