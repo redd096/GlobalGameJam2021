@@ -462,6 +462,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 754977518245996158, guid: 023e9ef592cad854e86fca2b1e9a90a5,
+        type: 3}
+      propertyPath: blackSprite
+      value: 
+      objectReference: {fileID: 1598525706}
     - target: {fileID: 3692128623982883336, guid: 023e9ef592cad854e86fca2b1e9a90a5,
         type: 3}
       propertyPath: m_Name
@@ -952,6 +957,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1598525706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 579714214529165072, guid: 21e9b34b18344ef4db2f7b1e851d7b03,
+    type: 3}
+  m_PrefabInstance: {fileID: 579714214251082307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1806966241
 PrefabInstance:
   m_ObjectHideFlags: 0

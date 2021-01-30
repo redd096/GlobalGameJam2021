@@ -183,7 +183,7 @@ public class @NewControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""22943348-da57-4b5d-a025-4a864c1a8757"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard + Mouse"",
@@ -227,7 +227,7 @@ public class @NewControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0ec1465c-19cf-4cfe-932d-99e1dbed0184"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard + Mouse"",

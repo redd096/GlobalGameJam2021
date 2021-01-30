@@ -16613,6 +16613,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 754977518245996158, guid: 023e9ef592cad854e86fca2b1e9a90a5,
+        type: 3}
+      propertyPath: blackSprite
+      value: 
+      objectReference: {fileID: 1386168570}
     - target: {fileID: 3692128623982883336, guid: 023e9ef592cad854e86fca2b1e9a90a5,
         type: 3}
       propertyPath: m_Name
@@ -16694,6 +16699,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21e9b34b18344ef4db2f7b1e851d7b03, type: 3}
+--- !u!1 &1386168570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 579714214529165072, guid: 21e9b34b18344ef4db2f7b1e851d7b03,
+    type: 3}
+  m_PrefabInstance: {fileID: 1386168569}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1851933467
 GameObject:
   m_ObjectHideFlags: 0
@@ -16763,7 +16774,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LEFT CLICK to equip the HEAD
+  m_Text: SPACE to equip the HEAD
 --- !u!222 &1851933470
 CanvasRenderer:
   m_ObjectHideFlags: 0
