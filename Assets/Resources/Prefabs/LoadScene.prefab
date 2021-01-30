@@ -70,6 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2692b4a04a2bae4ab03f3de1fa8359c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canEndWithoutHead: 1
+  canEndWithoutHead: 0
   nameCheckpoint: 000
   nameLevelToLoad: Scene2
