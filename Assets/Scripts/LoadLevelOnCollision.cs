@@ -28,7 +28,9 @@ public class LoadLevelOnCollision : MonoBehaviour
     {
         //if hit player and has head to end game
         Player player = collision.gameObject.GetComponentInParent<Player>();
-        if (player && player.CurrentHead.HeadToEndGame)
+        if (player &&
+            (canEndWithoutHead || (player.CurrentHead && player.CurrentHead.HeadToEndGame)))   //can end without head or has head to end game
+
         {
             LoadNextLevel();
         }
