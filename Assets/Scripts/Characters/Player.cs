@@ -80,10 +80,13 @@ public class Player : Character
 
     void RemoveCommands()
     {
-        inputActions.Disable();
-        inputActions.Gameplay.PickAndDrop.performed -= PickAndDrop;
-        inputActions.Gameplay.Throw.performed -= Throw;
-        inputActions.Gameplay.Restart.performed -= Restart;
+        if (inputActions != null)
+        {
+            inputActions.Disable();
+            inputActions.Gameplay.PickAndDrop.performed -= PickAndDrop;
+            inputActions.Gameplay.Throw.performed -= Throw;
+            inputActions.Gameplay.Restart.performed -= Restart;
+        }
     }
 
     void Movement(Vector2 direction)
@@ -153,6 +156,9 @@ public class Player : Character
 
     void Restart(InputAction.CallbackContext callbackContext)
     {
+        //end level passing position
+        GameManager.instance.EndLevel(transform.position);
+
         //restart game
         SceneLoader.instance.RestartGame();
     }

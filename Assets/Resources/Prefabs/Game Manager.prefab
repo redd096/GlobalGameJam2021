@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2079bc7c4b21e344ab0933ef11615c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tombStonePrefab: {fileID: 7194552930701016315, guid: 7591912682921f54cb8f689325c41ba8,
+    type: 3}
 --- !u!114 &5710749270886062053
 MonoBehaviour:
   m_ObjectHideFlags: 0

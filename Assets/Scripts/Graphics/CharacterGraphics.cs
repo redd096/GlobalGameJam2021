@@ -12,6 +12,7 @@ public class CharacterGraphics : MonoBehaviour
     [Header("Dead")]
     [SerializeField] float timeToDie = 2;
     [SerializeField] AnimationCurve curveRotationSpeed = default;
+    [SerializeField] Tombstone tombStonePrefab = default;
 
     Coroutine fallingCoroutine;
 
@@ -52,6 +53,8 @@ public class CharacterGraphics : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            Tombstone tombStone = Instantiate(tombStonePrefab, transform.position, Quaternion.identity);
+            tombStone.Init(lookingRight);
         }
     }
 

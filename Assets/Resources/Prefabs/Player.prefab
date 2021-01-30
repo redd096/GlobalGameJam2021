@@ -305,6 +305,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  tombStonePrefab: {fileID: 7194552930701016315, guid: 7591912682921f54cb8f689325c41ba8,
+    type: 3}
 --- !u!114 &1357304095
 MonoBehaviour:
   m_ObjectHideFlags: 0

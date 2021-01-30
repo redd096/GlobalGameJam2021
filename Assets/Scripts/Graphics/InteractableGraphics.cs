@@ -19,7 +19,10 @@ public class InteractableGraphics : MonoBehaviour
 
     void OnDestroy()
     {
-        interactable.onChangeState -= OnChangeState;
+        if (interactable)
+        {
+            interactable.onChangeState -= OnChangeState;
+        }
     }
 
     void OnChangeState(bool isActive)
