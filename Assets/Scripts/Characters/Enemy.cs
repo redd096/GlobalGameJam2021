@@ -42,9 +42,10 @@ public class Enemy : Character
 
     void Update()
     {
-        Transform target;
+        Transform target = CheckVision();
+
         //if player in vision
-        if (CheckVision(out target))
+        if (target)
         {
             //be sure to stop idle coroutine
             if (idleLookAroundCoroutine != null)
@@ -78,13 +79,17 @@ public class Enemy : Character
 
     #region shoot
 
-    bool CheckVision(out Transform target)
+    Transform CheckVision()
     {
-        target = null;
+        Transform target = null;
 
         //foreach visible target
         foreach(Transform t in fov.VisibleTargets)
         {
+            //do only if t not null
+            if (t == null)
+                continue;
+
             //if can attack head too
             if (attackHead)
             {
@@ -96,7 +101,7 @@ public class Enemy : Character
                     if (head.HeadToEndGame && head.Owner == null)
                     {
                         target = head.transform;
-                        return true;
+                        break;
                     }
                 }
             }
@@ -106,11 +111,11 @@ public class Enemy : Character
             if(player != null)
             {
                 target = player.transform;
-                return true;
+                break;
             }
         }
 
-        return false;
+        return target;
     }
 
     void Shoot()
