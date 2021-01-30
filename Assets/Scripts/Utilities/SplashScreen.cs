@@ -3,6 +3,7 @@
     using System.Collections;
     using UnityEngine;
     using UnityEngine.UI;
+    using UnityEngine.InputSystem;
 
     [AddComponentMenu("redd096/MonoBehaviours/Splash Screen")]
     public class SplashScreen : MonoBehaviour
@@ -25,6 +26,10 @@
         [SerializeField] float timeToFadeOut = 1;
         [SerializeField] string nextSceneName = "Main Scene";
 
+        NewControls inputActions;
+        bool canPressButton;
+        bool pressedButton;
+
         void Start()
         {
             //if image is null, stop here
@@ -34,8 +39,26 @@
                 return;
             }
 
+            //bind input
+            inputActions = new NewControls();
+            inputActions.Enable();
+            inputActions.Gameplay.AnyKeySplashScreen.performed += AnyKey;
+
             //start splash screen
             StartCoroutine(FadeInAndOut());
+        }
+
+        private void OnDestroy()
+        {
+            inputActions.Disable();
+            inputActions.Gameplay.AnyKeySplashScreen.performed -= AnyKey;
+        }
+
+        void AnyKey(InputAction.CallbackContext callbackContext)
+        {
+            //if can press button, set pressed
+            if (canPressButton)
+                pressedButton = true;
         }
 
         IEnumerator FadeInAndOut()
@@ -65,7 +88,10 @@
                 //wait until press any key down
                 if (pressToContinue)
                 {
-                    while (!Input.anyKeyDown)
+                    //set can press button and wait press
+                    canPressButton = true;
+
+                    while (pressedButton == false)
                     {
                         yield return null;
                     }
