@@ -53,8 +53,13 @@ public class CharacterGraphics : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            Tombstone tombStone = Instantiate(tombStonePrefab, transform.position, Quaternion.identity);
-            tombStone.Init(lookingRight);
+
+            //instantiate tombstone
+            if (tombStonePrefab)
+            {
+                Tombstone tombStone = Instantiate(tombStonePrefab, transform.position, Quaternion.identity);
+                tombStone.Init(lookingRight);
+            }
         }
     }
 
