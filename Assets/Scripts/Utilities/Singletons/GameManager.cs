@@ -9,10 +9,11 @@
     public class GameManager : Singleton<GameManager>
     {
         [Header("Tombstone")]
+        [SerializeField] int limitTombStones = 5;
         [SerializeField] Tombstone tombStonePrefab = default;
 
         int previousScene;
-        public List<Vector3> deathPositions = new List<Vector3>();
+        List<Vector3> deathPositions = new List<Vector3>();
         Coroutine spawnTombStonesCoroutine;
 
         public UIManager uiManager { get; private set; }
@@ -71,6 +72,12 @@
         {
             //add to list
             deathPositions.Add(position);
+
+            //if reached limit, remove oldest one
+            if(deathPositions.Count >= limitTombStones)
+            {
+                deathPositions.RemoveAt(0);
+            }
         }
 
         #endregion
