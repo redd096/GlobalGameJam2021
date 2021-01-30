@@ -20,7 +20,7 @@ public class KillPlayer : MonoBehaviour
         HeadPlayer head = collision.GetComponentInParent<HeadPlayer>();
         if(head && head.IsStill)
         {
-            head.DestroyHead();
+            head.DestroyHead(true);
         }
     }
 }

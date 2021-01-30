@@ -33,7 +33,7 @@ public abstract class HeadPlayer : MonoBehaviour
     public Character Owner => owner;
 
     public System.Action onPickHead;
-    public System.Action onDestroyHead;
+    public System.Action<bool> onDestroyHead;
     public System.Action<bool> onCanPick;
     public System.Action onThrow;
     public System.Action onStop;
@@ -102,7 +102,7 @@ public abstract class HeadPlayer : MonoBehaviour
         //if hit destroy layer
         if(layerToDestroy.ContainsLayer(collision.gameObject.layer))
         {
-            DestroyHead();
+            DestroyHead(true);
         }
     }
 
@@ -177,9 +177,13 @@ public abstract class HeadPlayer : MonoBehaviour
 
     }
 
-    public void DestroyHead()
+    public void DestroyHead(bool falling)
     {
-        onDestroyHead?.Invoke();
+        //be sure to remove head
+        if (Owner)
+            owner.DropHead();
+
+        onDestroyHead?.Invoke(falling);
         enabled = false;
         rb.constraints = RigidbodyConstraints2D.FreezePosition;
     }
@@ -190,18 +194,8 @@ public abstract class HeadPlayer : MonoBehaviour
 
         if (health <= 0)
         {
-            Die(false);
+            DestroyHead(false);
         }
-    }
-
-    public void Die(bool falling)
-    {
-        //be sure to remove head
-        if (Owner)
-            owner.DropHead();
-
-        //destroy
-        Destroy(gameObject);
     }
 
     #endregion

@@ -12,6 +12,7 @@ public class HeadGraphics : MonoBehaviour
     [Header("Destroy")]
     [SerializeField] float timeToDestroy = 2;
     [SerializeField] AnimationCurve curveRotationSpeed = default;
+    [SerializeField] ParticleSystem explosionParticlePrefab = default;
 
     [Header("Can pick")]
     [SerializeField] GameObject hintCanPick = default;
@@ -28,7 +29,7 @@ public class HeadGraphics : MonoBehaviour
     protected HeadPlayer headPlayer;
 
     bool lookingRight;
-    Coroutine destroyHeadCoroutine;
+    Coroutine fallingCoroutine;
 
     Pooling<ParticleSystem> poolParticlesOnDrop = new Pooling<ParticleSystem>();
     Pooling<ParticleSystem> poolParticlesOnPick = new Pooling<ParticleSystem>();
@@ -100,10 +101,20 @@ public class HeadGraphics : MonoBehaviour
         particle.Play();
     }
 
-    void OnDestroyHead()
+    void OnDestroyHead(bool falling)
     {
-        if (destroyHeadCoroutine == null)
-            destroyHeadCoroutine = StartCoroutine(DestroyHeadCoroutine());
+        //death coroutine if falling
+        if (falling)
+        {
+            if (fallingCoroutine == null)
+                fallingCoroutine = StartCoroutine(FallingCoroutine());
+        }
+        //death by shot
+        else
+        {
+            Destroy(gameObject);
+            Instantiate(explosionParticlePrefab, transform.position, Quaternion.identity);
+        }
     }
 
     void OnThrow()
@@ -149,7 +160,7 @@ public class HeadGraphics : MonoBehaviour
         }
     }
 
-    IEnumerator DestroyHeadCoroutine()
+    IEnumerator FallingCoroutine()
     {
         //start vars
         float delta = 0;

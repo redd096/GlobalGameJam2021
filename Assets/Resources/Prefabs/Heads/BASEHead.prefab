@@ -96,6 +96,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  explosionParticlePrefab: {fileID: 1661875579986056035, guid: 140a2e5fb2454bf47af49a69ee8177f9,
+    type: 3}
   hintCanPick: {fileID: 7361922884003185829}
   trailOnThrow: {fileID: 6373435715998822839}
   prefabParticlesOnDrop: {fileID: 8947345715839835578, guid: 2744f65d7db487b4d90e72c5c0cb22a8,
