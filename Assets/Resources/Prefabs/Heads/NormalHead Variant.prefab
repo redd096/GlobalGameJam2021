@@ -141,6 +141,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e88f0050dde413744938c237f761b3e5, type: 3}
   - {fileID: 21300000, guid: e258c2d7b18aa1944b485c6cd6ca6af9, type: 3}
   - {fileID: 21300000, guid: a1c75048c376940429295fbfd9991785, type: 3}
+  - {fileID: 21300000, guid: a50bf65720d6b074da552833a5e8f565, type: 3}
+  - {fileID: 21300000, guid: 81b4d758dd8b88242a93c06846e2a0f3, type: 3}
+  - {fileID: 21300000, guid: f76d2ceaf6616b44a95d77888e445c46, type: 3}
+  - {fileID: 21300000, guid: 7a64f9f5740d6f946948f6e99175cf7a, type: 3}
+  - {fileID: 21300000, guid: 5279224c7abb26e49b8d508f175d7fb0, type: 3}
+  - {fileID: 21300000, guid: c87ffa232f8ecd547bdd472c720b1fe6, type: 3}
+  - {fileID: 21300000, guid: 7ca41a96c57bcae479976107cb6e590d, type: 3}
+  - {fileID: 21300000, guid: 566f7d9c6bb32644eb98720cadf81156, type: 3}
+  - {fileID: 21300000, guid: 643c83d92feabe94f822cb375997dc14, type: 3}
+  - {fileID: 21300000, guid: 4ce447b5bedf0f9448182905dca37c63, type: 3}
+  - {fileID: 21300000, guid: 3f64a45438a57ef4e8c49fc309dc88a2, type: 3}
   goldenHead: {fileID: 21300000, guid: 1f64cb1b1d29d524ab8754e2518e1ca1, type: 3}
   percentageGolden: 0.02
 --- !u!61 &8249414450835589378

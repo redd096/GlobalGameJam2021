@@ -131,6 +131,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  explosionParticlePrefab: {fileID: 0}
   hintCanPick: {fileID: 1439755179582484305}
   trailOnThrow: {fileID: 3288536383017916995}
   prefabParticlesOnDrop: {fileID: 8947345715839835578, guid: 2744f65d7db487b4d90e72c5c0cb22a8,
@@ -299,6 +300,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5282340994361173203, guid: 49578570a7518aa4e8a520eed3828fa4,
+        type: 3}
+      propertyPath: soundOnShoot.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282340994361173203, guid: 49578570a7518aa4e8a520eed3828fa4,
+        type: 3}
+      propertyPath: soundOnPickHead.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282340994361173203, guid: 49578570a7518aa4e8a520eed3828fa4,
+        type: 3}
+      propertyPath: soundOnShoot.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: a4061e12ff144ff47a9bcc49ea3d2c07, type: 3}
+    - target: {fileID: 5282340994361173203, guid: 49578570a7518aa4e8a520eed3828fa4,
+        type: 3}
+      propertyPath: soundOnPickHead.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: cb9372ccab0d22f44956dd3e016dcb79, type: 3}
+    - target: {fileID: 5282340994361173203, guid: 49578570a7518aa4e8a520eed3828fa4,
+        type: 3}
+      propertyPath: soundOnPickHead.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: cb9372ccab0d22f44956dd3e016dcb79, type: 3}
+    - target: {fileID: 5282340994361173203, guid: 49578570a7518aa4e8a520eed3828fa4,
+        type: 3}
+      propertyPath: soundOnPickHead.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: cb9372ccab0d22f44956dd3e016dcb79, type: 3}
+    - target: {fileID: 5282340994361173203, guid: 49578570a7518aa4e8a520eed3828fa4,
+        type: 3}
+      propertyPath: soundOnPickHead.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: cb9372ccab0d22f44956dd3e016dcb79, type: 3}
     - target: {fileID: 6895703003116481216, guid: 49578570a7518aa4e8a520eed3828fa4,
         type: 3}
       propertyPath: m_Sprite

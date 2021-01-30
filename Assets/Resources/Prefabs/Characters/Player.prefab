@@ -469,9 +469,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090f30dc2088bc244be4f9b4b79feb48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundOnFalling: []
-  soundOnDeadByShot: []
-  soundOnShoot: []
+  soundOnFalling:
+  - {fileID: 8300000, guid: 9ec0b9f710b13814da85574a4698cb10, type: 3}
+  soundOnDeadByShot:
+  - {fileID: 8300000, guid: 9ec0b9f710b13814da85574a4698cb10, type: 3}
+  soundOnShoot:
+  - {fileID: 8300000, guid: a4061e12ff144ff47a9bcc49ea3d2c07, type: 3}
 --- !u!1 &7956831623547702834
 GameObject:
   m_ObjectHideFlags: 0
