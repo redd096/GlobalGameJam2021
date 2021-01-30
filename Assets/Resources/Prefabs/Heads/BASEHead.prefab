@@ -68,7 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startRight: 1
   objectsToFlip:
-  - {fileID: 5723614055297532496}
+  - {fileID: 1224390486791375652}
   timeToDestroy: 2
   curveRotationSpeed:
     serializedVersion: 2

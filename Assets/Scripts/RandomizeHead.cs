@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[AddComponentMenu("Global Game Jam 2021/RandomizeHead")]
 public class RandomizeHead : MonoBehaviour
 {
     [Header("Heads")]
