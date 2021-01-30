@@ -25,12 +25,6 @@
             uiManager = FindObjectOfType<UIManager>();
 
             CheckSceneAndSpawnTombstones();
-
-            //ci sarà un sound manager che ogni volta che attiva un suono checka gli slider dei volumi
-
-            //attiva e disattiva post process
-
-            //attiva e disattiva la visuale col mouse
         }
 
         #region tombstones

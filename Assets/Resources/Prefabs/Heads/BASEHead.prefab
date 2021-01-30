@@ -116,7 +116,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d6a5b616096a4a84387240ac2801a00e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -212,13 +212,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89138c41cc66dbd4c95bf089176d3e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundOnCanPick: {fileID: 0}
-  soundOnPickHead: {fileID: 8300000, guid: d6a5b616096a4a84387240ac2801a00e, type: 3}
-  soundOnFallingHead: {fileID: 0}
-  soundOnDestroyHead: {fileID: 0}
-  soundOnThrow: {fileID: 0}
-  soundOnStopMovement: {fileID: 0}
-  soundOnDropHead: {fileID: 8300000, guid: ba733ade978500f47af2b98752521442, type: 3}
+  soundOnCanPick: []
+  soundOnPickHead: []
+  soundOnFallingHead: []
+  soundOnDestroyHead: []
+  soundOnThrow:
+  - {fileID: 8300000, guid: cf33902d113f61942be1d49fcd3c3d62, type: 3}
+  soundOnStopMovement: []
+  soundOnDropHead:
+  - {fileID: 8300000, guid: f9fbec0b82bd93649bbde8d598f84b4e, type: 3}
+  - {fileID: 8300000, guid: ba733ade978500f47af2b98752521442, type: 3}
+  soundOnShoot: []
 --- !u!1 &5337150731861064372
 GameObject:
   m_ObjectHideFlags: 0

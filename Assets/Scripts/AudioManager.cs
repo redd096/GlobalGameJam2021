@@ -12,6 +12,7 @@ public class AudioManager : Singleton<AudioManager>
         if (audioSource && audioClip != null && audioClip.Length > 0)
         {
             audioSource.clip = audioClip[Random.Range(0, audioClip.Length)];
+            audioSource.Stop();
             audioSource.Play();
         }
     }

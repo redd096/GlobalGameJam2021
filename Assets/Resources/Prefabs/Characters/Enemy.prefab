@@ -588,6 +588,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   tombStonePrefab: {fileID: 0}
+  objectsToChangeAlpha: []
+  alphaOnBlackScreen: 0.3
   objectToRotate: {fileID: 3234027687089266096}
 --- !u!82 &1406742698483177151
 AudioSource:
@@ -600,7 +602,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

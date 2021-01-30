@@ -14,17 +14,14 @@ public class OptionsManager : Singleton<OptionsManager>
     public bool useAim { get; private set; }
     public bool usePostProcessLayer { get; private set; }
 
-    void OnEnable()
+    protected override void SetDefaults()
     {
+        base.SetDefaults();
+
         //load 
         volume = PlayerPrefs.GetFloat("Options_Volume", defaultVolume);
         useAim = PlayerPrefs.GetInt("Options_UseAim", defaultUseAim ? 1 : 0) > 0 ? true : false;
         usePostProcessLayer = PlayerPrefs.GetInt("Options_UsePostProcess", defaultUsePostProcess ? 1 : 0) > 0 ? true : false;
-    }
-
-    protected override void SetDefaults()
-    {
-        base.SetDefaults();
 
         //set in scene
         SetInScene();
