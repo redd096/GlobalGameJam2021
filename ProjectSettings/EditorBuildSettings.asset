@@ -15,27 +15,42 @@ EditorBuildSettings:
     path: Assets/_Scenes/GameScenes/Scene2.unity
     guid: 80e74f7c01f432b4ea7143d5a8ad2712
   - enabled: 1
-    path: Assets/_Scenes/Livelli Demmerda/Level 04.unity
+    path: Assets/_Scenes/Livelli Demmerda/Usati/Level 04.unity
     guid: 0945dff0b080bcb4fadad6306d22a3e0
   - enabled: 1
-    path: Assets/_Scenes/Livelli Demmerda/Level 05.unity
+    path: Assets/_Scenes/Livelli Demmerda/Usati/Level 05.unity
     guid: f3c9bd20273b96c4c940b5cc0fc5a8fc
   - enabled: 1
-    path: Assets/_Scenes/Livelli Demmerda/Level 01.unity
+    path: Assets/_Scenes/Livelli Demmerda/Usati/Level 01.unity
     guid: e3f2e4a54dfc48a46bb410188ff733aa
   - enabled: 1
-    path: Assets/_Scenes/Livelli Demmerda/Level 07.unity
-    guid: 69dd3268e0e05b340817b4f635bee070
-  - enabled: 1
-    path: Assets/_Scenes/Livelli Demmerda/Level 09.unity
+    path: Assets/_Scenes/Livelli Demmerda/Usati/Level 09.unity
     guid: 0507e49c244c3774483b0e945209d724
   - enabled: 1
-    path: Assets/_Scenes/Livelli Demmerda/Level 03.unity
+    path: Assets/_Scenes/Livelli Demmerda/Usati/Level 03.unity
     guid: b8c80e6725614b446b176df98811ba0c
   - enabled: 1
-    path: Assets/_Scenes/Livelli Demmerda/Level 06.unity
+    path: Assets/_Scenes/Livelli Demmerda/Usati/Level 06.unity
     guid: 6bad55fb8c56dff4a86a7cf69ad0ebac
   - enabled: 1
     path: Assets/_Scenes/GameScenes/Scene3.unity
     guid: b4fa0cc9c60487949a5c2c33ab131bec
+  - enabled: 1
+    path: Assets/_Scenes/Livelli Demmerda/Level 02.unity
+    guid: b2dd37ceff322c84ba2778d8eb637ce1
+  - enabled: 1
+    path: Assets/_Scenes/Livelli Demmerda/Level 08.unity
+    guid: 8ae9340114e004f4bad3456742cb1f71
+  - enabled: 1
+    path: Assets/_Scenes/Livelli Demmerda/Level 10.unity
+    guid: 5c08bb3f9ef3e7d4f9d7baa39f7ada1f
+  - enabled: 1
+    path: Assets/_Scenes/Livelli Demmerda/Level 11.unity
+    guid: a10175be7f7831b49ab2f35c17198e82
+  - enabled: 1
+    path: Assets/_Scenes/Livelli Demmerda/Level 12.unity
+    guid: 8fd1628f76af5ac45ad83406e697c91e
+  - enabled: 1
+    path: Assets/_Scenes/Livelli Demmerda/Level 13.unity
+    guid: 09982930928edb8449f594889c6322fb
   m_configObjects: {}

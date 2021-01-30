@@ -56,31 +56,31 @@ public class OptionsManager : Singleton<OptionsManager>
     public void SetVolume(float newVolume)
     {
         //save
-        volume = newVolume;
+        instance.volume = newVolume;
         PlayerPrefs.SetFloat("Options_Volume", newVolume);
 
         //set in scene
-        SetInScene();
+        instance.SetInScene();
     }
 
     public void SetUseMouse(bool useMouse)
     {
         //save
-        useAim = useMouse;
+        instance.useAim = useMouse;
         PlayerPrefs.SetInt("Options_UseAim", useMouse ? 1 : 0);
 
         //set in scene
-        SetInScene();
+        instance.SetInScene();
     }
 
     public void SetPostProcess(bool usePostProcess)
     {
         //save
-        usePostProcessLayer = usePostProcess;
+        instance.usePostProcessLayer = usePostProcess;
         PlayerPrefs.SetInt("Options_UsePostProcess", usePostProcess ? 1 : 0);
 
         //set in scene
-        SetInScene();
+        instance.SetInScene();
     }
 
     #endregion

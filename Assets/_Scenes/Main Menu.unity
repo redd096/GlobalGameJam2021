@@ -565,7 +565,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293325}
+      - m_Target: {fileID: 6007362778924452252, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: SetPostProcess
         m_Mode: 0
         m_Arguments:
@@ -1323,7 +1324,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 07
+          m_StringArgument: Level 09
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &433357384
@@ -1553,18 +1554,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61e73179fcd5b524ab2d0c3d76895b78, type: 3}
---- !u!114 &607293325 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6007362778924452252, guid: 61e73179fcd5b524ab2d0c3d76895b78,
-    type: 3}
-  m_PrefabInstance: {fileID: 607293324}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5120790145b438e4582a9fbfc8763026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &607293326 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
@@ -1668,7 +1657,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Scene3
+          m_StringArgument: Level 02
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &629132957
@@ -2081,7 +2070,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 03
+          m_StringArgument: Level 06
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &787755466
@@ -2358,7 +2347,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293325}
+      - m_Target: {fileID: 6007362778924452252, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: SetUseMouse
         m_Mode: 0
         m_Arguments:
@@ -2531,15 +2521,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 607293326}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 12
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &937014586
@@ -2818,15 +2808,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 607293326}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 11
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1008903238
@@ -3324,15 +3314,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 607293326}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 13
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1134568141
@@ -3987,7 +3977,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 09
+          m_StringArgument: Level 03
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1319022700
@@ -5345,7 +5335,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 06
+          m_StringArgument: Scene3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1687488506
@@ -5640,15 +5630,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 607293326}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 10
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1840466388
@@ -5927,15 +5917,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 607293326}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 08
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1931065403
@@ -6220,7 +6210,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293325}
+      - m_Target: {fileID: 6007362778924452252, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
