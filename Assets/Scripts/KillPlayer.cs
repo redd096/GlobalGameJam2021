@@ -18,7 +18,7 @@ public class KillPlayer : MonoBehaviour
     {
         //if there is an head and is still, destroy
         HeadPlayer head = collision.GetComponentInParent<HeadPlayer>();
-        if(head && head.IsStill)
+        if(head && head.IsStill && head.Owner == null)
         {
             head.DestroyHead(true);
         }

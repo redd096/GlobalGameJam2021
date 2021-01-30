@@ -33,6 +33,8 @@ public abstract class Character : MonoBehaviour
 
     protected Rigidbody2D rb;
 
+    bool dieOnlyOneTime;
+
     protected virtual void Awake()
     {
         //get reference
@@ -51,6 +53,11 @@ public abstract class Character : MonoBehaviour
 
     public void Die(bool falling)
     {
+        if (dieOnlyOneTime)
+            return;
+
+        dieOnlyOneTime = true;
+
         onDead?.Invoke(falling);
         enabled = false;
         rb.constraints = RigidbodyConstraints2D.FreezePosition;
