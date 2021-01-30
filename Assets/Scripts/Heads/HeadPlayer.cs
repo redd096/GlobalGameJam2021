@@ -40,6 +40,8 @@ public abstract class HeadPlayer : MonoBehaviour
     public System.Action onStop;
     public System.Action onDropHead;
 
+    Collider2D lastHitted;
+
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -51,10 +53,20 @@ public abstract class HeadPlayer : MonoBehaviour
         }
     }
 
-    protected virtual void OnTriggerStay2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
+        //set last hitted
+        lastHitted = collision;
+
         //bounce on hit
         CheckHit(collision);
+    }
+
+    void OnTriggerExit(Collider2D collision)
+    {
+        //remove last hitted
+        if (collision == lastHitted)
+            lastHitted = null;
     }
 
     #region private API
@@ -79,7 +91,7 @@ public abstract class HeadPlayer : MonoBehaviour
         }
     }
 
-    void CheckHit(Collider2D collision)
+    protected virtual void CheckHit(Collider2D collision)
     {
         //if hit lever, stop movement
         if(collision.GetComponentInParent<Lever>())
@@ -171,11 +183,17 @@ public abstract class HeadPlayer : MonoBehaviour
 
         //event
         onThrow?.Invoke();
+
+
+        //check last hit, for head inside colliders when throw
+        if (lastHitted)
+        {
+            CheckHit(lastHitted);
+        }
     }
 
     public virtual void OnPlayerCollisionEnter2D(Collision2D collision)
     {
-
     }
 
     public void DestroyHead(bool falling)
