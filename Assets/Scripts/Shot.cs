@@ -20,11 +20,6 @@ public class Shot : MonoBehaviour
 
     public System.Action onHit;
 
-    void OnEnable()
-    {
-        AudioManager.PlaySound(gameObject);
-    }
-
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
