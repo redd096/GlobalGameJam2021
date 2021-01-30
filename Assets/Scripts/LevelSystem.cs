@@ -8,6 +8,7 @@ public struct LevelStruct
     public string checkPointNecessary;
 }
 
+[AddComponentMenu("Global Game Jam 2021/Level System")]
 public class LevelSystem : MonoBehaviour
 {
     [SerializeField] LevelStruct[] levels = default;

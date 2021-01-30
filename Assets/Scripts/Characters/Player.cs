@@ -16,7 +16,7 @@ public class Player : Character
     [SerializeField] float areaToPick = 1;
 
     [Header("Throw")]
-    [SerializeField] bool useAim = false;
+    public bool useAim = false;
     [SerializeField] float forceThrow = 10;
 
     HeadPlayer headToGrab;
