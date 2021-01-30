@@ -4203,6 +4203,8 @@ MonoBehaviour:
   m_DragThreshold: 10
   firstSelectedGameObjects:
   - {fileID: 409398799}
+  - {fileID: 1299209543}
+  - {fileID: 1575712459}
   overrideObjects: []
   notInteractables: []
 --- !u!114 &1453948951
