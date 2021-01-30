@@ -11,6 +11,14 @@
         {
             //get references
             uiManager = FindObjectOfType<UIManager>();
+
+
+            //controlla se è la stessa scena di prima
+            //avrà una lista di transform in cui piazzare
+            //un prefab della tomba
+            //si resetta quando cambia scena
+
+            //ci sarà un sound manager che ogni volta che attiva un suono checka gli slider dei volumi
         }
     }
 }

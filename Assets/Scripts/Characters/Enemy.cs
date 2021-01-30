@@ -3,6 +3,7 @@ using redd096;
 
 [AddComponentMenu("Global Game Jam 2021/Characters/Enemy")]
 [SelectionBase]
+[RequireComponent(typeof(EnemyGraphics))]
 public class Enemy : Character
 {
     //[Header("Vision")]
@@ -19,6 +20,16 @@ public class Enemy : Character
 
     float timerShot;
     Pooling<Shot> shots = new Pooling<Shot>();
+
+    FieldOfView2D fov;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        //get fov
+        fov = GetComponent<FieldOfView2D>();
+    }
 
     void Update()
     {
@@ -40,7 +51,17 @@ public class Enemy : Character
     {
         player = null;
 
-
+        //foreach visible target
+        foreach(Transform target in fov.VisibleTargets)
+        {
+            //check if found player
+            player = target.GetComponentInParent<Player>();
+            if(player != null)
+            {
+                Debug.Log("ok");
+                return true;
+            }
+        }
 
         return false;
     }
@@ -48,12 +69,12 @@ public class Enemy : Character
     void Shoot(Player player)
     {
         //calculate direction
-        Vector2 direction = shotSpawnPosition.position - player.transform.position;
-        direction.Normalize();
+        DirectionPlayer =  player.transform.position - shotSpawnPosition.position;
+        DirectionPlayer.Normalize();
 
         //instantiate shot
         Shot shot = shots.Instantiate(shotPrefab, shotSpawnPosition.position, Quaternion.identity);
-        shot.Init(direction, speedShot, damage, this);
+        shot.Init(DirectionPlayer, speedShot, damage, this);
     }
 
     public override void PickHead()

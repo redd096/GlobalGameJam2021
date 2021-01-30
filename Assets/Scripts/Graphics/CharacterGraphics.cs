@@ -15,10 +15,10 @@ public class CharacterGraphics : MonoBehaviour
 
     Coroutine fallingCoroutine;
 
-    Character character;
+    protected Character character;
     bool lookingRight;
 
-    void Awake()
+    protected virtual void Awake()
     {
         character = GetComponent<Character>();
 
