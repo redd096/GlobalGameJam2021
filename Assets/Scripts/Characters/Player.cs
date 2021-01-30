@@ -38,6 +38,18 @@ public class Player : Character
         AddCommands();
     }
 
+    private void OnEnable()
+    {
+        if (inputActions != null)
+            inputActions.Enable();
+    }
+
+    private void OnDisable()
+    {
+        if (inputActions != null)
+            inputActions.Disable();
+    }
+
     void OnDestroy()
     {
         RemoveCommands();
@@ -117,6 +129,7 @@ public class Player : Character
         inputActions.Gameplay.PickAndDrop.performed += PickAndDrop;
         inputActions.Gameplay.Throw.performed += Throw;
         inputActions.Gameplay.Restart.performed += Restart;
+        inputActions.Gameplay.Pause.performed += Pause;
     }
 
     void RemoveCommands()
@@ -127,6 +140,7 @@ public class Player : Character
             inputActions.Gameplay.PickAndDrop.performed -= PickAndDrop;
             inputActions.Gameplay.Throw.performed -= Throw;
             inputActions.Gameplay.Restart.performed -= Restart;
+            inputActions.Gameplay.Pause.performed -= Pause;
         }
     }
 
@@ -201,6 +215,12 @@ public class Player : Character
 
         //restart game
         SceneLoader.instance.RestartGame();
+    }
+
+    void Pause(InputAction.CallbackContext callbackContext)
+    {
+        //pause game
+        SceneLoader.instance.PauseGame();
     }
 
     #endregion

@@ -11,22 +11,44 @@ public class Tombstone : MonoBehaviour
 
     NewControls inputActions;
 
+    public static Tombstone player;
+
+    private void OnEnable()
+    {
+        if (inputActions != null)
+            inputActions.Enable();
+    }
+
+    private void OnDisable()
+    {
+        if (inputActions != null)
+            inputActions.Disable();
+    }
+
     void OnDestroy()
     {
+        //remove this as player
+        player = null;
+
         //remove inputs
         if (inputActions != null)
         {
             inputActions.Disable();
             inputActions.Gameplay.Restart.performed -= Restart;
+            inputActions.Gameplay.Pause.performed -= Pause;
         }
     }
 
     public void Init(bool lookingRight)
     {
+        //set this tombstone as player
+        player = this;
+
         //set input for restart
         inputActions = new NewControls();
         inputActions.Enable();
         inputActions.Gameplay.Restart.performed += Restart;
+        inputActions.Gameplay.Pause.performed += Pause;
 
         //rotate sprites
         if (lookingRight)
@@ -50,5 +72,11 @@ public class Tombstone : MonoBehaviour
 
         //restart game
         SceneLoader.instance.RestartGame();
+    }
+
+    void Pause(InputAction.CallbackContext callbackContext)
+    {
+        //pause game
+        SceneLoader.instance.PauseGame();
     }
 }

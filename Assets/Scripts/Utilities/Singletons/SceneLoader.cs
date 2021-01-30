@@ -15,10 +15,13 @@
             GameManager.instance.uiManager.PauseMenu(false);
 
             //set timeScale to 1
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
 
             //enable player input and hide cursor
-            //GameManager.instance.player.enabled = true;
+            if (GameManager.instance.player)
+                GameManager.instance.player.enabled = true;
+            else if (Tombstone.player != null)
+                Tombstone.player.enabled = true;
             //Utility.LockMouse(CursorLockMode.Locked);
         }
 
@@ -31,10 +34,13 @@
             GameManager.instance.uiManager.PauseMenu(true);
 
             //stop time
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
 
             //disable player input and show cursor
-            //GameManager.instance.player.enabled = false;
+            if (GameManager.instance.player)
+                GameManager.instance.player.enabled = false;
+            else if (Tombstone.player != null)
+                Tombstone.player.enabled = false;
             //Utility.LockMouse(CursorLockMode.None);
         }
 

@@ -73,6 +73,22 @@ public class @NewControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""3b3ec528-a876-4837-bda1-5e1a2214bf6e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Resume"",
+                    ""type"": ""Button"",
+                    ""id"": ""75a2dce7-2b41-48e3-b599-28157e53d413"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -255,11 +271,66 @@ public class @NewControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ff35c28c-7192-4bc8-bfc5-b530a749b4ad"",
-                    ""path"": ""<Gamepad>/start"",
+                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""016ecda6-dc6a-4bd6-9544-0e8533661605"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard + Mouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e0906bd-6726-4ceb-bc6e-6228898be17e"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de3f289f-686e-4341-aa07-e0e40f1fc12c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard + Mouse"",
+                    ""action"": ""Resume"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1ac511b-e0f8-42f2-b0d3-42c0ffaffe27"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Resume"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3099ecc-9bf8-4ceb-87a0-acb64e8ba3fc"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Resume"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -300,6 +371,8 @@ public class @NewControls : IInputActionCollection, IDisposable
         m_Gameplay_AimGamepad = m_Gameplay.FindAction("Aim Gamepad", throwIfNotFound: true);
         m_Gameplay_AimMouse = m_Gameplay.FindAction("Aim Mouse", throwIfNotFound: true);
         m_Gameplay_Restart = m_Gameplay.FindAction("Restart", throwIfNotFound: true);
+        m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+        m_Gameplay_Resume = m_Gameplay.FindAction("Resume", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -356,6 +429,8 @@ public class @NewControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_AimGamepad;
     private readonly InputAction m_Gameplay_AimMouse;
     private readonly InputAction m_Gameplay_Restart;
+    private readonly InputAction m_Gameplay_Pause;
+    private readonly InputAction m_Gameplay_Resume;
     public struct GameplayActions
     {
         private @NewControls m_Wrapper;
@@ -367,6 +442,8 @@ public class @NewControls : IInputActionCollection, IDisposable
         public InputAction @AimGamepad => m_Wrapper.m_Gameplay_AimGamepad;
         public InputAction @AimMouse => m_Wrapper.m_Gameplay_AimMouse;
         public InputAction @Restart => m_Wrapper.m_Gameplay_Restart;
+        public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
+        public InputAction @Resume => m_Wrapper.m_Gameplay_Resume;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -397,6 +474,12 @@ public class @NewControls : IInputActionCollection, IDisposable
                 @Restart.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestart;
                 @Restart.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestart;
                 @Restart.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestart;
+                @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @Resume.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResume;
+                @Resume.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResume;
+                @Resume.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResume;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -422,6 +505,12 @@ public class @NewControls : IInputActionCollection, IDisposable
                 @Restart.started += instance.OnRestart;
                 @Restart.performed += instance.OnRestart;
                 @Restart.canceled += instance.OnRestart;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+                @Resume.started += instance.OnResume;
+                @Resume.performed += instance.OnResume;
+                @Resume.canceled += instance.OnResume;
             }
         }
     }
@@ -453,5 +542,7 @@ public class @NewControls : IInputActionCollection, IDisposable
         void OnAimGamepad(InputAction.CallbackContext context);
         void OnAimMouse(InputAction.CallbackContext context);
         void OnRestart(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+        void OnResume(InputAction.CallbackContext context);
     }
 }
