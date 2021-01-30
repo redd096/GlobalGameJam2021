@@ -565,7 +565,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293325}
+      - m_Target: {fileID: 6007362778924452252, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: SetPostProcess
         m_Mode: 0
         m_Arguments:
@@ -1553,18 +1554,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61e73179fcd5b524ab2d0c3d76895b78, type: 3}
---- !u!114 &607293325 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6007362778924452252, guid: 61e73179fcd5b524ab2d0c3d76895b78,
-    type: 3}
-  m_PrefabInstance: {fileID: 607293324}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5120790145b438e4582a9fbfc8763026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &607293326 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
@@ -2358,7 +2347,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293325}
+      - m_Target: {fileID: 6007362778924452252, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: SetUseMouse
         m_Mode: 0
         m_Arguments:
@@ -6220,7 +6210,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293325}
+      - m_Target: {fileID: 6007362778924452252, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
