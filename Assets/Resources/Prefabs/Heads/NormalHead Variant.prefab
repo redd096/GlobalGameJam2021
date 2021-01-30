@@ -103,6 +103,23 @@ MonoBehaviour:
   decreaseSpeedEverySecond: 5
   decreaseSpeedAtBounce: 3
   blackSprite: {fileID: 0}
+--- !u!114 &5885310675838076026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3692128623982883336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5820243d24a4ca44b0322a61f5fa1a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteToChange: {fileID: 3054479818294067508}
+  heads:
+  - {fileID: 21300000, guid: c4a52a97f904d5045b3aa2d6476aadc8, type: 3}
+  goldenHead: {fileID: 0}
+  percentageGolden: 0.05
 --- !u!61 &8249414450835589378
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -199,6 +216,12 @@ Transform:
 --- !u!1 &4593841213598454080 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5337150731861064372, guid: 49578570a7518aa4e8a520eed3828fa4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8489782752355199988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3054479818294067508 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6895703003116481216, guid: 49578570a7518aa4e8a520eed3828fa4,
     type: 3}
   m_PrefabInstance: {fileID: 8489782752355199988}
   m_PrefabAsset: {fileID: 0}
