@@ -292,7 +292,7 @@ RectTransform:
   - {fileID: 1851933468}
   - {fileID: 148818557}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17372,12 +17372,17 @@ PrefabInstance:
     - target: {fileID: 2514487106449841248, guid: 4afc09c226f06864cbf33a64e2b4ac75,
         type: 3}
       propertyPath: nameCheckpoint
-      value: 1
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514487106449841248, guid: 4afc09c226f06864cbf33a64e2b4ac75,
+        type: 3}
+      propertyPath: nameLevelToLoad
+      value: Level 11
       objectReference: {fileID: 0}
     - target: {fileID: 2514487106449841250, guid: 4afc09c226f06864cbf33a64e2b4ac75,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2514487106449841250, guid: 4afc09c226f06864cbf33a64e2b4ac75,
         type: 3}
