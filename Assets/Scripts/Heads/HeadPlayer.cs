@@ -62,7 +62,7 @@ public abstract class HeadPlayer : MonoBehaviour
         CheckHit(collision);
     }
 
-    void OnTriggerExit(Collider2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
         //remove last hitted
         if (collision == lastHitted)
