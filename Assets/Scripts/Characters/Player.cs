@@ -44,7 +44,6 @@ public class Player : Character
     private void Update()
     {
         Aim();
-        Debug.Log("DioCaneMorto:" + rb.velocity.magnitude);
 
         if (rb.velocity.magnitude > 0.5f)
         {
