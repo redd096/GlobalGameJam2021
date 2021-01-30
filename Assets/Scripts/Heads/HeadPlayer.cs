@@ -8,6 +8,7 @@ public abstract class HeadPlayer : MonoBehaviour
 {
     [Header("Important")]
     public bool HeadToEndGame = false;
+    [SerializeField] float health = 100;
 
     [Header("Layers")]
     [SerializeField] int layerOnPick = 4;
@@ -181,6 +182,26 @@ public abstract class HeadPlayer : MonoBehaviour
         onDestroyHead?.Invoke();
         enabled = false;
         rb.constraints = RigidbodyConstraints2D.FreezePosition;
+    }
+
+    public void GetDamage(float damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Die(false);
+        }
+    }
+
+    public void Die(bool falling)
+    {
+        //be sure to remove head
+        if (Owner)
+            owner.DropHead();
+
+        //destroy
+        Destroy(gameObject);
     }
 
     #endregion

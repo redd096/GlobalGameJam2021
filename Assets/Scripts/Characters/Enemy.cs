@@ -7,6 +7,9 @@ using redd096;
 [RequireComponent(typeof(EnemyGraphics))]
 public class Enemy : Character
 {
+    [Header("Attack Heads")]
+    [SerializeField] bool attackHead = true;
+
     [Header("Shoot")]
     [SerializeField] float damage = 10;
     [SerializeField] float rateOfFire = 0.1f;
@@ -39,9 +42,9 @@ public class Enemy : Character
 
     void Update()
     {
+        Transform target;
         //if player in vision
-        Player player;
-        if (CheckVision(out player))
+        if (CheckVision(out target))
         {
             //be sure to stop idle coroutine
             if (idleLookAroundCoroutine != null)
@@ -51,7 +54,7 @@ public class Enemy : Character
             }
 
             //calculate direction
-            DirectionPlayer = (player.transform.position - shotSpawnPosition.position).normalized;
+            DirectionPlayer = (target.position - shotSpawnPosition.position).normalized;
         }
         //else look around
         else
@@ -66,26 +69,43 @@ public class Enemy : Character
             timerShot = Time.time + rateOfFire;
 
             //if player in vision, shoot him
-            if (CheckVision(out player))
+            if (target != null)
             {
-                Shoot(player);
+                Shoot();
             }
         }
     }
 
     #region shoot
 
-    bool CheckVision(out Player player)
+    bool CheckVision(out Transform target)
     {
-        player = null;
+        target = null;
 
         //foreach visible target
-        foreach(Transform target in fov.VisibleTargets)
+        foreach(Transform t in fov.VisibleTargets)
         {
+            //if can attack head too
+            if (attackHead)
+            {
+                //check if there is the important head on ground
+                HeadPlayer head = t.GetComponentInParent<HeadPlayer>();
+                if (head != null)
+                {
+                    //if is the important one and not on the owner
+                    if (head.HeadToEndGame && head.Owner == null)
+                    {
+                        target = head.transform;
+                        return true;
+                    }
+                }
+            }
+
             //check if found player
-            player = target.GetComponentInParent<Player>();
+            Player player = t.GetComponentInParent<Player>();
             if(player != null)
             {
+                target = player.transform;
                 return true;
             }
         }
@@ -93,7 +113,7 @@ public class Enemy : Character
         return false;
     }
 
-    void Shoot(Player player)
+    void Shoot()
     {
         //instantiate shot
         Shot shot = shots.Instantiate(shotPrefab, shotSpawnPosition.position, Quaternion.identity);

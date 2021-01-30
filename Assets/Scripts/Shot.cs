@@ -41,6 +41,17 @@ public class Shot : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //check if hit the important head on ground
+        HeadPlayer head = collision.GetComponentInParent<HeadPlayer>();
+        if(head && head.HeadToEndGame && head.Owner == null)
+        {
+            //if is the important one and not on the owner
+            onHit?.Invoke();
+            head.GetDamage(damage);
+            Pooling.Destroy(gameObject);
+            return;
+        }
+
         //if hit player, damage and destroy shot
         Character character = collision.GetComponentInParent<Character>();
         if(character && character != owner)
@@ -48,6 +59,7 @@ public class Shot : MonoBehaviour
             onHit?.Invoke();
             character.GetDamage(damage);
             Pooling.Destroy(gameObject);
+            return;
         }
 
         //if hit destroy layer, destroy shot
@@ -55,6 +67,7 @@ public class Shot : MonoBehaviour
         {
             onHit?.Invoke();
             Pooling.Destroy(gameObject);
+            return;
         }
     }
 

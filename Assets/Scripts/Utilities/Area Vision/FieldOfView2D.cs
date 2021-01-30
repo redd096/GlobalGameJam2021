@@ -31,6 +31,20 @@
                 Handles.DrawLine(fov.transform.position, visibleTarget.position);
             }
         }
+
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+
+            GUILayout.Space(10);
+
+            //button to show if hit targets
+            if(GUILayout.Button("Update Targets"))
+            {
+                FieldOfView2D fov = (FieldOfView2D)target;
+                fov.FindVisibleTargets();
+            }
+        }
     }
 
 #endif
@@ -68,7 +82,9 @@
             }
         }
 
-        void FindVisibleTargets()
+        #region public API
+
+        public void FindVisibleTargets()
         {
             visibleTargets.Clear();
 
@@ -84,7 +100,7 @@
                 if (Vector2.Angle(StartDirection, dirToTarget) < viewAngle / 2)
                 {
                     //throw raycast to see is not hide by an obstacle
-                    float distToTarget = Vector2.Distance(transform.position, target.position);                    
+                    float distToTarget = Vector2.Distance(transform.position, target.position);
                     if (Physics2D.Raycast(transform.position, dirToTarget, distToTarget, obstacleMask).collider == null)
                     {
                         //add to list
@@ -93,8 +109,6 @@
                 }
             }
         }
-
-        #region public API
 
         public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
         {
