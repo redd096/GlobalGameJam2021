@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2dd6f85283ea9e4c923f111218f34e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockWhenActive: 0
+  lockWhenActive: 1
   objectsToActivate: []
 --- !u!1001 &367708785508811897
 PrefabInstance:

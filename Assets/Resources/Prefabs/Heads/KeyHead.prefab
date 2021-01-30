@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Bits: 0
   decreaseSpeedEverySecond: 5
   decreaseSpeedAtBounce: 3
-  canOpenWhenThrowed: 1
+  canOpenWhenThrowed: 0
   objectToOpen: {fileID: 0}
 --- !u!61 &8249414450835589378
 BoxCollider2D:
