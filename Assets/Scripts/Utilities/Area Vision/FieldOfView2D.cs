@@ -50,10 +50,11 @@
         List<Transform> visibleTargets = new List<Transform>();
 
         public List<Transform> VisibleTargets => visibleTargets;
-        public Vector3 StartDirection => pointDirection ? (pointDirection.position - transform.position).normalized : Vector3.up;   //direction from our to pointDirection
+        public Vector3 StartDirection => pointDirection ? (pointDirection.position - transform.position).normalized : Vector3.up;   //direction from our to pointDirection - else look up
 
         void Start()
         {
+            //start look every tot seconds
             StartCoroutine("FindTargetsWithDelay", 0.2f);
         }
 
@@ -100,9 +101,10 @@
             //direction cone vision
             if (angleIsGlobal == false)
             {
-                //rotate to aim position
+                //rotate to point direction
                 float angle = Vector2.SignedAngle(Vector2.up, StartDirection);
                 Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
                 angleInDegrees -= rotation.eulerAngles.z;
             }
 
