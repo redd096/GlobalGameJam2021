@@ -567,7 +567,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 607293325}
         m_MethodName: SetPostProcess
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1814,11 +1814,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - button: {fileID: 0}
+  - button: {fileID: 1100252843}
     checkPointNecessary: 
-  - button: {fileID: 0}
+  - button: {fileID: 420527962}
     checkPointNecessary: 
-  - button: {fileID: 0}
+  - button: {fileID: 1614042833}
     checkPointNecessary: 
 --- !u!1 &744139738
 GameObject:
@@ -2322,7 +2322,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 607293325}
         m_MethodName: SetUseMouse
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2954,8 +2954,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e93f0fc3349be4cad0667401a217d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderVolume: {fileID: 0}
-  toggleUseAim: {fileID: 0}
+  sliderVolume: {fileID: 2055282935}
+  toggleUseAim: {fileID: 821294851}
   toggleUsePostProcessLayer: {fileID: 179080693}
 --- !u!1 &1037748256
 GameObject:
@@ -3154,15 +3154,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Scene1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1100252844
@@ -5974,7 +5975,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 607293325}
         m_MethodName: SetVolume
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -9,7 +9,7 @@ public class OptionsUI : MonoBehaviour
     [SerializeField] Toggle toggleUseAim = default;
     [SerializeField] Toggle toggleUsePostProcessLayer = default;
 
-    void Start()
+    void OnEnable()
     {
         //update UI
         sliderVolume.value = OptionsManager.instance.volume;
