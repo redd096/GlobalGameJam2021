@@ -17,4 +17,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Livelli Demmerda/Level 04.unity
     guid: 0945dff0b080bcb4fadad6306d22a3e0
+  - enabled: 1
+    path: Assets/_Scenes/Livelli Demmerda/Level 05.unity
+    guid: f3c9bd20273b96c4c940b5cc0fc5a8fc
+  - enabled: 1
+    path: Assets/_Scenes/Livelli Demmerda/Level 01.unity
+    guid: e3f2e4a54dfc48a46bb410188ff733aa
+  - enabled: 1
+    path: Assets/_Scenes/Livelli Demmerda/Level 07.unity
+    guid: 69dd3268e0e05b340817b4f635bee070
+  - enabled: 1
+    path: Assets/_Scenes/Livelli Demmerda/Level 09.unity
+    guid: 0507e49c244c3774483b0e945209d724
+  - enabled: 1
+    path: Assets/_Scenes/Livelli Demmerda/Level 03.unity
+    guid: b8c80e6725614b446b176df98811ba0c
+  - enabled: 1
+    path: Assets/_Scenes/Livelli Demmerda/Level 06.unity
+    guid: 6bad55fb8c56dff4a86a7cf69ad0ebac
+  - enabled: 1
+    path: Assets/_Scenes/GameScenes/Scene3.unity
+    guid: b4fa0cc9c60487949a5c2c33ab131bec
   m_configObjects: {}
