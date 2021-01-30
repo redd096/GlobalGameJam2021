@@ -701,4 +701,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundOnFalling: []
   soundOnDeadByShot: []
-  soundOnShoot: []
+  soundOnShoot:
+  - {fileID: 8300000, guid: a4061e12ff144ff47a9bcc49ea3d2c07, type: 3}
