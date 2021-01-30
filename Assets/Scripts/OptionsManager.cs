@@ -1,31 +1,25 @@
 ﻿using UnityEngine;
 using redd096;
 using UnityEngine.Rendering.PostProcessing;
-using UnityEngine.UI;
 
 [AddComponentMenu("Global Game Jam 2021/Options Manager")]
 public class OptionsManager : Singleton<OptionsManager>
 {
-    [Header("UI")]
-    [SerializeField] Slider sliderVolume = default;
-    [SerializeField] Toggle toggleUseAim = default;
-    [SerializeField] Toggle toggleUsePostProcessLayer = default;
+    [Header("Default")]
+    [Range(0f, 1f)] [SerializeField] float defaultVolume = 1;
+    [SerializeField] bool defaultUseAim = false;
+    [SerializeField] bool defaultUsePostProcess = true;
 
-    float volume;
-    bool useAim;
-    bool usePostProcessLayer;
+    public float volume { get; private set; }
+    public bool useAim { get; private set; }
+    public bool usePostProcessLayer { get; private set; }
 
     void OnEnable()
     {
         //load 
-        volume = PlayerPrefs.GetFloat("Options_Volume", sliderVolume.value);
-        useAim = PlayerPrefs.GetInt("Options_UseAim", toggleUseAim.isOn ? 1 : 0) > 0 ? true : false;
-        usePostProcessLayer = PlayerPrefs.GetInt("Options_UsePostProcess", toggleUsePostProcessLayer.isOn ? 1 : 0) > 0 ? true : false;
-
-        //update UI when load
-        sliderVolume.value = volume;
-        toggleUseAim.isOn = useAim;
-        toggleUsePostProcessLayer.isOn = usePostProcessLayer;
+        volume = PlayerPrefs.GetFloat("Options_Volume", defaultVolume);
+        useAim = PlayerPrefs.GetInt("Options_UseAim", defaultUseAim ? 1 : 0) > 0 ? true : false;
+        usePostProcessLayer = PlayerPrefs.GetInt("Options_UsePostProcess", defaultUsePostProcess ? 1 : 0) > 0 ? true : false;
     }
 
     protected override void SetDefaults()
