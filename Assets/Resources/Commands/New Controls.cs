@@ -303,6 +303,17 @@ public class @NewControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""1f2da6f2-2263-459b-93d6-a6547f9e85f7"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""de3f289f-686e-4341-aa07-e0e40f1fc12c"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
