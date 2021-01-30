@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474587237788032912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.188, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3658728848926929692}
@@ -414,12 +414,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  attackHead: 1
   damage: 10
   rateOfFire: 0.5
   shotPrefab: {fileID: 3973258305301408603, guid: d5074636436aa2b479e8512362113b32,
     type: 3}
   speedShot: 3
   shotSpawnPosition: {fileID: 1794721050632500780}
+  timeIdle: 1
 --- !u!114 &4852418131155178193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,4 +483,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  tombStonePrefab: {fileID: 0}
   objectToRotate: {fileID: 3234027687089266096}

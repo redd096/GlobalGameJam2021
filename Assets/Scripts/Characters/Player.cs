@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using redd096;
 using UnityEngine.InputSystem;
+using UnityEngine.Animations;
 
 [AddComponentMenu("Global Game Jam 2021/Characters/Player")]
 [SelectionBase]
@@ -20,6 +21,7 @@ public class Player : Character
 
     HeadPlayer headToGrab;
     HeadPlayer currentHead;
+    Animator anim;
 
     NewControls inputActions;
     PlayerInput playerInput;
@@ -30,6 +32,7 @@ public class Player : Character
     {
         inputActions = new NewControls();
         playerInput = GetComponent<PlayerInput>();
+        anim = GetComponentInChildren<Animator>();
         AddCommands();
     }
 
@@ -41,6 +44,16 @@ public class Player : Character
     private void Update()
     {
         Aim();
+        Debug.Log("DioCaneMorto:" + rb.velocity.magnitude);
+
+        if (rb.velocity.magnitude > 0.5f)
+        {
+            anim.SetBool("Run", true);
+        }
+        else
+        {
+            anim.SetBool("Run", false);
+        }
 
         //check can pick heads
         CheckCanPick();
@@ -102,7 +115,6 @@ public class Player : Character
         {
             rb.velocity = direction * speed;
         }
-
         //set direction player if not aiming
         if(useAim == false)
         {
