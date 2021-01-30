@@ -1184,15 +1184,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 607293326}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Scene2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &420527963
@@ -1565,6 +1565,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5120790145b438e4582a9fbfc8763026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &607293326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+    type: 3}
+  m_PrefabInstance: {fileID: 607293324}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a8f88b93e48ba4fb0d045573b433c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &629132954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,37 +1827,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - button: {fileID: 1100252843}
-    checkPointNecessary: 1
+    checkPointNecessary: 
   - button: {fileID: 420527962}
-    checkPointNecessary: 2
+    checkPointNecessary: 1
   - button: {fileID: 1614042833}
-    checkPointNecessary: 3
+    checkPointNecessary: 2
   - button: {fileID: 1534578568}
-    checkPointNecessary: 4
+    checkPointNecessary: 3
   - button: {fileID: 1423033908}
-    checkPointNecessary: 5
+    checkPointNecessary: 4
   - button: {fileID: 433357383}
-    checkPointNecessary: 6
+    checkPointNecessary: 5
   - button: {fileID: 1319022699}
-    checkPointNecessary: 7
+    checkPointNecessary: 6
   - button: {fileID: 787755465}
-    checkPointNecessary: 8
+    checkPointNecessary: 7
   - button: {fileID: 1687488505}
-    checkPointNecessary: 9
+    checkPointNecessary: 8
   - button: {fileID: 629132956}
-    checkPointNecessary: 10
+    checkPointNecessary: 9
   - button: {fileID: 1931065402}
-    checkPointNecessary: 11
+    checkPointNecessary: 10
   - button: {fileID: 1840466387}
-    checkPointNecessary: 12
+    checkPointNecessary: 11
   - button: {fileID: 1008903237}
-    checkPointNecessary: 13
+    checkPointNecessary: 12
   - button: {fileID: 937014585}
-    checkPointNecessary: 14
+    checkPointNecessary: 13
   - button: {fileID: 1134568140}
-    checkPointNecessary: 15
+    checkPointNecessary: 14
   - button: {fileID: 1767766753}
-    checkPointNecessary: 16
+    checkPointNecessary: 15
 --- !u!1 &744139738
 GameObject:
   m_ObjectHideFlags: 0
@@ -5080,15 +5092,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 607293326}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 04
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1614042834
