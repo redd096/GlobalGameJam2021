@@ -10,16 +10,17 @@ public class NormalHead : HeadPlayer
     public override void PickHead(Character owner, Transform headAttach)
     {
         base.PickHead(owner, headAttach);
+        AudioManager.PlaySound(gameObject);
 
         //remove black sprite in scene
-        if(blackSprite)
+        if (blackSprite)
             blackSprite.SetActive(false);
     }
 
     public override void DropHead(bool throwed)
     {
         base.DropHead(throwed);
-
+        AudioManager.PlaySound(gameObject);
         //active black sprite in scene
         if (blackSprite)
             blackSprite.SetActive(true);

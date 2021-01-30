@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeadToEndGame: 0
+  health: 100
   layerOnPick: 51
   layerToBounce:
     serializedVersion: 2
