@@ -28,6 +28,8 @@ public class Player : Character
 
     public HeadPlayer CurrentHead => currentHead;
 
+    public System.Action<bool> onInsideSpriteMask;
+
     void Start()
     {
         inputActions = new NewControls();
@@ -56,6 +58,9 @@ public class Player : Character
 
         //check can pick heads
         CheckCanPick();
+
+        //check is inside sprite mask
+        CheckInsideSpriteMask();
     }
 
     void FixedUpdate()
@@ -79,6 +84,30 @@ public class Player : Character
         //draw area to pick (cube)
         Gizmos.DrawWireCube(transform.position, new Vector3(areaToPick, areaToPick, areaToPick));
     }
+
+    #region general
+
+    void CheckInsideSpriteMask()
+    {
+        //find nearest sprite mask
+        SpriteMask spriteMask = FindObjectsOfType<SpriteMask>().FindNearest(transform.position);
+
+        //check if inside
+        if(transform.position.x > spriteMask.bounds.center.x - spriteMask.bounds.extents.x          //from left corner
+            && transform.position.x < spriteMask.bounds.center.x + spriteMask.bounds.extents.x      //from right corner
+            && transform.position.y > spriteMask.bounds.center.y - spriteMask.bounds.extents.y      //from down corner
+            && transform.position.y < spriteMask.bounds.center.y + spriteMask.bounds.extents.y)     //from up corner
+        {
+            onInsideSpriteMask?.Invoke(true);
+        }
+        //if not inside
+        else
+        {
+            onInsideSpriteMask?.Invoke(false);
+        }
+    }
+
+    #endregion
 
     #region commands
 

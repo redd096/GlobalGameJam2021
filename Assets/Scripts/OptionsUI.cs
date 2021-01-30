@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+[AddComponentMenu("Global Game Jam 2021/Options UI")]
 public class OptionsUI : MonoBehaviour
 {
     [Header("UI")]

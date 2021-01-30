@@ -14,6 +14,10 @@ public class CharacterGraphics : MonoBehaviour
     [SerializeField] AnimationCurve curveRotationSpeed = default;
     [SerializeField] Tombstone tombStonePrefab = default;
 
+    [Header("Only Player")]
+    [SerializeField] Transform[] objectsToChangeAlpha = default;
+    [SerializeField] float alphaOnBlackScreen = 0.3f;
+
     Coroutine fallingCoroutine;
 
     protected Character character;
@@ -24,12 +28,26 @@ public class CharacterGraphics : MonoBehaviour
         character = GetComponent<Character>();
 
         character.onDead += OnDead;
+
+        if(character is Player)
+        {
+            Player player = character as Player;
+            player.onInsideSpriteMask += OnInsideSpriteMask;
+        }
     }
 
     void OnDestroy()
     {
-        if(character)
+        if (character)
+        {
             character.onDead -= OnDead;
+
+            if (character is Player)
+            {
+                Player player = character as Player;
+                player.onInsideSpriteMask -= OnInsideSpriteMask;
+            }
+        }
     }
 
     void FixedUpdate()
@@ -63,6 +81,19 @@ public class CharacterGraphics : MonoBehaviour
         }
     }
 
+    void OnInsideSpriteMask(bool isInside)
+    {
+        //set alpha if inside or outside sprite mask
+        if(isInside)
+        {
+            SetAlphaSprites(1);
+        }
+        else
+        {
+            SetAlphaSprites(alphaOnBlackScreen);
+        }
+    }
+
     #region private API
 
     void RotateSprites()
@@ -84,6 +115,16 @@ public class CharacterGraphics : MonoBehaviour
             foreach (Transform objectToFlip in objectsToFlip)
                 foreach (SpriteRenderer sprite in objectToFlip.GetComponentsInChildren<SpriteRenderer>())
                     sprite.flipX = startRight ? !lookingRight : lookingRight;
+        }
+    }
+
+    void SetAlphaSprites(float alpha)
+    {
+        //set alpha every object
+        foreach (Transform objectToChangeAlpha in objectsToChangeAlpha)
+        {
+            SpriteRenderer sprite = objectToChangeAlpha.GetComponent<SpriteRenderer>();
+            sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, alpha);
         }
     }
 
