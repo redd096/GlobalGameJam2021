@@ -89,6 +89,14 @@ public class @NewControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""AnyKey SplashScreen"",
+                    ""type"": ""Button"",
+                    ""id"": ""46b4f810-1d8c-4da1-9194-c87f3adca0ff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -307,7 +315,7 @@ public class @NewControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard + Mouse"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -342,6 +350,39 @@ public class @NewControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Resume"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b88fb08-1c7f-4e20-b476-d09e02cd88fb"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard + Mouse"",
+                    ""action"": ""AnyKey SplashScreen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""00bc70a0-528f-427e-97ce-199d54cac3a3"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyKey SplashScreen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c6f8a05-4ab7-4a9d-a90c-44be82acf37b"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyKey SplashScreen"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -384,6 +425,7 @@ public class @NewControls : IInputActionCollection, IDisposable
         m_Gameplay_Restart = m_Gameplay.FindAction("Restart", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_Resume = m_Gameplay.FindAction("Resume", throwIfNotFound: true);
+        m_Gameplay_AnyKeySplashScreen = m_Gameplay.FindAction("AnyKey SplashScreen", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -442,6 +484,7 @@ public class @NewControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Restart;
     private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_Resume;
+    private readonly InputAction m_Gameplay_AnyKeySplashScreen;
     public struct GameplayActions
     {
         private @NewControls m_Wrapper;
@@ -455,6 +498,7 @@ public class @NewControls : IInputActionCollection, IDisposable
         public InputAction @Restart => m_Wrapper.m_Gameplay_Restart;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputAction @Resume => m_Wrapper.m_Gameplay_Resume;
+        public InputAction @AnyKeySplashScreen => m_Wrapper.m_Gameplay_AnyKeySplashScreen;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -491,6 +535,9 @@ public class @NewControls : IInputActionCollection, IDisposable
                 @Resume.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResume;
                 @Resume.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResume;
                 @Resume.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnResume;
+                @AnyKeySplashScreen.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAnyKeySplashScreen;
+                @AnyKeySplashScreen.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAnyKeySplashScreen;
+                @AnyKeySplashScreen.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAnyKeySplashScreen;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -522,6 +569,9 @@ public class @NewControls : IInputActionCollection, IDisposable
                 @Resume.started += instance.OnResume;
                 @Resume.performed += instance.OnResume;
                 @Resume.canceled += instance.OnResume;
+                @AnyKeySplashScreen.started += instance.OnAnyKeySplashScreen;
+                @AnyKeySplashScreen.performed += instance.OnAnyKeySplashScreen;
+                @AnyKeySplashScreen.canceled += instance.OnAnyKeySplashScreen;
             }
         }
     }
@@ -555,5 +605,6 @@ public class @NewControls : IInputActionCollection, IDisposable
         void OnRestart(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnResume(InputAction.CallbackContext context);
+        void OnAnyKeySplashScreen(InputAction.CallbackContext context);
     }
 }
