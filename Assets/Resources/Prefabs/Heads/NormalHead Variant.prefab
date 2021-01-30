@@ -118,6 +118,7 @@ MonoBehaviour:
   spriteToChange: {fileID: 3054479818294067508}
   heads:
   - {fileID: 21300000, guid: c4a52a97f904d5045b3aa2d6476aadc8, type: 3}
+  - {fileID: 21300000, guid: c8b956608405e214d923b37d7b577659, type: 3}
   goldenHead: {fileID: 0}
   percentageGolden: 0.05
 --- !u!61 &8249414450835589378
