@@ -1315,15 +1315,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 607293326}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 07
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &433357384
@@ -1660,15 +1660,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 607293326}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Scene3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &629132957
@@ -2073,15 +2073,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 607293326}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 03
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &787755466
@@ -3979,15 +3979,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 607293326}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 09
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1319022700
@@ -4110,15 +4110,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 607293326}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 01
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1423033909
@@ -4741,15 +4741,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 607293326}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 05
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1534578569
@@ -5337,15 +5337,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1453948949}
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 607293326}
+        m_MethodName: LoadNewScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 06
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1687488506
