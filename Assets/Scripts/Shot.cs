@@ -8,6 +8,7 @@ using redd096;
 public class Shot : MonoBehaviour
 {
     [Header("Shot")]
+    [SerializeField] bool hitHead = false;
     [SerializeField] LayerMask layersToDestroyShot = default;
 
     Rigidbody2D rb;
@@ -41,15 +42,18 @@ public class Shot : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //check if hit the important head on ground
-        HeadPlayer head = collision.GetComponentInParent<HeadPlayer>();
-        if(head && head.HeadToEndGame && head.Owner == null)
+        if (hitHead)
         {
-            //if is the important one and not on the owner
-            onHit?.Invoke();
-            head.GetDamage(damage);
-            Pooling.Destroy(gameObject);
-            return;
+            //check if hit the important head on ground
+            HeadPlayer head = collision.GetComponentInParent<HeadPlayer>();
+            if (head && head.HeadToEndGame && head.Owner == null)
+            {
+                //if is the important one and not on the owner
+                onHit?.Invoke();
+                head.GetDamage(damage);
+                Pooling.Destroy(gameObject);
+                return;
+            }
         }
 
         //if hit player, damage and destroy shot
