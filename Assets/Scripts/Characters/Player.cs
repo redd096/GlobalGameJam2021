@@ -210,9 +210,6 @@ public class Player : Character
 
     void Restart(InputAction.CallbackContext callbackContext)
     {
-        //end level passing position
-        GameManager.instance.EndLevel(transform.position);
-
         //restart game
         SceneLoader.instance.RestartGame();
     }

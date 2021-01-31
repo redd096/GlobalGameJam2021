@@ -64,8 +64,19 @@
 
         #region public API
 
-        public void EndLevel(Vector3 position)
+        public void SetTombstonePosition()
         {
+            Vector3 position = Vector3.zero;
+
+            //set position
+            if (player)
+                position = player.transform.position;
+            else if (Tombstone.player != null)
+                position = Tombstone.player.transform.position;
+            else
+                return;
+
+
             //add to list
             deathPositions.Add(position);
 

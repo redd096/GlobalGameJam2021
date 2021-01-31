@@ -66,6 +66,9 @@
         /// </summary>
         public void RestartGame()
         {
+            //set tombstone
+            GameManager.instance.SetTombstonePosition();
+
             //show cursor and set timeScale to 1
             //Utility.LockMouse(CursorLockMode.None);
             Time.timeScale = 1;
