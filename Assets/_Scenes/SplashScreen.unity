@@ -253,7 +253,7 @@ MonoBehaviour:
   image: {fileID: 1636635932}
   spritesToUse:
   - {fileID: 21300000, guid: e2641a2d0195c254ca733d7ab417332b, type: 3}
-  waitBeforeStartFadeIn: 1
+  waitBeforeStartFadeIn: 0.5
   timeToFadeIn: 2
   pressToContinue: 1
   waitBeforeStartFadeOut: 0.5
