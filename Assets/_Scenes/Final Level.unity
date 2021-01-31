@@ -258,7 +258,7 @@ MonoBehaviour:
   pressToContinue: 1
   waitBeforeStartFadeOut: 0.5
   timeToFadeOut: 2
-  nextSceneName: Main Menu
+  nextSceneName: Credits Level
   soundPressAnyKey:
   - {fileID: 0}
 --- !u!4 &713490284
