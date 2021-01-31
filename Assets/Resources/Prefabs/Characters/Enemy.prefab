@@ -700,6 +700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundOnFalling: []
-  soundOnDeadByShot: []
+  soundOnDeadByShot:
+  - {fileID: 8300000, guid: 45ffc3b4c684a6a479c1fea60d16a4ec, type: 3}
   soundOnShoot:
   - {fileID: 8300000, guid: a4061e12ff144ff47a9bcc49ea3d2c07, type: 3}

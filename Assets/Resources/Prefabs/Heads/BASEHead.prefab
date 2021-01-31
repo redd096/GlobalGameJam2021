@@ -313,7 +313,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundOnCanPick: []
-  soundOnPickHead: []
+  soundOnPickHead:
+  - {fileID: 8300000, guid: cb9372ccab0d22f44956dd3e016dcb79, type: 3}
+  - {fileID: 8300000, guid: d6a5b616096a4a84387240ac2801a00e, type: 3}
   soundOnFallingHead: []
   soundOnDestroyHead: []
   soundOnThrow:

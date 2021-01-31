@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!61 &2875529700124174171
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115410250015425438}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &217248091559036903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,32 +55,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockWhenActive: 1
   objectsToActivate: []
---- !u!61 &2875529700124174171
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115410250015425438}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &367708785508811897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143,6 +143,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7417297338544981849, guid: 23d410f2eb73e2e47963ba0624063b6c,
+        type: 3}
+      propertyPath: soundOnActive.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417297338544981849, guid: 23d410f2eb73e2e47963ba0624063b6c,
+        type: 3}
+      propertyPath: soundOnDeactive.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417297338544981849, guid: 23d410f2eb73e2e47963ba0624063b6c,
+        type: 3}
+      propertyPath: soundOnActive.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ce16eda036de2ec4f8794bba4d6595a2, type: 3}
+    - target: {fileID: 7417297338544981849, guid: 23d410f2eb73e2e47963ba0624063b6c,
+        type: 3}
+      propertyPath: soundOnDeactive.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ce16eda036de2ec4f8794bba4d6595a2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23d410f2eb73e2e47963ba0624063b6c, type: 3}
 --- !u!1 &6375417528572289764 stripped
