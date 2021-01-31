@@ -108,6 +108,11 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 400299e0b7d3aeb498a6f61a0f100f1b, type: 3}
   - {fileID: 2800000, guid: 038a365a83182d345aadd7bc3682cb21, type: 3}
   - {fileID: 2800000, guid: 5d308018124667f438a0ed4183701020, type: 3}
+  - {fileID: 2800000, guid: 5ab87838d37d69f47af6fa2f7721cf38, type: 3}
+  - {fileID: 2800000, guid: 8468fe3013cb2264eabc03a55077756b, type: 3}
+  - {fileID: 2800000, guid: f1c151059be069f4c99d02750c9545e5, type: 3}
+  - {fileID: 2800000, guid: 41dc8daed78a254419e8d8ec8453df1d, type: 3}
+  - {fileID: 2800000, guid: 31dedf6fadf081549b3222049d22704b, type: 3}
   - {fileID: 2800000, guid: 32d8b8af5dfbce241ab28759178d26f1, type: 3}
   goldenCursor: {fileID: 2800000, guid: be08457ca3fc6384dba4baf3498f0169, type: 3}
   percentageGolden: 0.01
