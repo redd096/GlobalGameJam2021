@@ -53,8 +53,11 @@
 
         private void OnDestroy()
         {
-            inputActions.Disable();
-            inputActions.Gameplay.AnyKeySplashScreen.performed -= AnyKey;
+            if (inputActions != null)
+            {
+                inputActions.Disable();
+                inputActions.Gameplay.AnyKeySplashScreen.performed -= AnyKey;
+            }
         }
 
         void AnyKey(InputAction.CallbackContext callbackContext)
