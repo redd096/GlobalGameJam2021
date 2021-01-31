@@ -9,10 +9,12 @@ public class OptionsManager : Singleton<OptionsManager>
     [Range(0f, 1f)] [SerializeField] float defaultVolume = 1;
     [SerializeField] bool defaultUseAim = false;
     [SerializeField] bool defaultUsePostProcess = true;
+    [SerializeField] bool defaultFullScreen = true;
 
     public float volume { get; private set; }
     public bool useAim { get; private set; }
     public bool usePostProcessLayer { get; private set; }
+    public bool useFullScreen { get; private set; }
 
     protected override void SetDefaults()
     {
@@ -22,6 +24,7 @@ public class OptionsManager : Singleton<OptionsManager>
         volume = PlayerPrefs.GetFloat("Options_Volume", defaultVolume);
         useAim = PlayerPrefs.GetInt("Options_UseAim", defaultUseAim ? 1 : 0) > 0 ? true : false;
         usePostProcessLayer = PlayerPrefs.GetInt("Options_UsePostProcess", defaultUsePostProcess ? 1 : 0) > 0 ? true : false;
+        useFullScreen = PlayerPrefs.GetInt("Options_FullScreen", defaultFullScreen ? 1 : 0) > 0 ? true : false;
 
         //set in scene
         SetInScene();
@@ -49,6 +52,12 @@ public class OptionsManager : Singleton<OptionsManager>
                 post.enabled = usePostProcessLayer;
             }
         }
+
+        //set full screen
+        if (Screen.fullScreen != useFullScreen)
+        {
+            Screen.fullScreen = useFullScreen;
+        }
     }
 
     #region public API
@@ -63,21 +72,31 @@ public class OptionsManager : Singleton<OptionsManager>
         instance.SetInScene();
     }
 
-    public void SetUseMouse(bool useMouse)
+    public void SetUseMouse(bool newAim)
     {
         //save
-        instance.useAim = useMouse;
-        PlayerPrefs.SetInt("Options_UseAim", useMouse ? 1 : 0);
+        instance.useAim = newAim;
+        PlayerPrefs.SetInt("Options_UseAim", newAim ? 1 : 0);
 
         //set in scene
         instance.SetInScene();
     }
 
-    public void SetPostProcess(bool usePostProcess)
+    public void SetPostProcess(bool newPostProcess)
     {
         //save
-        instance.usePostProcessLayer = usePostProcess;
-        PlayerPrefs.SetInt("Options_UsePostProcess", usePostProcess ? 1 : 0);
+        instance.usePostProcessLayer = newPostProcess;
+        PlayerPrefs.SetInt("Options_UsePostProcess", newPostProcess ? 1 : 0);
+
+        //set in scene
+        instance.SetInScene();
+    }
+
+    public void SetFullScreen(bool newFullScreen)
+    {
+        //save
+        instance.useFullScreen = newFullScreen;
+        PlayerPrefs.SetInt("Options_FullScreen", newFullScreen ? 1 : 0);
 
         //set in scene
         instance.SetInScene();

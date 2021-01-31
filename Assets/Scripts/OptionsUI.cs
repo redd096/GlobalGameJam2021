@@ -8,6 +8,7 @@ public class OptionsUI : MonoBehaviour
     [SerializeField] Slider sliderVolume = default;
     [SerializeField] Toggle toggleUseAim = default;
     [SerializeField] Toggle toggleUsePostProcessLayer = default;
+    [SerializeField] Toggle toggleFullScreen = default;
 
     void OnEnable()
     {
@@ -15,5 +16,6 @@ public class OptionsUI : MonoBehaviour
         sliderVolume.value = OptionsManager.instance.volume;
         toggleUseAim.isOn = OptionsManager.instance.useAim;
         toggleUsePostProcessLayer.isOn = OptionsManager.instance.usePostProcessLayer;
+        toggleFullScreen.isOn = OptionsManager.instance.useFullScreen;
     }
 }
