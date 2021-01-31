@@ -104,36 +104,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 579714214529165078}
     m_Modifications:
-    - target: {fileID: 133916414951404721, guid: d6a026b44e1cb0141822934d5850f7ff,
+    - target: {fileID: 2324460608789860383, guid: d6a026b44e1cb0141822934d5850f7ff,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 133916414951404721, guid: d6a026b44e1cb0141822934d5850f7ff,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 133916414951404721, guid: d6a026b44e1cb0141822934d5850f7ff,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
-        type: 3}
-    - target: {fileID: 133916414951404721, guid: d6a026b44e1cb0141822934d5850f7ff,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 133916414951404721, guid: d6a026b44e1cb0141822934d5850f7ff,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 133916414951404721, guid: d6a026b44e1cb0141822934d5850f7ff,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      propertyPath: m_AnchoredPosition.y
+      value: -30.900024
       objectReference: {fileID: 0}
     - target: {fileID: 3205387827314596691, guid: d6a026b44e1cb0141822934d5850f7ff,
         type: 3}
@@ -200,15 +174,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 3481520542842224238, guid: d6a026b44e1cb0141822934d5850f7ff,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadNewSceneWithoutDelay
-      objectReference: {fileID: 0}
     - target: {fileID: 4353507781022086786, guid: d6a026b44e1cb0141822934d5850f7ff,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416109314710313373, guid: d6a026b44e1cb0141822934d5850f7ff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -14.900024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6a026b44e1cb0141822934d5850f7ff, type: 3}
