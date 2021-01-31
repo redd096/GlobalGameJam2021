@@ -172,6 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2402791974297713423}
   - component: {fileID: 2402791974297713420}
+  - component: {fileID: 8475719905430958791}
   m_Layer: 0
   m_Name: Ponte
   m_TagString: Untagged
@@ -208,6 +209,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb2de6e969dbdd43ac70c2e2a2d51d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8475719905430958791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2402791974297713421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20b465f43e23d142bca5b53a9b143c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundOnActive:
+  - {fileID: 8300000, guid: ecc0ac0b9ac730d4dbec86058c118d61, type: 3}
+  soundOnDeactive:
+  - {fileID: 8300000, guid: ecc0ac0b9ac730d4dbec86058c118d61, type: 3}
 --- !u!1 &2402791974391074268
 GameObject:
   m_ObjectHideFlags: 0

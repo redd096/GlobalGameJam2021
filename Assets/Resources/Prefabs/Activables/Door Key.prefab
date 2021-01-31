@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8119891170741223728}
   - component: {fileID: 6245131478474905671}
+  - component: {fileID: 7435257801561614401}
   m_Layer: 8
   m_Name: Door Key
   m_TagString: Untagged
@@ -44,6 +45,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e30fa5a3b98d240b73fee9337f92a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7435257801561614401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214042518956899252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20b465f43e23d142bca5b53a9b143c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundOnActive:
+  - {fileID: 8300000, guid: 31da46e784de8c04eb5ba4b862d551e7, type: 3}
+  soundOnDeactive:
+  - {fileID: 8300000, guid: 31da46e784de8c04eb5ba4b862d551e7, type: 3}
 --- !u!1 &6599637291948920933
 GameObject:
   m_ObjectHideFlags: 0

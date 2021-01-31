@@ -1,7 +1,18 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(ActivableSounds))]
 public abstract class Activable : MonoBehaviour
 {
-    public abstract void Active();
-    public abstract void Deactive();
+    public System.Action onActive;
+    public System.Action onDeactive;
+
+    public virtual void Active()
+    {
+        onActive?.Invoke();
+    }
+
+    public virtual void Deactive()
+    {
+        onDeactive?.Invoke();
+    }
 }

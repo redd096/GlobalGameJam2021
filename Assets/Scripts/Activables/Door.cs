@@ -6,11 +6,15 @@ public class Door : Activable
 {
     public override void Active()
     {
+        base.Active();
+
         gameObject.SetActive(false);
     }
 
     public override void Deactive()
     {
+        base.Deactive();
+
         gameObject.SetActive(true);
     }
 }
