@@ -259,7 +259,8 @@ MonoBehaviour:
   waitBeforeStartFadeOut: 0.5
   timeToFadeOut: 2
   nextSceneName: Main Menu
-  soundPressAnyKey: []
+  soundPressAnyKey:
+  - {fileID: 8300000, guid: 605c4f00531b45148b3ba1fc3b42c249, type: 3}
 --- !u!4 &713490284
 Transform:
   m_ObjectHideFlags: 0
