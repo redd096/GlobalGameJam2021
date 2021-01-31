@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 991ad7f9763c9bc4eba56a64bd9689f1, type: 3}
     m_FontSize: 150
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 200
@@ -190,10 +190,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'WASD to move
-
-
-    Bring your HEAD to the EMD'
+  m_Text: Bring your HEAD to the END
 --- !u!222 &148818559
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16832,7 +16829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.539, y: -1.325}
+  m_AnchoredPosition: {x: -5.539, y: -1.78}
   m_SizeDelta: {x: 4792.4478, y: 1594.9492}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851933469
@@ -16867,7 +16864,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SPACE to equip the HEAD
+  m_Text: 'SPACE to equip the HEAD
+
+
+    WASD to move'
 --- !u!222 &1851933470
 CanvasRenderer:
   m_ObjectHideFlags: 0
