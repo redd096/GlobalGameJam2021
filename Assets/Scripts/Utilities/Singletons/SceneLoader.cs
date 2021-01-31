@@ -2,10 +2,15 @@
 {
     using UnityEngine;
     using UnityEngine.SceneManagement;
+    using System.Collections;
 
     [AddComponentMenu("redd096/Singletons/Scene Loader")]
     public class SceneLoader : Singleton<SceneLoader>
     {
+        [SerializeField] float timeToWaitBeforeChangeScene = 0.2f;
+
+        Coroutine loadNewSceneCoroutine;
+
         /// <summary>
         /// Resume time and hide cursor
         /// </summary>
@@ -15,10 +20,13 @@
             GameManager.instance.uiManager.PauseMenu(false);
 
             //set timeScale to 1
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
 
             //enable player input and hide cursor
-            //GameManager.instance.player.enabled = true;
+            if (GameManager.instance.player)
+                GameManager.instance.player.enabled = true;
+            else if (Tombstone.player != null)
+                Tombstone.player.enabled = true;
             //Utility.LockMouse(CursorLockMode.Locked);
         }
 
@@ -31,10 +39,13 @@
             GameManager.instance.uiManager.PauseMenu(true);
 
             //stop time
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
 
             //disable player input and show cursor
-            //GameManager.instance.player.enabled = false;
+            if (GameManager.instance.player)
+                GameManager.instance.player.enabled = false;
+            else if (Tombstone.player != null)
+                Tombstone.player.enabled = false;
             //Utility.LockMouse(CursorLockMode.None);
         }
 
@@ -55,6 +66,9 @@
         /// </summary>
         public void RestartGame()
         {
+            //set tombstone
+            GameManager.instance.SetTombstonePosition();
+
             //show cursor and set timeScale to 1
             //Utility.LockMouse(CursorLockMode.None);
             Time.timeScale = 1;
@@ -62,10 +76,7 @@
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        /// <summary>
-        /// Load new scene by name
-        /// </summary>
-        public void LoadNewScene(string scene)
+        public void LoadNewSceneWithoutDelay(string scene)
         {
             //show cursor and set timeScale to 1
             //Utility.LockMouse(CursorLockMode.None);
@@ -73,6 +84,27 @@
 
             //load new scene
             SceneManager.LoadScene(scene);
+        }
+
+        /// <summary>
+        /// Load new scene by name
+        /// </summary>
+        public void LoadNewScene(string scene)
+        {
+            //start coroutine
+            if (instance.loadNewSceneCoroutine == null)
+                instance.loadNewSceneCoroutine = instance.StartCoroutine(LoadNewSceneCoroutine(scene));
+        }
+
+        IEnumerator LoadNewSceneCoroutine(string scene)
+        {
+            //wait
+            yield return new WaitForSeconds(instance.timeToWaitBeforeChangeScene);
+
+            //load scene
+            LoadNewSceneWithoutDelay(scene);
+
+            instance.loadNewSceneCoroutine = null;
         }
 
         /// <summary>

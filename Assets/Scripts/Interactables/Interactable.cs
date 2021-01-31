@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(InteractableGraphics))]
+[RequireComponent(typeof(InteractableSounds))]
 public abstract class Interactable : MonoBehaviour
 {
     [Header("Important")]
-    [SerializeField] protected Activable objectToActivate = default;
+    [SerializeField] bool lockWhenActive = false;
+    [SerializeField] Activable[] objectsToActivate = default;
 
     protected bool isActive;
+
+    public System.Action<bool> onChangeState;
 
     public virtual void Active()
     {
@@ -13,32 +18,37 @@ public abstract class Interactable : MonoBehaviour
         if (isActive)
             return;
 
+        //set active
         isActive = true;
+        onChangeState?.Invoke(isActive);
 
         //active object
-        if(objectToActivate)
+        foreach(Activable objectToActivate in objectsToActivate)
             objectToActivate.Active();
     }
 
     public virtual void Deactive()
     {
         //do only if active
-        if (isActive == false)
+        if (isActive == false || lockWhenActive)
             return;
 
+        //set not active
         isActive = false;
+        onChangeState?.Invoke(isActive);
 
-        //active object
-        if (objectToActivate)
+        //deactive object
+        foreach (Activable objectToActivate in objectsToActivate)
             objectToActivate.Deactive();
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
 
         //draw line to object to activate
-        if(objectToActivate)
-            Gizmos.DrawLine(transform.position, objectToActivate.transform.position);
+        if(objectsToActivate != null)
+            foreach (Activable objectToActivate in objectsToActivate)
+                Gizmos.DrawLine(transform.position, objectToActivate.transform.position);
     }
 }

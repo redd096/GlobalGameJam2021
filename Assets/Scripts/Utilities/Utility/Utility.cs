@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using UnityEngine;
+    using UnityEngine.UI;
 
     public static class Utility
     {
@@ -390,6 +391,19 @@
         public static Vector3 DivideVectors(this Vector3 first, Vector2 second)
         {
             return new Vector3(first.x / second.x, first.y / second.y, first.z);
+        }
+    }
+
+    public static class FadeImage
+    {
+        /// <summary>
+        /// Fade an image - to use in a coroutine
+        /// </summary>
+        public static void Set_Fade(this Image image, float delta, float from, float to)
+        {
+            //set alpha from to
+            float alpha = Mathf.Lerp(from, to, delta);
+            image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
         }
     }
 }

@@ -1,29 +1,31 @@
 ﻿using UnityEngine;
 
 [AddComponentMenu("Global Game Jam 2021/Heads/Normal Head")]
+[SelectionBase]
 public class NormalHead : HeadPlayer
 {
-    [Header("Black Sprite")]
+    [Header("Normal Head")]
     [SerializeField] GameObject blackSprite = default;
 
-    public override void PickHead(Transform owner)
+    public override void PickHead(Character owner, Transform headAttach)
     {
-        base.PickHead(owner);
+        base.PickHead(owner, headAttach);
 
         //remove black sprite in scene
-        blackSprite.SetActive(false);
+        if (blackSprite)
+        {
+            blackSprite.GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
-    public override void DropHead()
+    public override void DropHead(bool throwed)
     {
-        base.DropHead();
+        base.DropHead(throwed);
 
         //active black sprite in scene
-        blackSprite.SetActive(true);
-    }
-
-    public override void ThrowHead(float force, Vector2 direction)
-    {
-        base.ThrowHead(force, direction);
+        if (blackSprite)
+        {
+            blackSprite.GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
 }

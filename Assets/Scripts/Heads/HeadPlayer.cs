@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using redd096;
 
+[RequireComponent(typeof(HeadGraphics))]
+[RequireComponent(typeof(HeadSounds))]
 public abstract class HeadPlayer : MonoBehaviour
 {
+    [Header("Important")]
+    public bool HeadToEndGame = false;
+    [SerializeField] float health = 100;
+
     [Header("Layers")]
     [SerializeField] int layerOnPick = 4;
 
     [Header("Throw")]
     [SerializeField] LayerMask layerToBounce = default;
+    [SerializeField] LayerMask layerToDestroy = default;
     [SerializeField] float decreaseSpeedEverySecond = 5f;
     [SerializeField] float decreaseSpeedAtBounce = 3;
 
@@ -21,10 +28,21 @@ public abstract class HeadPlayer : MonoBehaviour
     Vector2 direction;
     Coroutine throwCoroutine;
 
-    //speed at 0
-    public bool IsStill => Speed <= 0;
+    Character owner;
 
-    void Awake()
+    public bool IsStill => Speed <= 0;
+    public Character Owner => owner;
+
+    public System.Action onPickHead;
+    public System.Action<bool> onDestroyHead;
+    public System.Action<bool> onCanPick;
+    public System.Action onThrow;
+    public System.Action onStop;
+    public System.Action onDropHead;
+
+    Collider2D lastHitted;
+
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
 
@@ -35,10 +53,20 @@ public abstract class HeadPlayer : MonoBehaviour
         }
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
+        //set last hitted
+        lastHitted = collision;
+
         //bounce on hit
-        Bounce(collision);
+        CheckHit(collision);
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        //remove last hitted
+        if (collision == lastHitted)
+            lastHitted = null;
     }
 
     #region private API
@@ -56,13 +84,23 @@ public abstract class HeadPlayer : MonoBehaviour
 
             //if stopped movement, stop coroutine
             if (Speed <= 0)
+            {
+                onStop?.Invoke();
                 yield break;
+            }
         }
     }
 
-    void Bounce(Collider2D collision)
+    protected virtual void CheckHit(Collider2D collision)
     {
-        //if hit this layer
+        //if hit lever, stop movement
+        if(collision.GetComponentInParent<Lever>())
+        {
+            Speed = 0;
+            return;
+        }
+
+        //if hit bounce layer
         if (layerToBounce.ContainsLayer(collision.gameObject.layer))
         {
             //decrease speed at bounce
@@ -73,13 +111,24 @@ public abstract class HeadPlayer : MonoBehaviour
             //bounce
             direction = Vector2.Reflect(direction, raycastHit.normal);
         }
+
+        //if hit destroy layer
+        if(layerToDestroy.ContainsLayer(collision.gameObject.layer))
+        {
+            DestroyHead(true);
+        }
     }
 
     #endregion
 
     #region public API
 
-    public virtual void PickHead(Transform owner)
+    public void CanPick(bool canPick)
+    {
+        onCanPick?.Invoke(canPick);
+    }
+
+    public virtual void PickHead(Character owner, Transform headAttach)
     {
         //set layer on pick
         foreach (SpriteRenderer sprite in defaultLayers.Keys)
@@ -87,13 +136,17 @@ public abstract class HeadPlayer : MonoBehaviour
 
         //be sure to have speed at 0
         Speed = 0;
+        this.owner = owner;
 
         //set parent and position
-        transform.SetParent(owner);
+        transform.SetParent(headAttach);
         transform.localPosition = Vector3.zero;
+
+        //event
+        onPickHead?.Invoke();
     }
 
-    public virtual void DropHead()
+    public virtual void DropHead(bool throwed)
     {
         //set layer on drop
         foreach (SpriteRenderer sprite in defaultLayers.Keys)
@@ -101,15 +154,22 @@ public abstract class HeadPlayer : MonoBehaviour
 
         //be sure to have speed at 0
         Speed = 0;
+        this.owner = null;
 
         //remove parent
         transform.SetParent(null);
+
+        //event only if dropped and not throwed
+        if (throwed == false)
+        {
+            onDropHead?.Invoke();
+        }
     }
 
     public virtual void ThrowHead(float force, Vector2 direction)
     {
         //drop head by default
-        DropHead();
+        DropHead(true);
 
         //set speed and direction
         Speed = force;
@@ -120,11 +180,41 @@ public abstract class HeadPlayer : MonoBehaviour
             StopCoroutine(throwCoroutine);
 
         throwCoroutine = StartCoroutine(ThrowCoroutine());
+
+        //event
+        onThrow?.Invoke();
+
+
+        //check last hit, for head inside colliders when throw
+        if (lastHitted)
+        {
+            CheckHit(lastHitted);
+        }
     }
 
     public virtual void OnPlayerCollisionEnter2D(Collision2D collision)
     {
+    }
 
+    public void DestroyHead(bool falling)
+    {
+        //be sure to remove head
+        if (Owner)
+            owner.DropHead();
+
+        onDestroyHead?.Invoke(falling);
+        enabled = false;
+        rb.constraints = RigidbodyConstraints2D.FreezePosition;
+    }
+
+    public void GetDamage(float damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            DestroyHead(false);
+        }
     }
 
     #endregion

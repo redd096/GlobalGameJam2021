@@ -70,7 +70,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7a8fa2de6c9b9fc458d7fb41e5767d75, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f41e4d155df69e948bb3a0971835ebae, type: 3}
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
@@ -92,14 +92,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f952e76d376f44245b664c19b81684ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerOnPick: 4
+  HeadToEndGame: 1
+  health: 100
+  layerOnPick: 51
   layerToBounce:
     serializedVersion: 2
     m_Bits: 256
+  layerToDestroy:
+    serializedVersion: 2
+    m_Bits: 0
   decreaseSpeedEverySecond: 5
   decreaseSpeedAtBounce: 3
-  speed: 0
   blackSprite: {fileID: 0}
+--- !u!114 &5885310675838076026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3692128623982883336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5820243d24a4ca44b0322a61f5fa1a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteToChange: {fileID: 3054479818294067508}
+  heads:
+  - {fileID: 21300000, guid: c8b956608405e214d923b37d7b577659, type: 3}
+  - {fileID: 21300000, guid: acfdabd6c25b1254ba9cc62112e82fcb, type: 3}
+  - {fileID: 21300000, guid: 5b17a3c3e41f0b74b8c7afa684c2ec34, type: 3}
+  - {fileID: 21300000, guid: 8c8198f05b902ee448f4184d7970c1c1, type: 3}
+  - {fileID: 21300000, guid: 8d7eb8f2966ea644d9540eebd2320078, type: 3}
+  - {fileID: 21300000, guid: c178cc2d31358f74fb59a26f3a8e6158, type: 3}
+  - {fileID: 21300000, guid: e84a7988b230ec540bdebe2854742661, type: 3}
+  - {fileID: 21300000, guid: 589b601feb18772489540af060cf5a89, type: 3}
+  - {fileID: 21300000, guid: 036f95517957a3c43a783713b28d2329, type: 3}
+  - {fileID: 21300000, guid: 64650809e72655841b64bae026f3192f, type: 3}
+  - {fileID: 21300000, guid: 68e06e785ce02ec4fbee47ed57871df8, type: 3}
+  - {fileID: 21300000, guid: ec7f4d03ef9ddeb4185a8fa81d90f2e4, type: 3}
+  - {fileID: 21300000, guid: 6a70fbca2c39f4f4b9ea309e91ca3cac, type: 3}
+  - {fileID: 21300000, guid: 427e907354c6b014f99fe95aa1375fc1, type: 3}
+  - {fileID: 21300000, guid: 7959d98e657717f429324e0ccfc86aea, type: 3}
+  - {fileID: 21300000, guid: 365e9c7a4c3c6d74f8e91d361ff50f27, type: 3}
+  - {fileID: 21300000, guid: bc4ad7713c1824f438aec91b70d35391, type: 3}
+  - {fileID: 21300000, guid: 555c5529c1a5b7f47bb010511e2fec22, type: 3}
+  - {fileID: 21300000, guid: c75f555b8dc82a64f9142a4848d3a672, type: 3}
+  - {fileID: 21300000, guid: f89a7b4fcf76fb74d818c39dcacace1d, type: 3}
+  - {fileID: 21300000, guid: e88f0050dde413744938c237f761b3e5, type: 3}
+  - {fileID: 21300000, guid: e258c2d7b18aa1944b485c6cd6ca6af9, type: 3}
+  - {fileID: 21300000, guid: a1c75048c376940429295fbfd9991785, type: 3}
+  - {fileID: 21300000, guid: a50bf65720d6b074da552833a5e8f565, type: 3}
+  - {fileID: 21300000, guid: 81b4d758dd8b88242a93c06846e2a0f3, type: 3}
+  - {fileID: 21300000, guid: f76d2ceaf6616b44a95d77888e445c46, type: 3}
+  - {fileID: 21300000, guid: 7a64f9f5740d6f946948f6e99175cf7a, type: 3}
+  - {fileID: 21300000, guid: 5279224c7abb26e49b8d508f175d7fb0, type: 3}
+  - {fileID: 21300000, guid: c87ffa232f8ecd547bdd472c720b1fe6, type: 3}
+  - {fileID: 21300000, guid: 7ca41a96c57bcae479976107cb6e590d, type: 3}
+  - {fileID: 21300000, guid: 566f7d9c6bb32644eb98720cadf81156, type: 3}
+  - {fileID: 21300000, guid: 643c83d92feabe94f822cb375997dc14, type: 3}
+  - {fileID: 21300000, guid: 4ce447b5bedf0f9448182905dca37c63, type: 3}
+  - {fileID: 21300000, guid: 3f64a45438a57ef4e8c49fc309dc88a2, type: 3}
+  goldenHead: {fileID: 21300000, guid: 1f64cb1b1d29d524ab8754e2518e1ca1, type: 3}
+  percentageGolden: 0.02
 --- !u!61 &8249414450835589378
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -141,7 +195,7 @@ PrefabInstance:
     - target: {fileID: 5110696094972746236, guid: 49578570a7518aa4e8a520eed3828fa4,
         type: 3}
       propertyPath: m_Name
-      value: NormalHead Variant 1
+      value: NormalHead Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5110696094972746236, guid: 49578570a7518aa4e8a520eed3828fa4,
         type: 3}
@@ -196,6 +250,12 @@ Transform:
 --- !u!1 &4593841213598454080 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5337150731861064372, guid: 49578570a7518aa4e8a520eed3828fa4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8489782752355199988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3054479818294067508 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6895703003116481216, guid: 49578570a7518aa4e8a520eed3828fa4,
     type: 3}
   m_PrefabInstance: {fileID: 8489782752355199988}
   m_PrefabAsset: {fileID: 0}
