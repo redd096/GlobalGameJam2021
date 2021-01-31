@@ -1033,7 +1033,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You can change AIM MODE from the main menu OPTIONS.
+  m_Text: You can change AIM MODE from the OPTIONS.
 --- !u!222 &1263822562
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12136,6 +12136,16 @@ PrefabInstance:
     - target: {fileID: 579714214529165078, guid: 21e9b34b18344ef4db2f7b1e851d7b03,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053464129957870160, guid: 21e9b34b18344ef4db2f7b1e851d7b03,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210628427408201601, guid: 21e9b34b18344ef4db2f7b1e851d7b03,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
