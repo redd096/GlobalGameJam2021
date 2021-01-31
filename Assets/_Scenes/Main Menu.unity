@@ -1205,7 +1205,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
@@ -1336,7 +1337,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
@@ -1574,18 +1576,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61e73179fcd5b524ab2d0c3d76895b78, type: 3}
---- !u!114 &607293326 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
-    type: 3}
-  m_PrefabInstance: {fileID: 607293324}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8a8f88b93e48ba4fb0d045573b433c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &629132954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1669,7 +1659,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
@@ -2082,7 +2073,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
@@ -2541,7 +2533,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
@@ -2828,7 +2821,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
@@ -3334,7 +3328,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
@@ -3989,7 +3984,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
@@ -4120,7 +4116,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
@@ -4753,7 +4750,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
@@ -5104,7 +5102,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
@@ -5349,7 +5348,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
@@ -5480,7 +5480,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
@@ -5652,7 +5653,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
@@ -5939,7 +5941,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 607293326}
+      - m_Target: {fileID: 5710749270886062053, guid: 61e73179fcd5b524ab2d0c3d76895b78,
+          type: 3}
         m_MethodName: LoadNewScene
         m_Mode: 5
         m_Arguments:
