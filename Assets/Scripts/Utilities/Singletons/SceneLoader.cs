@@ -73,6 +73,16 @@
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
+        public void LoadNewSceneWithoutDelay(string scene)
+        {
+            //show cursor and set timeScale to 1
+            //Utility.LockMouse(CursorLockMode.None);
+            Time.timeScale = 1;
+
+            //load new scene
+            SceneManager.LoadScene(scene);
+        }
+
         /// <summary>
         /// Load new scene by name
         /// </summary>
@@ -88,12 +98,8 @@
             //wait
             yield return new WaitForSeconds(instance.timeToWaitBeforeChangeScene);
 
-            //show cursor and set timeScale to 1
-            //Utility.LockMouse(CursorLockMode.None);
-            Time.timeScale = 1;
-
-            //load new scene
-            SceneManager.LoadScene(scene);
+            //load scene
+            LoadNewSceneWithoutDelay(scene);
 
             instance.loadNewSceneCoroutine = null;
         }

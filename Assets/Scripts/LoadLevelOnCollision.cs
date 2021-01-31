@@ -44,6 +44,6 @@ public class LoadLevelOnCollision : MonoBehaviour
         PlayerPrefs.SetInt(nameCheckpoint, 1);
 
         //load scene
-        SceneLoader.instance.LoadNewScene(nameLevelToLoad);
+        SceneLoader.instance.LoadNewSceneWithoutDelay(nameLevelToLoad);
     }
 }
