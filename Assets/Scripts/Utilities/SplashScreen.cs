@@ -26,6 +26,9 @@
         [SerializeField] float timeToFadeOut = 1;
         [SerializeField] string nextSceneName = "Main Scene";
 
+        [Header("Sounds")]
+        [SerializeField] AudioClip[] soundPressAnyKey = default;
+
         NewControls inputActions;
         bool canPressButton;
         bool pressedButton;
@@ -90,6 +93,7 @@
                 {
                     //set can press button and wait press
                     canPressButton = true;
+                    AudioManager.PlaySound(gameObject, soundPressAnyKey);
 
                     while (pressedButton == false)
                     {
