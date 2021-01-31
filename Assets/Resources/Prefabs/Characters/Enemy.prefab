@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  attackHead: 1
+  attackHead: 0
   damage: 50
   rateOfFire: 0.5
   shotPrefab: {fileID: 3973258305301408603, guid: d5074636436aa2b479e8512362113b32,
