@@ -62,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Final Level.unity
     guid: ebd5e90b49e678a428a64a9d51829340
+  - enabled: 1
+    path: Assets/_Scenes/Livelli Demmerda/Credits Level.unity
+    guid: d2bbf37dbcba793428e4a96a166eccb8
   m_configObjects: {}
