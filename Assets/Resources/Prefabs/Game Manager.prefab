@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a8f88b93e48ba4fb0d045573b433c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToWaitBeforeChangeScene: 0.5
 --- !u!114 &5904969530553992661
 MonoBehaviour:
   m_ObjectHideFlags: 0

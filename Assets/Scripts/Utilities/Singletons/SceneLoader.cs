@@ -79,14 +79,14 @@
         public void LoadNewScene(string scene)
         {
             //start coroutine
-            if (loadNewSceneCoroutine == null)
-                loadNewSceneCoroutine = StartCoroutine(LoadNewSceneCoroutine(scene));
+            if (instance.loadNewSceneCoroutine == null)
+                instance.loadNewSceneCoroutine = instance.StartCoroutine(LoadNewSceneCoroutine(scene));
         }
 
         IEnumerator LoadNewSceneCoroutine(string scene)
         {
             //wait
-            yield return new WaitForSeconds(timeToWaitBeforeChangeScene);
+            yield return new WaitForSeconds(instance.timeToWaitBeforeChangeScene);
 
             //show cursor and set timeScale to 1
             //Utility.LockMouse(CursorLockMode.None);
@@ -95,7 +95,7 @@
             //load new scene
             SceneManager.LoadScene(scene);
 
-            loadNewSceneCoroutine = null;
+            instance.loadNewSceneCoroutine = null;
         }
 
         /// <summary>
