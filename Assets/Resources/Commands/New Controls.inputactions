@@ -383,6 +383,39 @@
                     "action": "AnyKey SplashScreen",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "41bbfa07-efb1-4c6b-aeac-6edc792fbe23",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard + Mouse",
+                    "action": "AnyKey SplashScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "894e9255-9e03-4f61-950b-5b21a31d660d",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard + Mouse",
+                    "action": "AnyKey SplashScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "54090984-d2cd-48b6-a7c2-68ebd9fe5d9b",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard + Mouse",
+                    "action": "AnyKey SplashScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
