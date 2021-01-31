@@ -13,6 +13,8 @@ public class LoadLevelOnCollision : MonoBehaviour
     [Header("Load Level")]
     [SerializeField] string nameLevelToLoad = "NameNextLevel";
 
+    public string NameLevel => nameCheckpoint;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //if hit player

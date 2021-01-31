@@ -2,10 +2,15 @@
 {
     using UnityEngine;
     using UnityEngine.SceneManagement;
+    using System.Collections;
 
     [AddComponentMenu("redd096/Singletons/Scene Loader")]
     public class SceneLoader : Singleton<SceneLoader>
     {
+        [SerializeField] float timeToWaitBeforeChangeScene = 0.2f;
+
+        Coroutine loadNewSceneCoroutine;
+
         /// <summary>
         /// Resume time and hide cursor
         /// </summary>
@@ -73,12 +78,24 @@
         /// </summary>
         public void LoadNewScene(string scene)
         {
+            //start coroutine
+            if (loadNewSceneCoroutine == null)
+                loadNewSceneCoroutine = StartCoroutine(LoadNewSceneCoroutine(scene));
+        }
+
+        IEnumerator LoadNewSceneCoroutine(string scene)
+        {
+            //wait
+            yield return new WaitForSeconds(timeToWaitBeforeChangeScene);
+
             //show cursor and set timeScale to 1
             //Utility.LockMouse(CursorLockMode.None);
             Time.timeScale = 1;
 
             //load new scene
             SceneManager.LoadScene(scene);
+
+            loadNewSceneCoroutine = null;
         }
 
         /// <summary>
