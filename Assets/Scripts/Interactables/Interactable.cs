@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(InteractableGraphics))]
+[RequireComponent(typeof(InteractableSounds))]
 public abstract class Interactable : MonoBehaviour
 {
     [Header("Important")]
